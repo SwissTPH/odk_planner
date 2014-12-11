@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>CRF2 : Clinical examination</h:title>
+    <model>
+      <instance>
+        <CRF2 id="CRF2">
+          <study_id/>
+          <symptoms>
+            <symptoms/>
+            <duration_weeks/>
+          </symptoms>
+          <signs>
+            <temperature/>
+            <weight/>
+          </signs>
+          <completion_date/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </CRF2>
+      </instance>
+      <bind constraint="regex(., '^8[03]\d{3}$')" jr:constraintMsg="The study ID must be like 80XXX or like 83XXX" nodeset="/CRF2/study_id" required="true()" type="string"/>
+      <bind nodeset="/CRF2/symptoms/symptoms" required="true()" type="select"/>
+      <bind nodeset="/CRF2/symptoms/duration_weeks" required="true()" type="int"/>
+      <bind constraint=".&gt;30 and .&lt;45" jr:constraintMsg="Check temperature (30-45 degree celsius)" nodeset="/CRF2/signs/temperature" required="true()" type="decimal"/>
+      <bind constraint=".&gt;25 and .&lt;200" jr:constraintMsg="Check weight (25-200 kg)" nodeset="/CRF2/signs/weight" required="true()" type="decimal"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/CRF2/completion_date" type="date"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/CRF2/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/CRF2/study_id">
+      <label>Study ID number</label>
+      <hint>Study ID has form 80XXX (for patients) or 83XXX (for controls)</hint>
+    </input>
+    <group appearance="field-list" ref="/CRF2/symptoms">
+      <label>Symptoms</label>
+      <select ref="/CRF2/symptoms/symptoms">
+        <label>Symptoms</label>
+        <hint>Check all that apply</hint>
+        <item>
+          <label>Productive cough</label>
+          <value>productive_cough</value>
+        </item>
+        <item>
+          <label>Fever</label>
+          <value>fever</value>
+        </item>
+        <item>
+          <label>Hemoptysis</label>
+          <value>hemoptysis</value>
+        </item>
+        <item>
+          <label>Excessive night sweat</label>
+          <value>night_sweat</value>
+        </item>
+        <item>
+          <label>Chest pain</label>
+          <value>chest_pain</value>
+        </item>
+        <item>
+          <label>Weight loss</label>
+          <value>weight_loss</value>
+        </item>
+      </select>
+      <input ref="/CRF2/symptoms/duration_weeks">
+        <label>Symptoms Duration</label>
+        <hint>Specify symptoms duration (in weeks)</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/CRF2/signs">
+      <label>Signs</label>
+      <input ref="/CRF2/signs/temperature">
+        <label>Body temperature</label>
+        <hint>In degree celsius</hint>
+      </input>
+      <input ref="/CRF2/signs/weight">
+        <label>Weight</label>
+        <hint>In kilograms</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

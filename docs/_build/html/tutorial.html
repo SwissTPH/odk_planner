@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; odk_planner v0.8bis documentation</title>
+  
+
+  
+  
+
+  
+  <link href='_static/fonts.css' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="odk_planner v0.8bis documentation" href="index.html"/>
+        <link rel="next" title="Testing" href="testing.html"/>
+        <link rel="prev" title="Tools" href="tools.html"/> 
+
+  
+  <script src="_static/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> odk_planner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#setup-instance">Setup instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using.html#uploading-form-template">Uploading form template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#overview-entered-forms">Overview entered forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#sending-sms">Sending SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#automatization">Automatization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#log-files">Log files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#odk-pusher">ODK pusher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#xray-uploader">Xray uploader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#ms-sql-uploader">MS-SQL uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo-project-description">Demo Project Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initial-setup-of-odk-planner-and-odk-aggregate">Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-project">Setting up the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uploading-the-forms">Uploading the forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-out-the-overview">Check out the overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy.html">About Privacy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#digitization">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#database-segregation">Database segregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#admin-rights">Admin rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#choosing-a-good-password">Choosing a good password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate.html">Questions &amp; Answers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html#odk-aggregate-database-settings">ODK Aggregate database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">odk_planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/tutorial.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="tutorial">
+<span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>The following example illustrates most of <tt class="docutils literal"><span class="pre">odk_planner</span></tt>&#8216;s features and should
+be a good starting point to implement your own project.  The tutorial is
+designed in such a way that it can be followed step by step and all files are
+provided for download.  The same data is also used for <a class="reference internal" href="testing.html#testing"><em>automated testing</em></a>, which is essentially an automated copy of the tutorial outlined
+in this chapter.</p>
+<div class="section" id="demo-project-description">
+<h2>Demo Project Description<a class="headerlink" href="#demo-project-description" title="Permalink to this headline">¶</a></h2>
+<p>The forms used in the demo project are deliberatly kept as simple as possible,
+while illustrating most of <tt class="docutils literal"><span class="pre">odk_planner</span></tt>&#8216;s features.  The demo study
+&#8220;<a class="reference external" href="https://en.wikipedia.org/wiki/Tuberculosis">Tuberculosis</a> Cohort&#8221; collects data from tuberculosis <em>patients</em> that present
+at a health facility, as well as from a group of <em>controls</em> that are not
+infected with tuberculosis.</p>
+<p>The demo project consists of five different forms.  All forms are generated
+using <a class="reference external" href="http://xlsform.org">XLSForm</a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">CRF1</span></tt> : This is the eligibility form that records patient details and
+confirms the study&#8217;s inclusion criteria.</li>
+<li><tt class="docutils literal"><span class="pre">CRF1C</span></tt> : The eligibility form for controls, which is different from the
+eligibility form for patients.</li>
+<li><tt class="docutils literal"><span class="pre">CRF2</span></tt> : This clinical request form is filled at the same day as the
+eligibility form and assesses some clinical signs and symptoms.  The same
+form applies for patients and controls.</li>
+<li><tt class="docutils literal"><span class="pre">LRF1</span></tt> : Although a lab sample is taken at the patient&#8217;s first visit to
+the health facility, the lab form is only expected to be entered into the
+database after some days necessary to perform all the analysis.  Again,
+the same form applies for patients as well as controls.</li>
+<li><tt class="docutils literal"><span class="pre">CRFX</span></tt> : If patients have a negative lab result, they are expected to
+get an X-ray in the following week to complete the diagnostic information.</li>
+</ul>
+</div></blockquote>
+<p>All patients receive a unique <tt class="docutils literal"><span class="pre">study_id</span></tt> that is used to connect the
+different forms of the same patient.  The same applies for the controls, but
+both groups can be differentiate by looking at their ID : patients have
+a number like <tt class="docutils literal"><span class="pre">80XXX</span></tt> and controls have a number like <tt class="docutils literal"><span class="pre">83XXX</span></tt>.  The
+laboratory adds a suffix <tt class="docutils literal"><span class="pre">-V01</span></tt> to this ID so it is possible to commit
+multiple laboratory forms that for the same patient, while still having
+a unique identifier for every form.</p>
+<div class="section" id="demo-project-files">
+<span id="demo-files"></span><h3>Demo Project Files<a class="headerlink" href="#demo-project-files" title="Permalink to this headline">¶</a></h3>
+<p>All files necessary to follow this tutorial can be <a class="reference download internal" href="_downloads/demo.zip"><tt class="xref download docutils literal"><span class="pre">downloaded</span></tt></a>.  The following files are included</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">demo/config/</span></tt> : contains configuration files; these files are also
+copied when a <a class="reference internal" href="installing.html#install-instance"><em>new instance is setup</em></a> and for
+<a class="reference internal" href="testing.html#testing"><em>testing</em></a>.</li>
+<li><tt class="docutils literal"><span class="pre">demo/forms/</span></tt> : contains all the forms (see below), in Excel format
+as well as compiled XForms (in subdirectory <tt class="docutils literal"><span class="pre">out/</span></tt>).</li>
+<li><tt class="docutils literal"><span class="pre">demo/data/</span></tt> : some sample data to populate the ODK Aggregate database,
+including a script <tt class="docutils literal"><span class="pre">push.py</span></tt> that automatically uploads the data to
+a server</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="initial-setup-of-odk-planner-and-odk-aggregate">
+<span id="demo-init"></span><h2>Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate<a class="headerlink" href="#initial-setup-of-odk-planner-and-odk-aggregate" title="Permalink to this headline">¶</a></h2>
+<p><strong>First step</strong>: Make sure you (or someone else) correctly installed
+<tt class="docutils literal"><span class="pre">odk_planner</span></tt> as described in the <a class="reference internal" href="installing.html#installing"><em>chapter on installation</em></a>.  To proceed with the tutorial you need to be able to access the
+login screen:</p>
+<a class="reference internal image-reference" href="_images/login.png"><img alt="_images/login.png" class="align-center" src="_images/login.png" style="width: 564px;" /></a>
+<p>In the following we will always use
+<tt class="docutils literal"><span class="pre">http://localhost/odk_planner/?instance=test</span></tt> as our base address.  Change
+the URL accordingly to your setting.</p>
+<p><strong>Second step</strong>: You also need access to the <a class="reference external" href="https://opendatakit.org/use/aggregate/">ODK Aggregate</a> so you can upload
+the <tt class="docutils literal"><span class="pre">.xml</span></tt> forms for the demo project.  You can find these forms in the
+<tt class="docutils literal"><span class="pre">demo/forms/out</span></tt> subdirectory of the <a class="reference internal" href="#demo-files"><em>files from the demo project</em></a>.</p>
+<a class="reference internal image-reference" href="_images/forms-aggregate.png"><img alt="_images/forms-aggregate.png" class="align-center" src="_images/forms-aggregate.png" style="width: 642px;" /></a>
+<p><strong>Third step</strong>: The demo project files also contain some prepared data ready
+for upload.  The data is contained in the files <tt class="docutils literal"><span class="pre">demo/data/*.csv</span></tt>.  You can
+either open this data in your favourite spreadsheet program and then use <a class="reference external" href="https://opendatakit.org/use/collect/">ODK
+Collect</a> to upload row by row by filling out the forms, or you can simply
+start the program <tt class="docutils literal"><span class="pre">demo/data/push.py</span></tt> (needs <a class="reference external" href="https://www.python.org/downloads/release/python-342/">Python3</a>) to upload all the data
+automatically.</p>
+<div class="highlight-python"><pre>$ python3 demo/data/push.py
+upload data from csv files to Aggregate server? (yn) y
+Aggregate server url [http://localhost:8080/ODKAggregate]
+username []
+password []
+successfully posted form CRF1, "80001"
+successfully posted form CRF1, "80002"
+successfully posted form CRF1, "80003"
+successfully posted form CRF1, "80004"
+successfully posted form CRF1, "80005"
+successfully posted form CRF1, "80006"
+successfully posted form CRF1C, "83001"
+successfully posted form CRF1C, "83002"
+successfully posted form CRF1C, "83003"
+successfully posted form CRF1C, "83004"
+successfully posted form CRF2, "80001"
+successfully posted form CRF2, "80002"
+successfully posted form CRF2, "80003"
+successfully posted form CRF2, "80004"
+successfully posted form CRF2, "80005"
+successfully posted form CRF2, "83001"
+successfully posted form CRF2, "83002"
+successfully posted form CRF2, "83003"
+successfully posted form CRF2, "83004"
+successfully posted form CRFX, "80001"
+successfully posted form CRFX, "80002"
+successfully posted form CRFX, "80003"
+successfully posted form CRFX, "80004"
+successfully posted form CRFX, "80005"
+successfully posted form CRFX, "80006"
+successfully posted form LRF1, "80001-V01"
+successfully posted form LRF1, "80002-V01"
+successfully posted form LRF1, "80003-V01"
+successfully posted form LRF1, "80004-V01"
+successfully posted form LRF1, "80005-V01"
+successfully posted form LRF1, "80006-V01"
+successfully posted form LRF1, "83001-V01"
+successfully posted form LRF1, "83002-V01"
+successfully posted form LRF1, "83003-V01"</pre>
+</div>
+</div>
+<div class="section" id="setting-up-the-project">
+<span id="demo-setup"></span><h2>Setting up the Project<a class="headerlink" href="#setting-up-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Download the <a class="reference internal" href="#demo-files"><em>files from the demo project</em></a> and unpack them.
+Now go to <tt class="docutils literal"><span class="pre">http://localhost/odk_planner/?instance=test</span></tt> and use the username
+<tt class="docutils literal"><span class="pre">admin</span></tt> and the temporary password from the <a class="reference internal" href="installing.html#install-instance"><em>instance creation</em></a>.</p>
+<p>First thing we will do now is to upload the config file from the demo project
+files <tt class="docutils literal"><span class="pre">demo/config/config-sample.xls</span></tt>.  Open this file with <a class="reference external" href="http://office.microsoft.com/en-us/excel/">Excel</a> (or
+<a class="reference external" href="http://www.libreoffice.org/download/libreoffice-fresh/">LibreOffice</a>) and go to the <a class="reference internal" href="configuring.html#user-sheet"><em>&#8220;users&#8221; sheet</em></a>. You will see the
+following three users pre-defined:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="19%" />
+<col width="42%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">name</th>
+<th class="head">password</th>
+<th class="head">rights</th>
+<th class="head">access</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>admin</td>
+<td>&nbsp;</td>
+<td>overview, data, forms, sms, admin</td>
+<td>default, sensitive</td>
+</tr>
+<tr class="row-odd"><td>secretary</td>
+<td>&nbsp;</td>
+<td>sms, overview, data</td>
+<td>default</td>
+</tr>
+<tr class="row-even"><td>fieldofficer</td>
+<td>&nbsp;</td>
+<td>overview, data</td>
+<td>fieldofficer</td>
+</tr>
+</tbody>
+</table>
+<p>Enter three <a class="reference internal" href="privacy.html#good-password"><em>good passwords</em></a> for the three different
+users, click on the <strong>admin</strong> link in the top navigation and upload the
+<tt class="docutils literal"><span class="pre">demo/config/config-sample.xls</span></tt> file.</p>
+<p>After having uploaded the config file for the first time, the temporary password
+will not work anymore, but you can now login using the passwords you defined
+in the <tt class="docutils literal"><span class="pre">config.xls</span></tt>.  You can read more about the <a class="reference internal" href="configuring.html#user-sheet"><em>user configuration
+settings</em></a>, in particular about the <tt class="docutils literal"><span class="pre">rights</span></tt> and the <tt class="docutils literal"><span class="pre">access</span></tt>
+column.</p>
+</div>
+<div class="section" id="uploading-the-forms">
+<span id="demo-forms"></span><h2>Uploading the forms<a class="headerlink" href="#uploading-the-forms" title="Permalink to this headline">¶</a></h2>
+<p>Once logged in, you should see error messages complaining that &#8220;forms are not
+found&#8221; (in the database) and <tt class="docutils literal"><span class="pre">.xls</span></tt> forms not uploaded.  So go to the
+&#8220;forms&#8221; tab and upload the forms from the demo project (in the <tt class="docutils literal"><span class="pre">demo/forms</span></tt>
+directory).  After uploading the five forms, you should see something like</p>
+<a class="reference internal image-reference" href="_images/demo_forms.png"><img alt="_images/demo_forms.png" class="align-center" src="_images/demo_forms.png" style="width: 590px;" /></a>
+<p>If you see an error saying <tt class="docutils literal"><span class="pre">not</span> <span class="pre">matched</span></tt> this is because you forgot to
+<a class="reference internal" href="#demo-init"><em>upload the forms to ODK Aggregate</em></a>.</p>
+</div>
+<div class="section" id="check-out-the-overview">
+<span id="demo-overview"></span><h2>Check out the overview<a class="headerlink" href="#check-out-the-overview" title="Permalink to this headline">¶</a></h2>
+<p>You can now see the overview in all its beauty</p>
+<a class="reference internal image-reference" href="_images/demo_overview.png"><img alt="_images/demo_overview.png" class="align-center" src="_images/demo_overview.png" style="width: 375px;" /></a>
+<p>The overview highlights the following (hover over a highlighted cell to get
+a popover that explains why the cell is colored)</p>
+<blockquote>
+<div><ul class="simple">
+<li>case <tt class="docutils literal"><span class="pre">80006</span></tt> is missing <tt class="docutils literal"><span class="pre">CRF2</span></tt> and this field is highlighted in red
+because <tt class="docutils literal"><span class="pre">CRF1</span></tt> was already submitted more than one week ago</li>
+<li>case <tt class="docutils literal"><span class="pre">80006</span></tt> has a red bar where its <tt class="docutils literal"><span class="pre">LRF1</span></tt> is, because the sputum
+smear is negative; and control <tt class="docutils literal"><span class="pre">83002</span></tt> has a red bar where its <tt class="docutils literal"><span class="pre">LRF1</span></tt>
+is, because the sputum smear is positive &#8211; we&#8217;ll go into this problem in
+a minute</li>
+</ul>
+</div></blockquote>
+<p>For an <strong>exercise</strong>, try to download, modify, and upload the <tt class="docutils literal"><span class="pre">config.xls</span></tt> in
+a way to achieve a bold font for all cases/controls with fever (<a class="reference internal" href="#bold-font-fever-cases"><em>solution</em></a>).  To solve this exercise, read more about
+<a class="reference internal" href="configuring.html#colors-sheet"><em>coloring the overview</em></a>.</p>
+</div>
+<div class="section" id="viewing-data">
+<span id="demo-view"></span><h2>Viewing data<a class="headerlink" href="#viewing-data" title="Permalink to this headline">¶</a></h2>
+<p>When you now click on a the link <tt class="docutils literal"><span class="pre">1/1/14</span></tt> to view the <tt class="docutils literal"><span class="pre">CRF1</span></tt> from case
+<tt class="docutils literal"><span class="pre">80001</span></tt> you should see the following</p>
+<a class="reference internal image-reference" href="_images/demo_view.png"><img alt="_images/demo_view.png" class="align-center" src="_images/demo_view.png" style="width: 520px;" /></a>
+<p>At this point you could &#8211; and should &#8211; be somewhat <a class="reference internal" href="privacy.html#privacy"><em>worried</em></a>
+that patient details, such as name and birthdate can be seen on the web...</p>
+<p>Luckily, <tt class="docutils literal"><span class="pre">odk_planner</span></tt> lets you control exactly which user can see which
+data.  On one hand, you can defined arbitrary <strong>access groups</strong> for the
+different users (<a class="reference internal" href="#demo-setup"><em>above</em></a> we have defined the groups
+<tt class="docutils literal"><span class="pre">default</span></tt>, <tt class="docutils literal"><span class="pre">sensitive</span></tt>, and <tt class="docutils literal"><span class="pre">fieldofficer</span></tt>).  On the other hand, you can
+specify for every datapoint which group(s) are permitted to see that data.</p>
+<p>Let&#8217;s first have a look at form <tt class="docutils literal"><span class="pre">demo/forms/CRF1.xls</span></tt>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="16%" />
+<col width="13%" />
+<col width="16%" />
+<col width="13%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type</th>
+<th class="head">name</th>
+<th class="head">&nbsp;</th>
+<th class="head">access</th>
+<th class="head">&nbsp;</th>
+<th class="head">label</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>begin group</td>
+<td>info</td>
+<td>begin group</td>
+<td>&nbsp;</td>
+<td>begin group</td>
+<td>Patient Information</td>
+</tr>
+<tr class="row-odd"><td>text</td>
+<td>study_id</td>
+<td>text</td>
+<td>&nbsp;</td>
+<td>text</td>
+<td>Study ID number</td>
+</tr>
+<tr class="row-even"><td>text</td>
+<td>full_name</td>
+<td>text</td>
+<td><strong>sensitive</strong></td>
+<td>text</td>
+<td>Full name</td>
+</tr>
+<tr class="row-odd"><td>date</td>
+<td>birthdate</td>
+<td>date</td>
+<td><strong>sensitive</strong></td>
+<td>date</td>
+<td>Date of birth</td>
+</tr>
+<tr class="row-even"><td>text</td>
+<td>phone_number1</td>
+<td>text</td>
+<td><strong>sensitive</strong></td>
+<td>text</td>
+<td>Primary phone number</td>
+</tr>
+<tr class="row-odd"><td>text</td>
+<td>phone_number2</td>
+<td>text</td>
+<td><strong>sensitive</strong></td>
+<td>text</td>
+<td>Alternative phone number</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, this form already defines the datapoints <tt class="docutils literal"><span class="pre">full_name</span></tt>,
+<tt class="docutils literal"><span class="pre">birthdate</span></tt>, <tt class="docutils literal"><span class="pre">phone_number1</span></tt> and <tt class="docutils literal"><span class="pre">phone_number2</span></tt> as <strong>sensitive</strong>.  This
+means that only users with the access group <tt class="docutils literal"><span class="pre">sensitive</span></tt> are allowed to see
+this data.  To confirm that this indeed works, first have a look at the data when
+you&#8217;re logged in as <tt class="docutils literal"><span class="pre">admin</span></tt>, then logout and login as <tt class="docutils literal"><span class="pre">secretary</span></tt>.  You should
+now see that the corresponding values are masked:</p>
+<a class="reference internal image-reference" href="_images/demo_data_secretary.png"><img alt="_images/demo_data_secretary.png" class="align-center" src="_images/demo_data_secretary.png" style="width: 348px;" /></a>
+<p>All values that have no <tt class="docutils literal"><span class="pre">access</span></tt> defined automatically get the access group
+<tt class="docutils literal"><span class="pre">default</span></tt>.  This means that an user like the <tt class="docutils literal"><span class="pre">fieldofficer</span></tt> who is not part
+of the <tt class="docutils literal"><span class="pre">default</span></tt> access group can only see the datapoints that are
+specifically permitted by adding his access group to the access column.  When
+you log in with the <tt class="docutils literal"><span class="pre">fieldofficer</span></tt> account you should see all datapoints
+masked:</p>
+<a class="reference internal image-reference" href="_images/demo_data_fieldofficer.png"><img alt="_images/demo_data_fieldofficer.png" class="align-center" src="_images/demo_data_fieldofficer.png" style="width: 348px;" /></a>
+<p>This is a good moment to <a class="reference internal" href="privacy.html#privacy"><em>read more about privacy</em></a>.</p>
+<p><strong>Exercise</strong>: make the first phone number accessible to the field officer. Make
+sure that the <tt class="docutils literal"><span class="pre">admin</span></tt> is still able to see the phone number, but not the
+<tt class="docutils literal"><span class="pre">secretary</span></tt> (<a class="reference internal" href="#fieldofficer-access"><em>solution</em></a>).</p>
+</div>
+<div class="section" id="solutions">
+<span id="demo-solutions"></span><h2>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bold-font-for-fever-cases">
+<span id="bold-font-fever-cases"></span><h3>Bold font for fever cases<a class="headerlink" href="#bold-font-for-fever-cases" title="Permalink to this headline">¶</a></h3>
+<p>Modify the <a class="reference internal" href="configuring.html#colors-sheet"><em>colors sheet</em></a> like this</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="47%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">form2</th>
+<th class="head">form1</th>
+<th class="head">delay</th>
+<th class="head">condition</th>
+<th class="head">style</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>LRF1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CRF2SIGNS_TEMPERATURE&gt;37.5</td>
+<td>font-weight:bold</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="field-officer-phone-number-access">
+<span id="fieldofficer-access"></span><h3>Field officer phone number access<a class="headerlink" href="#field-officer-phone-number-access" title="Permalink to this headline">¶</a></h3>
+<p>Modify (and upload) the file <tt class="docutils literal"><span class="pre">demo/forms/CRF1.xls</span></tt> and <tt class="docutils literal"><span class="pre">demo/forms/CRF1C.xls</span></tt>
+as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="21%" />
+<col width="18%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type</th>
+<th class="head">name</th>
+<th class="head">&nbsp;</th>
+<th class="head">access</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>begin group</td>
+<td>info</td>
+<td>begin group</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>text</td>
+<td>study_id</td>
+<td>text</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>text</td>
+<td>full_name</td>
+<td>text</td>
+<td>sensitive</td>
+</tr>
+<tr class="row-odd"><td>date</td>
+<td>birthdate</td>
+<td>date</td>
+<td>sensitive</td>
+</tr>
+<tr class="row-even"><td>text</td>
+<td>phone_number1</td>
+<td>text</td>
+<td><strong>sensitive,fieldofficer</strong></td>
+</tr>
+<tr class="row-odd"><td>text</td>
+<td>phone_number2</td>
+<td>text</td>
+<td>sensitive</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="testing.html" class="btn btn-neutral float-right" title="Testing"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tools.html" class="btn btn-neutral" title="Tools"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Andreas Steiner.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v0.8bis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

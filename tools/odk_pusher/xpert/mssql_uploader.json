@@ -1,0 +1,35 @@
+{
+    "title": "Xpert Uploader",
+    "interval": 10,
+    "dryrun": false,
+
+    "mssql": {
+        "database": "gx_assay",
+        "server": "localhost\\SQLEXPRESS",
+        "username": "gx_ro",
+        "password": "ODK4ever"
+    },
+
+    "odk": {
+        "server": "http://localhost:8080/ODKAggregate",
+        "username": null,
+        "password": null
+    },
+
+    "sqlitedb": "mssql_uploader.sqlite",
+
+    "tables": {
+        "test results": {
+            "xform": "GXP2_test.xml",
+            "sql": "GXP2_test.sql",
+            "rowname": "patient_ID",
+            "rowid": "test_ID"
+        },
+        "test results analyte data": {
+            "xform": "GXP2_analytes.xml",
+            "sql": "GXP2_analytes.sql",
+            "rowname": ["patient_ID", "analyte_index"],
+            "rowid": ["analyte_result.test_ID", "analyte_index"]
+        }
+    }
+}

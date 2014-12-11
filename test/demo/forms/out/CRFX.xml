@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>CRFX : X-ray</h:title>
+    <model>
+      <instance>
+        <CRFX id="CRFX">
+          <study_id/>
+          <xray>
+            <cxr/>
+            <allergy/>
+          </xray>
+          <completion_date/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </CRFX>
+      </instance>
+      <bind constraint="regex(., '^80\d{3}$')" jr:constraintMsg="The study ID must be like 80XXX" nodeset="/CRFX/study_id" required="true()" type="string"/>
+      <bind nodeset="/CRFX/xray/cxr" required="true()" type="binary"/>
+      <bind nodeset="/CRFX/xray/allergy" required="false()" type="select1"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/CRFX/completion_date" type="date"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/CRFX/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/CRFX/study_id">
+      <label>Study ID number</label>
+      <hint>Study ID has form 80XXX</hint>
+    </input>
+    <group appearance="field-list" ref="/CRFX/xray">
+      <label>X-ray</label>
+      <upload mediatype="image/*" ref="/CRFX/xray/cxr">
+        <label>Chest X-ray image</label>
+      </upload>
+      <select1 ref="/CRFX/xray/allergy">
+        <label>Participant is allergic</label>
+        <hint>(leave empty if you forgot to ask)</hint>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

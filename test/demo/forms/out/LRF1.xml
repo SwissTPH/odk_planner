@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>LRF1 : Lab results</h:title>
+    <model>
+      <instance>
+        <LRF1 id="LRF1">
+          <study_id/>
+          <blood>
+            <glucose/>
+            <hemoglobin/>
+          </blood>
+          <sputum>
+            <colony_count/>
+            <mpt64_antigen_test/>
+          </sputum>
+          <completion_date/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </LRF1>
+      </instance>
+      <bind constraint="regex(., '^8[03]\d{3}-V\d\d$')" jr:constraintMsg="The study ID must be like 80XXX-VXX or like 83XXX-VXX" nodeset="/LRF1/study_id" required="true()" type="string"/>
+      <bind constraint=".&gt;1 and .&lt;20" jr:constraintMsg="Check glucose (1-20 mmol/l)" nodeset="/LRF1/blood/glucose" required="true()" type="decimal"/>
+      <bind constraint=".&gt;1 and .&lt;40" jr:constraintMsg="Check hemoglobin (1-40 g/dl)" nodeset="/LRF1/blood/hemoglobin" required="true()" type="decimal"/>
+      <bind nodeset="/LRF1/sputum/colony_count" required="true()" type="select1"/>
+      <bind nodeset="/LRF1/sputum/mpt64_antigen_test" required="true()" type="select1"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/LRF1/completion_date" type="date"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/LRF1/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/LRF1/study_id">
+      <label>Lab Study ID number</label>
+      <hint>Study ID has form 80XXX-VXX (for patients) or 83XXX-VXX (for controls)</hint>
+    </input>
+    <group appearance="field-list" ref="/LRF1/blood">
+      <label>Blood examination</label>
+      <input ref="/LRF1/blood/glucose">
+        <label>Glucose</label>
+        <hint>in mmol/l</hint>
+      </input>
+      <input ref="/LRF1/blood/hemoglobin">
+        <label>Hemoglobin</label>
+        <hint>in g/dl</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/LRF1/sputum">
+      <label>Sputum examination</label>
+      <select1 appearance="minimal" ref="/LRF1/sputum/colony_count">
+        <label>Interpretation of colony count</label>
+        <item>
+          <label>Negative</label>
+          <value>negative</value>
+        </item>
+        <item>
+          <label>1</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>2</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>3</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>4</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>5</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>6</label>
+          <value>6</value>
+        </item>
+        <item>
+          <label>7</label>
+          <value>7</value>
+        </item>
+        <item>
+          <label>8</label>
+          <value>8</value>
+        </item>
+        <item>
+          <label>9</label>
+          <value>9</value>
+        </item>
+        <item>
+          <label>10</label>
+          <value>10</value>
+        </item>
+        <item>
+          <label>11</label>
+          <value>11</value>
+        </item>
+        <item>
+          <label>12</label>
+          <value>12</value>
+        </item>
+        <item>
+          <label>13</label>
+          <value>13</value>
+        </item>
+        <item>
+          <label>14</label>
+          <value>14</value>
+        </item>
+        <item>
+          <label>15</label>
+          <value>15</value>
+        </item>
+        <item>
+          <label>16</label>
+          <value>16</value>
+        </item>
+        <item>
+          <label>17</label>
+          <value>17</value>
+        </item>
+        <item>
+          <label>18</label>
+          <value>18</value>
+        </item>
+        <item>
+          <label>19</label>
+          <value>19</value>
+        </item>
+        <item>
+          <label>1+</label>
+          <value>1+</value>
+        </item>
+        <item>
+          <label>2+</label>
+          <value>2+</value>
+        </item>
+        <item>
+          <label>3+</label>
+          <value>3+</value>
+        </item>
+        <item>
+          <label>Contaminated</label>
+          <value>contaminated</value>
+        </item>
+      </select1>
+      <select1 ref="/LRF1/sputum/mpt64_antigen_test">
+        <label>MPT64 antigen test</label>
+        <item>
+          <label>M.tb positive</label>
+          <value>mtb_positive</value>
+        </item>
+        <item>
+          <label>M.tb negative</label>
+          <value>mtb_negative</value>
+        </item>
+        <item>
+          <label>Invalid</label>
+          <value>invalid</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

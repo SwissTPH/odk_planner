@@ -1,0 +1,20 @@
+{
+    "server": "http://rhodotropson:8080/ODKAggregate",
+    "username": "user1",
+    "password": "password1",
+
+    "xray_dir": "images",
+    "id_re": "^8[012]\\d{3}-31$",
+
+    "convert_executable": "convert",
+
+    "pixels": 1000,
+    "manual_fields": {
+        "initials": "^[A-Z]{3}$",
+        "comment": "^.*$"
+    },
+    "xform": "TBDAR_CRFX.xml",
+
+    "interval": 15,
+    "auto": false
+}

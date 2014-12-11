@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; odk_planner v0.8bis documentation</title>
+  
+
+  
+  
+
+  
+  <link href='_static/fonts.css' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="odk_planner v0.8bis documentation" href="index.html"/>
+        <link rel="next" title="Configation" href="configuring.html"/>
+        <link rel="prev" title="Introduction" href="introduction.html"/> 
+
+  
+  <script src="_static/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> odk_planner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-instance">Setup instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-cron-job">Installing cron job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using.html#uploading-form-template">Uploading form template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#overview-entered-forms">Overview entered forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#sending-sms">Sending SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#automatization">Automatization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#log-files">Log files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#odk-pusher">ODK pusher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#xray-uploader">Xray uploader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#ms-sql-uploader">MS-SQL uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#demo-project-description">Demo Project Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#initial-setup-of-odk-planner-and-odk-aggregate">Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#setting-up-the-project">Setting up the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#uploading-the-forms">Uploading the forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#check-out-the-overview">Check out the overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy.html">About Privacy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#digitization">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#database-segregation">Database segregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#admin-rights">Admin rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#choosing-a-good-password">Choosing a good password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate.html">Questions &amp; Answers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html#odk-aggregate-database-settings">ODK Aggregate database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">odk_planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/installing.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="installation">
+<span id="installing"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>This part of the documentation describes how <tt class="docutils literal"><span class="pre">odk_planner</span></tt> can be installed
+on the server.  If you use the program from a place where it has already be
+installed and you got a working URL that asks you for username/password, then
+you can proceed with the <a class="reference internal" href="configuring.html#configuring"><em>Configuration</em></a>.</p>
+<div class="section" id="prerequisites">
+<span id="install-prerequisites"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>A working <a class="reference external" href="https://opendatakit.org/use/aggregate/">ODK Aggregate</a> (tested against v1.3.2) installation.
+<tt class="docutils literal"><span class="pre">odk_planner</span></tt> can be installed on the same computer that runs ODK
+Aggregate, or on a different computer that can connect to the MySQL server
+that is used by ODK Aggregate.</li>
+<li>Web server (tested with <a class="reference external" href="http://httpd.apache.org/">Apache</a>) and <a class="reference external" href="http://php.net/">PHP</a></li>
+<li><a class="reference external" href="https://www.python.org/downloads/release/python-278/">Python2</a> : Python scripts are used to <a class="reference internal" href="#install-instance"><em>create new instances</em></a> and for <a class="reference internal" href="testing.html#testing"><em>automated testing</em></a></li>
+<li><a class="reference external" href="https://www.python.org/downloads/release/python-342/">Python3</a> : <a class="reference internal" href="tools.html#odk-pusher"><em>ODK pusher</em></a> can be used to automatically
+push data to the ODK Aggregate server and is built with Python3</li>
+</ul>
+</div></blockquote>
+<p>Please see the following documents on how to install these prerequisites on
+your local computer:</p>
+<blockquote>
+<div><ul class="simple">
+<li>On windows, install <a class="reference external" href="https://www.mysql.com/">MySQL</a>, <a class="reference external" href="http://httpd.apache.org/">Apache</a> and <a class="reference external" href="http://php.net/">PHP</a> bundled in one simple download:
+<a class="reference external" href="https://www.apachefriends.org/index.html">XAMPP</a></li>
+<li>On Linux make sure you installed the packages <tt class="docutils literal"><span class="pre">apache2</span></tt>, <tt class="docutils literal"><span class="pre">mysql-server</span></tt>,
+and <tt class="docutils literal"><span class="pre">php5</span></tt></li>
+<li>On OS X you should first install <a class="reference external" href="http://brew.sh/">Brew</a> and then download the package
+<tt class="docutils literal"><span class="pre">mysql</span></tt> &#8211; apache/php are installed by default, but <a class="reference external" href="https://duckduckgo.com/?q=OS+X+activate+apache+php">must be
+activated</a></li>
+<li>Once you got these up and running you can continue with the detailed
+description on <a class="reference external" href="https://opendatakit.org/use/aggregate/tomcat-install/">how to install ODK Aggregate</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="copy-odk-planner">
+<span id="install-copy"></span><h2>Copy odk_planner<a class="headerlink" href="#copy-odk-planner" title="Permalink to this headline">¶</a></h2>
+<p>Once apache is up &amp; running, move the entire <tt class="docutils literal"><span class="pre">odk_planner</span></tt> directory structure
+into its documents root folder</p>
+<blockquote>
+<div><ul class="simple">
+<li>on OS X this is <tt class="docutils literal"><span class="pre">/Library/WebServer/Documents/</span></tt></li>
+<li>on debin this is <tt class="docutils literal"><span class="pre">/var/www</span></tt></li>
+<li>when using XAMPP on Windows this is <tt class="docutils literal"><span class="pre">C:\xampp\xampp\htdocs</span></tt></li>
+</ul>
+</div></blockquote>
+<p>When you now open <tt class="docutils literal"><span class="pre">http://localhost/odk_planner</span></tt> in your web browser you
+should see the following</p>
+<a class="reference internal image-reference" href="_images/no_instance.png"><img alt="_images/no_instance.png" class="align-center" src="_images/no_instance.png" style="width: 398px;" /></a>
+<p>On Linux/Unix/OS X it is important to configure the <strong>file access rights</strong>
+correctly so that the user running apache can modify the per-instance files:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /path/to/odk_planner
+sudo chown :_www instances/ <span class="c"># on OS X</span>
+sudo chown :www-data instances/ <span class="c"># on Debian</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-instance">
+<span id="install-instance"></span><h2>Setup instance<a class="headerlink" href="#setup-instance" title="Permalink to this headline">¶</a></h2>
+<p>Next thing to do is to set up an instance. <tt class="docutils literal"><span class="pre">odk_planner</span></tt> saves all its
+configuration, forms, and log data on a per-instance basis.  With a single
+download of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> you can set up any number of instances that are
+completely independent of each other.</p>
+<p>A new instance is then created by executing the script
+<tt class="docutils literal"><span class="pre">test/demo/create_instance.py</span></tt> (to change the proposed default values please
+modify the file <tt class="docutils literal"><span class="pre">test/demo/config/config-sample.ini</span></tt>):</p>
+<div class="highlight-python"><pre>$ python test/demo/create_instance.py
+
+this script will create a new odk_planner instance
+--------------------------------------------------
+
+instance name: test
+MySQL username: ["odk_planner_ro"] aggregate_user
+MySQL password: ["0dk pa2sw0rd"] lnb83oSL%.ni
+MySQL database: ["odk_planner_test"] main_study
+MySQL host: ["127.0.0.1"]
+
+generated new instance:
+
+  - name: test
+  - temporary password: xL6NZQfL
+
+make sure that the directory "test/demo/../../instances/test" and all its
+contents are writable by the apache user (this should automatically be the
+case if the directory "test/demo/../../instances" has the right group
+ownership)
+
+
+press &lt;ENTER&gt; to continue...</pre>
+</div>
+<p>The script asks for an instance name (below referenced as <tt class="docutils literal"><span class="pre">instance_name</span></tt>)
+and MySQL connection parameters.  After creating the instance, the temporary
+password (<tt class="docutils literal"><span class="pre">xL6NZQfL</span></tt> in the example above) is printed.  This password can be
+used for an initial login, before <a class="reference internal" href="configuring.html#user-sheet"><em>new passwords</em></a> are set and
+will be deactivated after the config is changed via the webinterface for
+a first time.</p>
+<p>This part of the configuration is never shown to the user of the webapp and can
+only be modified by editing the textfile
+<tt class="docutils literal"><span class="pre">instances/&lt;instance_name&gt;/config/config.ini</span></tt>; the following values can be
+specified</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">login_timeout</span></tt> : after how many minutes a user should be automatically
+logged out in absence of activity</li>
+<li><tt class="docutils literal"><span class="pre">proxy</span></tt> : optional setting if a proxy server has to be used to access
+other websites (used for <a class="reference internal" href="using.html#sending-sms"><em>sending SMS</em></a>)</li>
+<li>MySQL settings : <tt class="docutils literal"><span class="pre">db_host</span></tt>, <tt class="docutils literal"><span class="pre">db_database</span></tt>, <tt class="docutils literal"><span class="pre">db_user</span></tt>, <tt class="docutils literal"><span class="pre">db_pass</span></tt>
+: the credentials with which <tt class="docutils literal"><span class="pre">odk_planner</span></tt> will access the MySQL
+database.  See the file <tt class="docutils literal"><span class="pre">create_db_and_user.sql</span></tt> that was created during
+ODK Aggregate installtion (or <a class="reference internal" href="aggregate.html#aggregate-db"><em>get them fromt he webapp</em></a>).  Note that <tt class="docutils literal"><span class="pre">odk_planner</span></tt> only needs read rights and
+a new user without write access should be created.</li>
+<li>email settings : <tt class="docutils literal"><span class="pre">smtp_server</span></tt>, <tt class="docutils literal"><span class="pre">smtp_user</span></tt>, <tt class="docutils literal"><span class="pre">smtp_pass</span></tt> : reports
+are sent via email when <a class="reference internal" href="using.html#automatization"><em>automatization</em></a> is used;
+these settings specify a valid email account from which the email can be
+sent (the server running the webapp does not need to be configured to send
+emails; being able to connect any SMTP server is enough)</li>
+<li>default settings for new instances can be changed by editing the file
+<tt class="docutils literal"><span class="pre">test/demo/config/config-sample.ini</span></tt></li>
+</ul>
+</div></blockquote>
+<p>The initial configuration is the same that is used in the <a class="reference internal" href="tutorial.html#tutorial"><em>tutorial</em></a>, but this can also be changed by modifying the file
+<tt class="docutils literal"><span class="pre">test/demo/config/config-sample.xls</span></tt></p>
+</div>
+<div class="section" id="installing-cron-job">
+<span id="installing-cron"></span><h2>Installing cron job<a class="headerlink" href="#installing-cron-job" title="Permalink to this headline">¶</a></h2>
+<p>The script <tt class="docutils literal"><span class="pre">cron.php</span></tt> (see <a class="reference internal" href="using.html#automatization"><em>automatization</em></a>) should
+be called on a daily basis.  To install <a class="reference external" href="http://en.wikipedia.org/wiki/Cron">cronjob</a> that executes the script
+once a day, execute the following command (as root):</p>
+<div class="highlight-sh"><div class="highlight"><pre>crontab -u www-data -e
+</pre></div>
+</div>
+<p>Then add a new line at the end of the file for every instance that you want
+to <a class="reference internal" href="using.html#automatization"><em>automatize</em></a> (the following example will run the
+cron script once a day at 5 AM):</p>
+<div class="highlight-python"><pre>0 5 * * * /usr/bin/php /path/to/odk_planner/cron.php -i instance_name</pre>
+</div>
+<p>Confirm that</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>you use the same user that runs the PHP script when called from the
+web server (i.e. the <tt class="docutils literal"><span class="pre">www-data</span></tt> in the example above)</li>
+<li>you specify the right path to <tt class="docutils literal"><span class="pre">odk_planner</span></tt></li>
+<li>the user specified above actually is permitted to run cron jobs</li>
+<li>that no error output is generated (check the local email of the user
+running the cron job)</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuring.html" class="btn btn-neutral float-right" title="Configation"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Andreas Steiner.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v0.8bis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

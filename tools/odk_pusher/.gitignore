@@ -1,0 +1,7 @@
+__pycache__
+/images
+/local
+/xray_uploader.py.log
+/*.log
+/dist
+

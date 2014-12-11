@@ -1,0 +1,7 @@
+info/study_id,info/full_name,info/birthdate,info/phone_number1,info/phone_number2,inclusion_criteria/inform_consent,inclusion_criteria/living_study_area,inclusion_criteria/severely_sick,completion_date
+80001,Alice Armstrong,1980-07-01,0123456789,0987654321,yes,yes,no,2014-01-01
+80002,Bob Berkeley,1981-07-01,0123456789,0987654321,yes,yes,no,2014-01-02
+80003,Cindy Chase,1982-07-01,0123456789,0987654321,yes,yes,no,2014-01-03
+80004,Daniel Death,1983-07-01,0123456789,0987654321,yes,yes,no,2014-01-04
+80005,Emily Einstein,1984-07-01,0123456789,0987654321,yes,yes,no,2014-01-05
+80006,Fabian Fox,1985-07-01,0123456789,0987654321,yes,yes,no,2014-01-06

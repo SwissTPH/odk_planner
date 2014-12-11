@@ -1,0 +1,10 @@
+study_id,symptoms/symptoms,symptoms/duration_weeks,signs/temperature,signs/weight,completion_date
+80001,productive_cough fever chest_pain,8,38.3,72,2014-01-01
+80002,productive_cough hemoptysis,2,37.3,85,2014-01-02
+80003,productive_cough weight_loss,12,37.4,55,2014-01-03
+80004,productive_cough weight_loss fever nght_sweat chest_pain,12,38.8,60,2014-01-04
+80005,night_sweat,8,37.6,62,2014-01-05
+83001,,0,37.4,88,2014-01-01
+83002,productive_cough,2,37.1,65,2014-01-02
+83003,chest_pain,20,37.2,63,2014-01-03
+83004,fever,1,39.1,65,2014-01-04

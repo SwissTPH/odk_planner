@@ -1,0 +1,7 @@
+type,name,,access,,label
+begin group,info,,,,Patient Information
+text,study_id,,,,Study ID number
+text,full_name,,**sensitive**,,Full name
+date,birthdate,,**sensitive**,,Date of birth
+text,phone_number1,,**sensitive**,,Primary phone number
+text,phone_number2,,**sensitive**,,Alternative phone number

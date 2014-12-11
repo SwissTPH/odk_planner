@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>CRFX : Xray (v0617)</h:title>
+    <model>
+      <instance>
+        <TBDAR_CRFX id="CRFX">
+          <patient_id/>
+          <xray_image/>
+          <xray_scan_date/>
+          <date/>
+          <initials/>
+          <comment/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </TBDAR_CRFX>
+      </instance>
+      <bind constraint="regex(., '8[012]\d{3}-31')" jr:constraintMsg="Patients must have IDs like '80299-13'" nodeset="/TBDAR_CRFX/patient_id" required="true()" type="string"/>
+      <bind nodeset="/TBDAR_CRFX/xray_image" required="true()" type="binary"/>
+      <bind nodeset="/TBDAR_CRFX/xray_scan_date" type="date"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/TBDAR_CRFX/date" type="date"/>
+      <bind constraint="regex(., '^[A-Z][A-Z][A-Z]$')" jr:constraintMsg="You must specify three uppercase letters" nodeset="/TBDAR_CRFX/initials" type="string"/>
+      <bind nodeset="/TBDAR_CRFX/comment" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/TBDAR_CRFX/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/TBDAR_CRFX/patient_id">
+      <label>Study ID number</label>
+    </input>
+    <upload mediatype="image/*" ref="/TBDAR_CRFX/xray_image">
+      <label>Xray image</label>
+    </upload>
+    <input ref="/TBDAR_CRFX/xray_scan_date">
+      <label>Xray scan date</label>
+    </input>
+    <input ref="/TBDAR_CRFX/initials">
+      <label>Initials of person completing form</label>
+      <hint>Three uppercase letters</hint>
+    </input>
+    <input ref="/TBDAR_CRFX/comment">
+      <label>Comment</label>
+    </input>
+  </h:body>
+</h:html>

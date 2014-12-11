@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>CRF1C : Eligibility controls</h:title>
+    <model>
+      <instance>
+        <CRF1C id="CRF1C">
+          <info>
+            <study_id/>
+            <full_name/>
+            <birthdate/>
+            <phone_number1/>
+            <phone_number2/>
+          </info>
+          <inclusion_criteria>
+            <inform_consent/>
+            <health_problems/>
+          </inclusion_criteria>
+          <completion_date/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </CRF1C>
+      </instance>
+      <bind constraint="regex(., '^83\d{3}$')" jr:constraintMsg="The study ID must be like 83XXX" nodeset="/CRF1C/info/study_id" required="true()" type="string"/>
+      <bind nodeset="/CRF1C/info/full_name" required="true()" type="string"/>
+      <bind constraint=".&gt;today()-105*365 and .&lt;today()-18*365" jr:constraintMsg="Age must be within 18-105 years" nodeset="/CRF1C/info/birthdate" required="true()" type="date"/>
+      <bind constraint="regex(., '^0\d{2}\d{3}\d{2}\d{2}$')" jr:constraintMsg="Phone number must have format 0XXXXXXXXX" nodeset="/CRF1C/info/phone_number1" required="true()" type="string"/>
+      <bind constraint="regex(., '^0\d{2}\d{3}\d{2}\d{2$}')" jr:constraintMsg="Phone number must have format 0XXXXXXXXX" nodeset="/CRF1C/info/phone_number2" required="true()" type="string"/>
+      <bind constraint=".='yes'" jr:constraintMsg="The participant must give informed consent" nodeset="/CRF1C/inclusion_criteria/inform_consent" required="true()" type="select1"/>
+      <bind constraint=".='no'" jr:constraintMsg="The participant must not have any health problems" nodeset="/CRF1C/inclusion_criteria/health_problems" required="true()" type="select1"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/CRF1C/completion_date" type="date"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/CRF1C/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="field-list" ref="/CRF1C/info">
+      <label>Control Information</label>
+      <input ref="/CRF1C/info/study_id">
+        <label>Study ID number</label>
+        <hint>Study ID has form 83XXX</hint>
+      </input>
+      <input ref="/CRF1C/info/full_name">
+        <label>Full name</label>
+      </input>
+      <input ref="/CRF1C/info/birthdate">
+        <label>Date of birth</label>
+        <hint>Day unknown : choose 15th; Month unkown : choose July</hint>
+      </input>
+      <input ref="/CRF1C/info/phone_number1">
+        <label>Primary phone number</label>
+        <hint>Format: 0XXXXXXXXX</hint>
+      </input>
+      <input ref="/CRF1C/info/phone_number2">
+        <label>Alternative phone number</label>
+        <hint>Format: 0XXXXXXXXX</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/CRF1C/inclusion_criteria">
+      <label>Inclusion criteria</label>
+      <select1 ref="/CRF1C/inclusion_criteria/inform_consent">
+        <label>Did the participant give informed consent</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+      <select1 ref="/CRF1C/inclusion_criteria/health_problems">
+        <label>Has the participant any health problems?</label>
+        <item>
+          <label>Yes</label>
+          <value>yes</value>
+        </item>
+        <item>
+          <label>No</label>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

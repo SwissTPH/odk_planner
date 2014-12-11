@@ -1,0 +1,16 @@
+.DS_Store
+.*.sw*
+.~lock*#
+.swp
+*.pyc
+
+/DEBUG
+/GITVERSION
+/instances
+
+/test/test.cfg
+/test/odk_planner.log
+
+/tmp
+/local
+

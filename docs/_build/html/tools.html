@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tools &mdash; odk_planner v0.8bis documentation</title>
+  
+
+  
+  
+
+  
+  <link href='_static/fonts.css' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="odk_planner v0.8bis documentation" href="index.html"/>
+        <link rel="next" title="Tutorial" href="tutorial.html"/>
+        <link rel="prev" title="Using" href="using.html"/> 
+
+  
+  <script src="_static/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> odk_planner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#setup-instance">Setup instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using.html#uploading-form-template">Uploading form template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#overview-entered-forms">Overview entered forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#sending-sms">Sending SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#automatization">Automatization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#log-files">Log files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odk-pusher">ODK pusher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xray-uploader">Xray uploader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ms-sql-uploader">MS-SQL uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#demo-project-description">Demo Project Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#initial-setup-of-odk-planner-and-odk-aggregate">Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#setting-up-the-project">Setting up the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#uploading-the-forms">Uploading the forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#check-out-the-overview">Check out the overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy.html">About Privacy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#digitization">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#database-segregation">Database segregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#admin-rights">Admin rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#choosing-a-good-password">Choosing a good password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate.html">Questions &amp; Answers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html#odk-aggregate-database-settings">ODK Aggregate database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">odk_planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tools</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/tools.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="tools">
+<span id="id1"></span><h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes the additional tools included in the <tt class="docutils literal"><span class="pre">tools/</span></tt>
+directory of the git repository. These additional programs are intended to be
+used in conjunction with <tt class="docutils literal"><span class="pre">odk_planner</span></tt> but they are not prerequisites for the
+web application itself.</p>
+<div class="section" id="utility-scripts">
+<span id="id2"></span><h2>Utility scripts<a class="headerlink" href="#utility-scripts" title="Permalink to this headline">¶</a></h2>
+<p>The script <tt class="docutils literal"><span class="pre">xls2xform.py</span></tt> can be used to translate a <tt class="docutils literal"><span class="pre">.xls</span></tt> form into a
+<tt class="docutils literal"><span class="pre">.xml</span></tt> XForm from the command line:</p>
+<div class="highlight-python"><pre>python xls2xform form1.xml form2.xml</pre>
+</div>
+</div>
+<div class="section" id="odk-pusher">
+<span id="id3"></span><h2>ODK pusher<a class="headerlink" href="#odk-pusher" title="Permalink to this headline">¶</a></h2>
+<p>This directory contains different scripts for uploading XForms in a more or
+less automated way to an ODK Aggregate instance. Note that these scripts <strong>need
+Python 3</strong> and will not run with an older Python version (due to SSL
+communications problems when connecting to ODK Aggregate from Python 2).</p>
+<p>The python module <tt class="docutils literal"><span class="pre">aggregate</span></tt> can be used to push data to an ODK Aggregate
+instance. It also provides a command line interface for use by scripts, see:</p>
+<div class="highlight-python"><pre>python3 aggregate.py -h</pre>
+</div>
+</div>
+<div class="section" id="xray-uploader">
+<span id="id4"></span><h2>Xray uploader<a class="headerlink" href="#xray-uploader" title="Permalink to this headline">¶</a></h2>
+<p>GUI program in <tt class="docutils literal"><span class="pre">tools/odk_pusher</span></tt> that watches a directory for new images
+and sends compressed copies wrapped into a simple XForm, with optional user
+provided data.</p>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://www.python.org/download">Python 3</a></li>
+<li><a class="reference external" href="http://www.imagemagick.org/script/binary-releases.php">ImageMagick</a> : The executable file <tt class="docutils literal"><span class="pre">convert</span></tt> (or <tt class="docutils literal"><span class="pre">convert.exe</span></tt> under
+windows) is used to scale images and convert them to JPEG prior to upload
+to ODK Aggregate. Note that windows has its own <tt class="docutils literal"><span class="pre">convert.exe</span></tt> executable
+and ImageMagick&#8217;s convert should therefore be installed in a local path or
+renamed. Also note that Windows needs the &#8220;Visual C++ 2010 Redistributable
+Package&#8221; (<a class="reference external" href="http://www.microsoft.com/downloads/details.aspx?familyid=A7B7A05E-6DE6-4D3A-A423-37BF0912DB84">vcredist_x86.exe</a> for 32 bit platforms and both <a class="reference external" href="http://www.microsoft.com/downloads/details.aspx?familyid=A7B7A05E-6DE6-4D3A-A423-37BF0912DB84">vcredist_x86.exe</a>
+and <a class="reference external" href="http://www.microsoft.com/downloads/details.aspx?familyid=BD512D9E-43C8-4655-81BF-9350143D5867">vcredist_x64.exe</a> for 64 bit platforms).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>The program must be started with the name of a <strong>configuration file</strong> as
+parameter.  The configuration file is a <a class="reference external" href="http://en.wikipedia.org/wiki/JSON">JSON</a> encoded file and contains the
+following keys (use the file <tt class="docutils literal"><span class="pre">xray_uploader.json</span></tt> as template for a new
+configuration):</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">server</span></tt> : full URL of the ODK Aggregate server</li>
+<li><tt class="docutils literal"><span class="pre">username</span></tt> : username to use to identify to the ODK Aggregate server;
+this username needs &#8220;Data Collector&#8221; access rights (see the &#8220;Site Admin&#8221;
+page of the Aggregate interface)</li>
+<li><tt class="docutils literal"><span class="pre">password</span></tt> : password for <tt class="docutils literal"><span class="pre">username</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">xray_dir</span></tt> : path of the directory in which the Xray images are stored</li>
+<li><tt class="docutils literal"><span class="pre">id_re</span></tt> : python <a class="reference external" href="https://docs.python.org/2/howto/regex.html">regular expression</a> (<a class="reference external" href="pythonregex.com">test online</a>)
+that describes the format of the <tt class="docutils literal"><span class="pre">patient_id</span></tt> field. This field is
+autogenerated from the filename of every Xray image found in the directory.
+For example, if all <tt class="docutils literal"><span class="pre">patient_id</span></tt> have the form <tt class="docutils literal"><span class="pre">XXXX-01</span></tt> where <tt class="docutils literal"><span class="pre">X</span></tt> is
+any number, then this configuration setting should be <tt class="docutils literal"><span class="pre">^\\d{4}-01$</span></tt> and
+valid Xray file names would be <tt class="docutils literal"><span class="pre">1234-01.JPG</span></tt> or <tt class="docutils literal"><span class="pre">1234-01.tif</span></tt> but not
+<tt class="docutils literal"><span class="pre">1234-1.tif</span></tt>. Files that do not follow the naming convention defined with
+this field cannot be uploaded and a corresponding warning message will be
+generated in the program&#8217;s log output.</li>
+<li><tt class="docutils literal"><span class="pre">convert_executable</span></tt> : Path to the <a class="reference external" href="http://www.imagemagick.org/Usage/resize/">convert</a> executable. This program is
+used to convert the Xray image to JPEG and resize its width to a specified
+maximum size before uploading it to the Aggregate server. The convert
+executable can be downloaded from the <a class="reference external" href="http://www.imagemagick.org/script/binary-releases.php">ImageMagick</a> download site.</li>
+<li><tt class="docutils literal"><span class="pre">pixels</span></tt> : Width of image to upload to the server.</li>
+<li><tt class="docutils literal"><span class="pre">manual_fields</span></tt> : A dictionary of field names and <a class="reference external" href="regularexpression">regular expressions</a>.  Before uploading Xray images, the user will be
+asked to fill in a value for each of these fields. The regular expressions
+ensure that the consistency of the entered data.</li>
+<li><tt class="docutils literal"><span class="pre">xform</span></tt> : Path to a XML XForm that was uploaded to the ODK Aggregate
+server and in which the Xray images should be stored.</li>
+<li><tt class="docutils literal"><span class="pre">interval</span></tt> : Interval in minutes between checks of changes in the
+directory containing the Xray images.</li>
+<li><tt class="docutils literal"><span class="pre">auto</span></tt> : If set to <tt class="docutils literal"><span class="pre">true</span></tt>, all images are automatically uploaded to the
+server as soon as they arrive in the directory. Cannot be activated with
+non-empty <tt class="docutils literal"><span class="pre">manual_fields</span></tt>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p><strong>Step 1 &#8211; Scan Xray films</strong> : Proceed as usual, but save images under
+directory “DesktopTBDAR_CXR” so that xray_uploader will find them. Make sure
+to name the file with a patient ID : No spaces allowed! No additional zeroes
+allowed!</p>
+<p><strong>Step 2 &#8211; Start xray uploader &amp; choose images</strong> : The images can be chosen in
+the left pane (press Ctrl-A to select all). The upload is started by clicking
+on “upload selected” (or press the Return key). If the left pane is empty, all
+images from the TBDAR_CXR folder have already been uploaded.</p>
+<img alt="_images/xray_uploader_choose.png" class="align-center" src="_images/xray_uploader_choose.png" />
+<p><strong>Step 3 &#8211; Fill in additional information</strong> : Some details have to be filled
+in before the download can be started (your initials and an optional comment).</p>
+<img alt="_images/xray_uploader_fill_in.png" class="align-center" src="_images/xray_uploader_fill_in.png" />
+<p><strong>Final step &#8211; Check upload</strong> : In the left pane yuu should see a &#8220;uploaded
+image XXX&#8221; for every file that is uploaded. Also, the files disapper in the
+left pane (and the program will remember this for the next time).</p>
+<img alt="_images/xray_uploader_check.png" class="align-center" src="_images/xray_uploader_check.png" />
+<p><strong>Troubleshooting</strong> : If the left pane shows anything in red, this means there
+was an error somewhere. For example, when the file names are mis-spelled (below
+is a screenshot where a zero was accidentally replaced with a small letter
+“o”). Check internet connection and make sure you saved the images in the right
+directory.</p>
+<img alt="_images/xray_uploader_troubleshoot.png" class="align-center" src="_images/xray_uploader_troubleshoot.png" />
+</div>
+</div>
+<div class="section" id="ms-sql-uploader">
+<span id="mssql-uploader"></span><h2>MS-SQL uploader<a class="headerlink" href="#ms-sql-uploader" title="Permalink to this headline">¶</a></h2>
+<p>GUI program in <tt class="docutils literal"><span class="pre">tools/odk_pusher</span></tt> that automatically uploads all new results
+from a MS-SQL database to a ODK Aggregate server.  Since this program is based
+on <a class="reference internal" href="#odk-pusher"><em>ODK pusher</em></a>, it also needs Python 3 to run.  Its single dependency
+is the pure python library <a class="reference external" href="https://code.google.com/p/pypyodbc/">pypyodbc</a>.</p>
+<p>The MS-SQL database is polled every couple of seconds and new rows are used to
+fill in <tt class="docutils literal"><span class="pre">.xml</span></tt> forms and then these are sent to the Aggregate server.  Once
+the server has accepted the incoming form, this is noted in a local <tt class="docutils literal"><span class="pre">.sqlite</span></tt>
+database to prevent sending the same form multiple times.</p>
+<div class="section" id="id5">
+<h3>Configuration<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>All configuration is stored in a <tt class="docutils literal"><span class="pre">.json</span></tt> file that is either named
+<tt class="docutils literal"><span class="pre">mssql_uploader.json</span></tt> and stored in the current directory or specified
+to the script as a command line parameter.</p>
+<p>The configuration is relatively complex, as it involves extracting the data
+from one or multiple tables with a <tt class="docutils literal"><span class="pre">.sql</span></tt> script, filling in custom one or
+multiple <tt class="docutils literal"><span class="pre">.xml</span></tt> forms and logging into a MS-SQL and a ODK Aggregate server.
+The following paragraphs describe a sample configuration to extract data from
+a Cepheid GeneXpert system.  Please note that this example is thought purely
+for educational purposes and that neither the proper working nor the permission
+to actually use this script can be provided by the author.  The files can
+be found in the <tt class="docutils literal"><span class="pre">tools/odk_pusher/xpert/</span></tt> directory.</p>
+<p>The file <tt class="docutils literal"><span class="pre">mssql_uploader.json</span></tt> has the following keys:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">title</span></tt> : use this to customize the title of the uploader window</li>
+<li><tt class="docutils literal"><span class="pre">interval</span></tt> : how many seconds to wait between successive polls of
+the MS-SQL database</li>
+<li><tt class="docutils literal"><span class="pre">mssql</span></tt> : a dictionary containing the connection parameters of
+the MS-SQL database; the specified user must have read access to
+the database in question<ul>
+<li><tt class="docutils literal"><span class="pre">database</span></tt> : name of the database to poll data from</li>
+<li><tt class="docutils literal"><span class="pre">server</span></tt> : MS-SQL server and instance name</li>
+<li><tt class="docutils literal"><span class="pre">username</span></tt> and <tt class="docutils literal"><span class="pre">password</span></tt> : credentials of user with read
+access to the database</li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">odk</span></tt> : a dictionary containing the connection settings to upload
+data to the ODK Aggregate server<ul>
+<li><tt class="docutils literal"><span class="pre">server</span></tt> : full URL of the ODK Aggregate server</li>
+<li><tt class="docutils literal"><span class="pre">username</span></tt> : username to use to identify to the ODK Aggregate server;
+this username needs &#8220;Data Collector&#8221; access rights (see the &#8220;Site Admin&#8221;
+page of the Aggregate interface)</li>
+<li><tt class="docutils literal"><span class="pre">password</span></tt> : password for <tt class="docutils literal"><span class="pre">username</span></tt></li>
+</ul>
+</li>
+<li><tt class="docutils literal"><span class="pre">sqlitedb</span></tt> : name of a <a class="reference external" href="https://sqlite.org/">SQLite</a> database file that is used to mark
+which files have already be uploaded; the file <tt class="docutils literal"><span class="pre">mssql_uploaded.sqlite</span></tt>
+in the <tt class="docutils literal"><span class="pre">xpert/</span></tt> directory is such an empty database; this empty
+database can also be generated by calling the <tt class="docutils literal"><span class="pre">mssql_uploader.py</span></tt>
+script with the arguments <tt class="docutils literal"><span class="pre">create_db</span> <span class="pre">empty.sqlite</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">tables</span></tt> : a dictionary that describes what data should be extracted from
+what tables; they keys of this dictionary are used to identify the
+table data and must therefore not be changed (when changing these names,
+all rows from the renamed tables will be uploaded a second time)<ul>
+<li><tt class="docutils literal"><span class="pre">xform</span></tt> : is the <tt class="docutils literal"><span class="pre">.xml</span></tt> file of a xform that will be used to
+transmit the data; see for example the file <tt class="docutils literal"><span class="pre">GXP2_test.xml</span></tt>
+in the <tt class="docutils literal"><span class="pre">xpert/</span></tt> directory (generated from <tt class="docutils literal"><span class="pre">GXP2_test.xls</span></tt>)</li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt> : a MS-SQL script that selects the data to fill in the
+<tt class="docutils literal"><span class="pre">.xml</span></tt> xform; this script should select the right rows (e.g.
+based on date or patient-ID) and must contain some special markers,
+refer to <tt class="docutils literal"><span class="pre">GXP2_test.sql</span></tt> in the <tt class="docutils literal"><span class="pre">xpert/</span></tt> directory for an
+example</li>
+<li><tt class="docutils literal"><span class="pre">rowid</span></tt> : one or several columns that are selected by the MS-SQL
+script and that will be used to uniquely identify the row</li>
+<li><tt class="docutils literal"><span class="pre">rowname</span></tt> : one or several columns that will be used to identify
+the columns when displaying a progress update (i.e. the human
+readable representation of the row)</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h3>Usage<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>The program runs fully automatically.  Simply copy the configuration
+files in the same directory and start the script.  The files
+<tt class="docutils literal"><span class="pre">mssql_uploader.log</span></tt> and <tt class="docutils literal"><span class="pre">mssql_uploader_debug.log</span></tt> will contain
+the same logging information that is also displayed in the main window.
+After installing of <a class="reference external" href="http://www.py2exe.org/">py2exe</a> you can create a self-contained executable
+distribution for windows using the provided <tt class="docutils literal"><span class="pre">setup.py</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="using.html" class="btn btn-neutral" title="Using"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Andreas Steiner.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v0.8bis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

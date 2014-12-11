@@ -1,0 +1,4 @@
+name,password,rights,access
+admin,admin123,"overview, data, forms, sms, admin","default, sensitive"
+secretary,secretary123,"sms, overview, data",default
+fieldofficer,fieldofficer123,"overview, data",fieldofficer

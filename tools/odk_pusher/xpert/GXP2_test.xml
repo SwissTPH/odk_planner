@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>GXP2 : Xpert results (v20140918)</h:title>
+    <model>
+      <instance>
+        <GXP2_test id="GXP2_test">
+          <test_ID/>
+          <site_name/>
+          <site_serial_num/>
+          <AssayName/>
+          <rgt_lot_ID/>
+          <cart_serial_number/>
+          <sample_ID/>
+          <patient_ID/>
+          <notes/>
+          <state/>
+          <error_status/>
+          <start_time/>
+          <end_time/>
+          <full_name/>
+          <sw_version/>
+          <icore_serial_num/>
+          <fw_version/>
+          <guid/>
+          <instrument_serial_number/>
+          <order_time/>
+          <expiration_date/>
+          <cartridge_barcode/>
+          <result_text/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </GXP2_test>
+      </instance>
+      <bind nodeset="/GXP2_test/test_ID" type="int"/>
+      <bind nodeset="/GXP2_test/site_name" type="string"/>
+      <bind nodeset="/GXP2_test/site_serial_num" type="int"/>
+      <bind nodeset="/GXP2_test/AssayName" type="string"/>
+      <bind nodeset="/GXP2_test/rgt_lot_ID" type="int"/>
+      <bind nodeset="/GXP2_test/cart_serial_number" type="int"/>
+      <bind nodeset="/GXP2_test/sample_ID" type="string"/>
+      <bind nodeset="/GXP2_test/patient_ID" type="string"/>
+      <bind nodeset="/GXP2_test/notes" type="string"/>
+      <bind nodeset="/GXP2_test/state" type="int"/>
+      <bind nodeset="/GXP2_test/error_status" type="int"/>
+      <bind nodeset="/GXP2_test/start_time" type="dateTime"/>
+      <bind nodeset="/GXP2_test/end_time" type="dateTime"/>
+      <bind nodeset="/GXP2_test/full_name" type="string"/>
+      <bind nodeset="/GXP2_test/sw_version" type="string"/>
+      <bind nodeset="/GXP2_test/icore_serial_num" type="int"/>
+      <bind nodeset="/GXP2_test/fw_version" type="string"/>
+      <bind nodeset="/GXP2_test/guid" type="string"/>
+      <bind nodeset="/GXP2_test/instrument_serial_number" type="int"/>
+      <bind nodeset="/GXP2_test/order_time" type="dateTime"/>
+      <bind nodeset="/GXP2_test/expiration_date" type="dateTime"/>
+      <bind nodeset="/GXP2_test/cartridge_barcode" type="string"/>
+      <bind nodeset="/GXP2_test/result_text" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/GXP2_test/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/GXP2_test/test_ID">
+      <label>test_ID</label>
+    </input>
+    <input ref="/GXP2_test/site_name">
+      <label>site_name</label>
+    </input>
+    <input ref="/GXP2_test/site_serial_num">
+      <label>site_serial_num</label>
+    </input>
+    <input ref="/GXP2_test/AssayName">
+      <label>assay</label>
+    </input>
+    <input ref="/GXP2_test/rgt_lot_ID">
+      <label>rgt_lot_ID</label>
+    </input>
+    <input ref="/GXP2_test/cart_serial_number">
+      <label>cart_serial_number</label>
+    </input>
+    <input ref="/GXP2_test/sample_ID">
+      <label>sample_ID</label>
+    </input>
+    <input ref="/GXP2_test/patient_ID">
+      <label>patient_ID</label>
+    </input>
+    <input ref="/GXP2_test/notes">
+      <label>notes</label>
+    </input>
+    <input ref="/GXP2_test/state">
+      <label>state</label>
+    </input>
+    <input ref="/GXP2_test/error_status">
+      <label>error_status</label>
+    </input>
+    <input ref="/GXP2_test/start_time">
+      <label>start_time</label>
+    </input>
+    <input ref="/GXP2_test/end_time">
+      <label>end_time</label>
+    </input>
+    <input ref="/GXP2_test/full_name">
+      <label>full_name</label>
+    </input>
+    <input ref="/GXP2_test/sw_version">
+      <label>sw_version</label>
+    </input>
+    <input ref="/GXP2_test/icore_serial_num">
+      <label>icore_serial_num</label>
+    </input>
+    <input ref="/GXP2_test/fw_version">
+      <label>fw_version</label>
+    </input>
+    <input ref="/GXP2_test/guid">
+      <label>guid</label>
+    </input>
+    <input ref="/GXP2_test/instrument_serial_number">
+      <label>instrument_serial_number</label>
+    </input>
+    <input ref="/GXP2_test/order_time">
+      <label>order_time</label>
+    </input>
+    <input ref="/GXP2_test/expiration_date">
+      <label>expiration_date</label>
+    </input>
+    <input ref="/GXP2_test/cartridge_barcode">
+      <label>cartridge_barcode</label>
+    </input>
+    <input ref="/GXP2_test/result_text">
+      <label>result_text</label>
+    </input>
+  </h:body>
+</h:html>

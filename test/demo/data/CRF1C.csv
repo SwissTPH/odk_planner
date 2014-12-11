@@ -1,0 +1,5 @@
+info/study_id,info/full_name,info/birthdate,info/phone_number1,info/phone_number2,inclusion_criteria/inform_consent,inclusion_criteria/health_problems,completion_date
+83001,Arnold Amstein,1980-07-01,0123456789,0987654321,yes,no,2014-01-01
+83002,Barbara Brause,1981-07-01,0123456789,0987654321,yes,no,2014-01-02
+83003,Caroline Creme,1982-07-01,0123456789,0987654321,yes,no,2014-01-03
+83004,Diana Doma,1983-07-01,0123456789,0987654321,yes,no,2014-01-04

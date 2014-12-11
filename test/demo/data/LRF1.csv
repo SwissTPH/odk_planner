@@ -1,0 +1,11 @@
+study_id,blood/glucose,blood/hemoglobin,sputum/colony_count,sputum/mpt64_antigen_test,completion_date
+80001-V01,4.3,14,2+,mtb_positive,2014-01-06
+80002-V01,3.5,8,3+,mtb_positive,2014-01-06
+80003-V01,12.3,9,1+,mtb_positive,2014-01-06
+80004-V01,10.2,6,3+,mtb_positive,2014-01-10
+80005-V01,5.4,13.1,1+,mtb_positive,2014-01-10
+80006-V01,7.2,15.5,2+,mtb_negative,2014-01-10
+83001-V01,8,14.7,negative,mtb_negative,2014-01-06
+83002-V01,3,13.7,2+,mtb_negative,2014-01-06
+83003-V01,4.1,15.6,negative,mtb_negative,2014-01-06
+83004-V01,7.5,11,negative,mtb_negative,2014-06-10

@@ -1,0 +1,67 @@
+python test/run.py
+
+environment variable ODK_PLANNER_CONFIG not found
+fall back on config file "test/test.cfg"
+
+discovered the following testing configuration (read from test/test.cfg)
+
+  - odk_planner_url: http://localhost/~ast/odk_planner/ (version v0.8bis)
+  - instance name: _test
+  - password: SFiCbxiU
+  - will send testing email to andreassteiner@gmx.de
+  - will send testing sms to 41787711124
+
+check instance name...
+login...
+upload config...
+initialize forms...
+
+ready, set go!
+press <ENTER> to start tests...
+
+test_create_user (test_admin.TestAdmin) ... ok
+test_user_log (test_admin.TestAdmin) ... ok
+test_no_password (test_config.TestConfig) ... ok
+test_send_cron_sms (test_cron.TestCron) ... ok
+test_send_email_with_report (test_cron.TestCron) ... ok
+test_send_email_without_report (test_cron.TestCron) ... ok
+test_access (test_data.TestData) ... ok
+test_data_CRF2 (test_data.TestData) ... ok
+test_data_CRFX (test_data.TestData) ... ok
+test_form_db_only (test_form.TestForm) ... ok
+test_form_download (test_form.TestForm) ... ok
+test_form_remove_upload (test_form.TestForm) ... ok
+test_form_wrong_name (test_form.TestForm) ... ok
+test_form_xls_only (test_form.TestForm) ... ok
+test_missing_alert (test_form.TestForm) ... ok
+test_inexisting_instance (test_instance.TestInstance) ... ok
+test_no_instance (test_instance.TestInstance) ... ok
+test_test_instance (test_instance.TestInstance) ... ok
+test_login_admin (test_login.TestLogin) ... ok
+test_login_failed (test_login.TestLogin) ... ok
+test_login_fieldofficer (test_login.TestLogin) ... ok
+test_login_secretary (test_login.TestLogin) ... ok
+test_download_form (test_overview.TestOverview) ... ok
+test_highlight_condition (test_overview.TestOverview) ... ok
+test_highlight_static (test_overview.TestOverview) ... ok
+test_highlight_timing (test_overview.TestOverview) ... ok
+test_overview_all (test_overview.TestOverview) ... ok
+test_overview_cases (test_overview.TestOverview) ... ok
+test_overview_cases_controls (test_overview.TestOverview) ... ok
+test_conditions (test_php.TestInstance) ... ok
+test_field_number_real (test_sms.TestSms) ... ok
+test_mass_sms (test_sms.TestSms) ... ok
+test_single (test_sms.TestSms) ... ok
+
+Ran 33 tests in 48.687s
+
+OK
+
+log output during tests:
+
+  [INFO] cron sent sms to 41787711124 (and email without report to andreassteiner@gmx.de)
+  [INFO] andreassteiner@gmx.de should have received email with report
+  [INFO] andreassteiner@gmx.de should have received email without report
+  [INFO] sent two sms to 41787711124
+
+all done; press <ENTER> to exit...

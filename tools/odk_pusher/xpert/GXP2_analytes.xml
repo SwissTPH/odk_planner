@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>GXP2 : Xpert analyte data (v20140918)</h:title>
+    <model>
+      <instance>
+        <GXP2_analytes id="GXP2_analytes">
+          <test_ID/>
+          <analyte_index/>
+          <expected_result/>
+          <endpoint/>
+          <threshold/>
+          <cycle_threshold/>
+          <probe_check_result/>
+          <probe_check_reading1/>
+          <probe_check_reading2/>
+          <probe_check_reading3/>
+          <error_status/>
+          <target_result/>
+          <ic_result/>
+          <ec_result/>
+          <spc_result/>
+          <interpretation/>
+          <second_deriv_peak_height/>
+          <nc_ic_endpoint/>
+          <curve_fit_result/>
+          <delta_ct/>
+          <TTP/>
+          <quantitative_result/>
+          <patient_ID/>
+          <sample_ID/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </GXP2_analytes>
+      </instance>
+      <bind nodeset="/GXP2_analytes/test_ID" type="int"/>
+      <bind nodeset="/GXP2_analytes/analyte_index" type="int"/>
+      <bind nodeset="/GXP2_analytes/expected_result" type="int"/>
+      <bind nodeset="/GXP2_analytes/endpoint" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/threshold" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/cycle_threshold" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/probe_check_result" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/probe_check_reading1" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/probe_check_reading2" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/probe_check_reading3" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/error_status" type="int"/>
+      <bind nodeset="/GXP2_analytes/target_result" type="int"/>
+      <bind nodeset="/GXP2_analytes/ic_result" type="int"/>
+      <bind nodeset="/GXP2_analytes/ec_result" type="int"/>
+      <bind nodeset="/GXP2_analytes/spc_result" type="int"/>
+      <bind nodeset="/GXP2_analytes/interpretation" type="int"/>
+      <bind nodeset="/GXP2_analytes/second_deriv_peak_height" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/nc_ic_endpoint" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/curve_fit_result" type="int"/>
+      <bind nodeset="/GXP2_analytes/delta_ct" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/TTP" type="int"/>
+      <bind nodeset="/GXP2_analytes/quantitative_result" type="decimal"/>
+      <bind nodeset="/GXP2_analytes/patient_ID" type="string"/>
+      <bind nodeset="/GXP2_analytes/sample_ID" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/GXP2_analytes/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/GXP2_analytes/test_ID">
+      <label>test_ID</label>
+    </input>
+    <input ref="/GXP2_analytes/analyte_index">
+      <label>analyte_index</label>
+    </input>
+    <input ref="/GXP2_analytes/expected_result">
+      <label>expected_result</label>
+    </input>
+    <input ref="/GXP2_analytes/endpoint">
+      <label>endpoint</label>
+    </input>
+    <input ref="/GXP2_analytes/threshold">
+      <label>threshold</label>
+    </input>
+    <input ref="/GXP2_analytes/cycle_threshold">
+      <label>cycle_threshold</label>
+    </input>
+    <input ref="/GXP2_analytes/probe_check_result">
+      <label>probe_check_result</label>
+    </input>
+    <input ref="/GXP2_analytes/probe_check_reading1">
+      <label>probe_check_reading1</label>
+    </input>
+    <input ref="/GXP2_analytes/probe_check_reading2">
+      <label>probe_check_reading2</label>
+    </input>
+    <input ref="/GXP2_analytes/probe_check_reading3">
+      <label>probe_check_reading3</label>
+    </input>
+    <input ref="/GXP2_analytes/error_status">
+      <label>error_status</label>
+    </input>
+    <input ref="/GXP2_analytes/target_result">
+      <label>target_result</label>
+    </input>
+    <input ref="/GXP2_analytes/ic_result">
+      <label>ic_result</label>
+    </input>
+    <input ref="/GXP2_analytes/ec_result">
+      <label>ec_result</label>
+    </input>
+    <input ref="/GXP2_analytes/spc_result">
+      <label>spc_result</label>
+    </input>
+    <input ref="/GXP2_analytes/interpretation">
+      <label>interpretation</label>
+    </input>
+    <input ref="/GXP2_analytes/second_deriv_peak_height">
+      <label>second_deriv_peak_height</label>
+    </input>
+    <input ref="/GXP2_analytes/nc_ic_endpoint">
+      <label>nc_ic_endpoint</label>
+    </input>
+    <input ref="/GXP2_analytes/curve_fit_result">
+      <label>curve_fit_result</label>
+    </input>
+    <input ref="/GXP2_analytes/delta_ct">
+      <label>delta_ct</label>
+    </input>
+    <input ref="/GXP2_analytes/TTP">
+      <label>TTP</label>
+    </input>
+    <input ref="/GXP2_analytes/quantitative_result">
+      <label>quantitative_result</label>
+    </input>
+    <input ref="/GXP2_analytes/patient_ID">
+      <label>patient_ID</label>
+    </input>
+    <input ref="/GXP2_analytes/sample_ID">
+      <label>sample_ID</label>
+    </input>
+  </h:body>
+</h:html>

@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; odk_planner v0.8bis documentation</title>
+  
+
+  
+  
+
+  
+  <link href='_static/fonts.css' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="odk_planner v0.8bis documentation" href="index.html"/>
+        <link rel="next" title="Installation" href="installing.html"/>
+        <link rel="prev" title="Overview odk_planner Documentation" href="index.html"/> 
+
+  
+  <script src="_static/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> odk_planner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#setup-instance">Setup instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using.html#uploading-form-template">Uploading form template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#overview-entered-forms">Overview entered forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#sending-sms">Sending SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#automatization">Automatization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#log-files">Log files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#odk-pusher">ODK pusher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#xray-uploader">Xray uploader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#ms-sql-uploader">MS-SQL uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#demo-project-description">Demo Project Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#initial-setup-of-odk-planner-and-odk-aggregate">Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#setting-up-the-project">Setting up the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#uploading-the-forms">Uploading the forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#check-out-the-overview">Check out the overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy.html">About Privacy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#digitization">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#database-segregation">Database segregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#admin-rights">Admin rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#choosing-a-good-password">Choosing a good password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate.html">Questions &amp; Answers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html#odk-aggregate-database-settings">ODK Aggregate database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">odk_planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/introduction.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><span class="pre">odk_planner</span></tt> is a web application for use in combination with <a class="reference external" href="http://opendatakit.org">OpenDataKit</a>,
+especially with <a class="reference external" href="http://xlsform.org/">XLSForm</a> and the <a class="reference external" href="http://opendatakit.org/use/aggregate/">Aggregate Server</a>.  While it&#8217;s easy to
+export the data in the end, the Aggregate Server interface makes it difficult
+to monitor the progress of form submission, especially in complex studies where
+many different forms are used and timing between the different forms is
+critical.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The main functionality of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> is to show all submitted form data in
+a large <a class="reference internal" href="using.html#overview-table"><em>Overview table</em></a>, sorted by study subject id.
+Imagine that you have a study with an initial screening form <tt class="docutils literal"><span class="pre">CRF1</span></tt> that
+is followed by a second examination form <tt class="docutils literal"><span class="pre">CRF2</span></tt> and a lab form <tt class="docutils literal"><span class="pre">LRF1</span></tt>.
+When you look into your data using ODK Aggregate, it would be displayed as
+three separate tables (the data shown below is taken from the <a class="reference internal" href="tutorial.html#tutorial"><em>tutorial</em></a>)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="39%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">study_id</th>
+<th class="head">full_name</th>
+<th class="head">completion_date</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>80001</td>
+<td>Alice Armstrong</td>
+<td>2014-01-01</td>
+</tr>
+<tr class="row-odd"><td>80002</td>
+<td>Bob Berkeley</td>
+<td>2014-01-02</td>
+</tr>
+<tr class="row-even"><td>80003</td>
+<td>Cindy Chase</td>
+<td>2014-01-03</td>
+</tr>
+<tr class="row-odd"><td>80004</td>
+<td>Daniel Death</td>
+<td>2014-01-04</td>
+</tr>
+<tr class="row-even"><td>80005</td>
+<td>Emily Einstein</td>
+<td>2014-01-05</td>
+</tr>
+<tr class="row-odd"><td>80006</td>
+<td>Fabian Fox</td>
+<td>2014-01-06</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="32%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">study_id</th>
+<th class="head">temperature</th>
+<th class="head">completion_date</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>80001</td>
+<td>38.3</td>
+<td>2014-01-01</td>
+</tr>
+<tr class="row-odd"><td>80002</td>
+<td>37.3</td>
+<td>2014-01-02</td>
+</tr>
+<tr class="row-even"><td>80003</td>
+<td>37.4</td>
+<td>2014-01-03</td>
+</tr>
+<tr class="row-odd"><td>80004</td>
+<td>38.8</td>
+<td>2014-01-04</td>
+</tr>
+<tr class="row-even"><td>80005</td>
+<td>37.6</td>
+<td>2014-01-05</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="27%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">study_id</th>
+<th class="head">hemoglobin</th>
+<th class="head">completion_date</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>80001-V01</td>
+<td>14</td>
+<td>2014-01-06</td>
+</tr>
+<tr class="row-odd"><td>80002-V01</td>
+<td>8</td>
+<td>2014-01-06</td>
+</tr>
+<tr class="row-even"><td>80003-V01</td>
+<td>9</td>
+<td>2014-01-06</td>
+</tr>
+<tr class="row-odd"><td>80004-V01</td>
+<td>6</td>
+<td>2014-01-10</td>
+</tr>
+<tr class="row-even"><td>80005-V01</td>
+<td>13.1</td>
+<td>2014-01-10</td>
+</tr>
+<tr class="row-odd"><td>80006-V01</td>
+<td>15.5</td>
+<td>2014-01-10</td>
+</tr>
+</tbody>
+</table>
+<p>It&#8217;s obvious that this kind of data display quickly becomes quite confusing &#8211;
+with thousands of participants and dozens of forms in a real-world scenario...
+<tt class="docutils literal"><span class="pre">odk_planner</span></tt> extracts the data from the database and displays a neat
+<a class="reference internal" href="using.html#overview-table"><em>overview form</em></a>.  For the data above, this would like
+this</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="26%" />
+<col width="26%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">study_id</th>
+<th class="head">CRF1</th>
+<th class="head">CRF2</th>
+<th class="head">LRF1</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>80001</td>
+<td>2014-01-01</td>
+<td>2014-01-01</td>
+<td>2014-01-06</td>
+</tr>
+<tr class="row-odd"><td>80002</td>
+<td>2014-01-02</td>
+<td>2014-01-01</td>
+<td>2014-01-06</td>
+</tr>
+<tr class="row-even"><td>80003</td>
+<td>2014-01-03</td>
+<td>2014-01-01</td>
+<td>2014-01-06</td>
+</tr>
+<tr class="row-odd"><td>80004</td>
+<td>2014-01-04</td>
+<td>2014-01-01</td>
+<td>2014-01-10</td>
+</tr>
+<tr class="row-even"><td>80005</td>
+<td>2014-01-05</td>
+<td>2014-01-01</td>
+<td>2014-01-10</td>
+</tr>
+<tr class="row-odd"><td>80006</td>
+<td>2014-01-06</td>
+<td>&nbsp;</td>
+<td>2014-01-10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>In particular, <tt class="docutils literal"><span class="pre">odk_planner</span></tt> has the following features</p>
+<blockquote>
+<div><ul class="simple">
+<li>cells in the overview table can be <a class="reference internal" href="configuring.html#colors-sheet"><em>highlighted</em></a>
+according to the relative timing to other forms: for example, the empty
+cell <tt class="docutils literal"><span class="pre">80006/CRF2</span></tt> in the table above could be colored if <tt class="docutils literal"><span class="pre">80006/CRF1</span></tt>
+has been entered a defined number of days ago</li>
+<li>cells in the overview can also be <a class="reference internal" href="configuring.html#colors-sheet"><em>highlighted</em></a>
+depending on the data of values in the submitted forms: for example, the
+submissions of <tt class="docutils literal"><span class="pre">LRF1</span></tt> above could be colored if the hemoglobin level is
+outside a specified range</li>
+<li>the data in the overview table can be used to generate <a class="reference internal" href="using.html#csv-generation"><em>printable
+tables</em></a> of missing forms, and these reports of missing
+forms can even automatically be <a class="reference internal" href="configuring.html#config-cron"><em>sent in emails</em></a></li>
+<li>participants can be <a class="reference internal" href="using.html#sending-sms"><em>notified by SMS</em></a>, based on the
+highlighting of the cells in the overview table; this mechanisme can
+also be <a class="reference internal" href="configuring.html#config-sms"><em>configured</em></a> to send data from the forms to
+a specified number</li>
+<li>all data in the database can be <a class="reference internal" href="using.html#viewing-data"><em>viewed</em></a>, by clicking
+on the links in the overview table; contrary to ODK Aggregate, you can
+specify <a class="reference internal" href="using.html#access-example"><em>detailed access permissions</em></a> for every
+datapoint</li>
+<li>the schema of the data is read from the same Excel files that are used
+to generate the <tt class="docutils literal"><span class="pre">.xml</span></tt> forms via <a class="reference external" href="http://xlsform.org/">XLSForm</a></li>
+<li>to put the cherry on the cake, this web application comes bundled with some
+tools that can be used to <a class="reference internal" href="tools.html#odk-pusher"><em>push data automatically</em></a> into
+the ODK database; with this mechanism you can for example integrate
+<a class="reference internal" href="tools.html#xray-uploader"><em>integrate X-ray images</em></a> or <a class="reference internal" href="tools.html#mssql-uploader"><em>data from a MS-SQL
+database</em></a> &#8211; transparently and fully automatically</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The documentation is strucuted as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="installing.html#installing"><em>Installation</em></a> explains how to set up <tt class="docutils literal"><span class="pre">odk_planner</span></tt>;
+in a typical setting, this part of the documentation would only be read
+by the system administrator who also installed the Aggregate server</li>
+<li><a class="reference internal" href="configuring.html#configuring"><em>Configuration</em></a> describes how to adapt the configuration
+file <tt class="docutils literal"><span class="pre">config.xls</span></tt> to your needs</li>
+<li><a class="reference internal" href="using.html#using"><em>Using</em></a> describes the features in more detail</li>
+<li><a class="reference internal" href="tools.html#tools"><em>Tools</em></a> gives an overview of the additional (Python-based)
+software included in the distribution to automate the integration of data
+from different sources into your Aggregate database</li>
+<li><a class="reference internal" href="tutorial.html#tutorial"><em>Tutorial</em></a> finally describes a sample setup and comes with
+some sample data that quickly lets you play around with <tt class="docutils literal"><span class="pre">odk_planner</span></tt> to
+get an idea of its functionality</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installing.html" class="btn btn-neutral float-right" title="Installation"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Overview odk_planner Documentation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Andreas Steiner.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v0.8bis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

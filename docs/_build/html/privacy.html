@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>About Privacy &mdash; odk_planner v0.8bis documentation</title>
+  
+
+  
+  
+
+  
+  <link href='_static/fonts.css' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="odk_planner v0.8bis documentation" href="index.html"/>
+        <link rel="next" title="Questions &amp; Answers" href="aggregate.html"/>
+        <link rel="prev" title="Testing" href="testing.html"/> 
+
+  
+  <script src="_static/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> odk_planner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#setup-instance">Setup instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using.html#uploading-form-template">Uploading form template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#overview-entered-forms">Overview entered forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#sending-sms">Sending SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#automatization">Automatization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#log-files">Log files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#odk-pusher">ODK pusher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#xray-uploader">Xray uploader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#ms-sql-uploader">MS-SQL uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#demo-project-description">Demo Project Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#initial-setup-of-odk-planner-and-odk-aggregate">Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#setting-up-the-project">Setting up the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#uploading-the-forms">Uploading the forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#check-out-the-overview">Check out the overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">About Privacy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#digitization">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-segregation">Database segregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-rights">Admin rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choosing-a-good-password">Choosing a good password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate.html">Questions &amp; Answers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html#odk-aggregate-database-settings">ODK Aggregate database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">odk_planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>About Privacy</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/privacy.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="about-privacy">
+<span id="privacy"></span><h1>About Privacy<a class="headerlink" href="#about-privacy" title="Permalink to this headline">¶</a></h1>
+<p>This chapter contains some general remarks on how you should design your study,
+gather your data, and use <tt class="docutils literal"><span class="pre">odk_planner</span></tt> to avoid loosing control over your
+study data.  This is especially important if you work with patient data that
+merits to be handled with very much consideration.  But it equally applies to
+less sensitive data whenever people are involved in your studies and entrust
+you their data.</p>
+<p>Note that this is a complicated topic that involves many fields and its surface
+is barely scratched in this very short chapter.  Also, your organization has
+probably their own data management manual that describes in more detail what
+data you are allowed to collect and store how you have to handle these.
+Additionally, local laws apply, most probably in the country where you collect
+the data, and also in the country where you store the data.</p>
+<div class="section" id="digitization">
+<span id="privacy-digitization"></span><h2>Digitization<a class="headerlink" href="#digitization" title="Permalink to this headline">¶</a></h2>
+<p>Beware the following : It is extremely easy to copy data once it is digitized.
+This means that you are probably better off not digitizing sensitive data in
+the first place, instead of trying to prevent everyone who will handle it to
+make it impossible to copy the data.</p>
+<p>Of course, this puts you in a dilemma, since the whole idea of using ODK is to
+digitize your data for ease of collection and analysis.  One possible way out
+is to digitze all data apart from identifying datapoints, such as name and
+addresses, which are rarely used for data analysis, and can be kept seperately
+in a paper register (or on an encrypted hard drive in the principal investor&#8217;s
+office).</p>
+<p>Unfortunately, there are other datapoints that will turn up in your final data
+analysis but can easily be used to identify subjects.  Think of coordinates for
+example.  In these cases some more creativity is needed: you could for example
+add a random offset to locations so you can still use them to analyze
+distribution but at the same time the spatial resolution would not be
+sufficient to identify housings (and map them to an address book).</p>
+</div>
+<div class="section" id="database-segregation">
+<span id="privacy-segregation"></span><h2>Database segregation<a class="headerlink" href="#database-segregation" title="Permalink to this headline">¶</a></h2>
+<p>If you decide to include sensitive personal data in your database, then you
+should work out a database design with multiple databases.  You can then store
+the sensitive data in a separate database.  This has the advantage that you can
+define a different backup policy for the.  Separating sensitive data in its own
+database also allows you to create separate database users (and passwords) that
+can only see part of the data.</p>
+<p>Mind that, although you can also define access restrictions for <a class="reference internal" href="using.html#viewing-data"><em>viewing
+data</em></a> in <tt class="docutils literal"><span class="pre">okd_planner</span></tt>, it is not possible to restrict the
+access of an user that has <tt class="docutils literal"><span class="pre">admin</span></tt> <a class="reference internal" href="configuring.html#user-sheet"><em>rights</em></a>.  And it is
+always better to use additional safety guards to protect data.</p>
+</div>
+<div class="section" id="admin-rights">
+<span id="privacy-admin"></span><h2>Admin rights<a class="headerlink" href="#admin-rights" title="Permalink to this headline">¶</a></h2>
+<p>It is important to realize that <tt class="docutils literal"><span class="pre">odk_planner</span></tt> has (read-only) access to the
+entire database that stores the data for your study.  If you use the same ODK
+Aggregate instance for more than one study, then you can set up <a class="reference internal" href="installing.html#install-instance"><em>multiple
+instances</em></a> of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> but users with <tt class="docutils literal"><span class="pre">admin</span></tt>
+rights are free to define how they want to configure <tt class="docutils literal"><span class="pre">odk_planner</span></tt> (and can,
+for example, create an overview that contains forms from other studies included
+in the same database).</p>
+<p>Therefore, you should restrict <tt class="docutils literal"><span class="pre">admin</span></tt> rights to as few users as possible,
+ideally only to one person.</p>
+</div>
+<div class="section" id="choosing-a-good-password">
+<span id="good-password"></span><h2>Choosing a good password<a class="headerlink" href="#choosing-a-good-password" title="Permalink to this headline">¶</a></h2>
+<p>The access protection relies on good passwords.  Without good passwords, it
+will be easy for strangers (or your users&#8217; acquaintances) to guess a valid
+login and access all the study data!</p>
+<p>Since the passwords are stored in plain text (i.e. users with <tt class="docutils literal"><span class="pre">admin</span></tt> rights
+who can download the <tt class="docutils literal"><span class="pre">config.xls</span></tt> can see them), and because passwords that
+are used for many different services are a lot easier to intercept somewhere,
+you really should use an <strong>unique password</strong> that is solely used to identify
+users with <tt class="docutils literal"><span class="pre">odk_planner</span></tt>.</p>
+<p>The default password <tt class="docutils literal"><span class="pre">0dk</span> <span class="pre">pa2sw0rd</span></tt> used throughout this documentation is
+actually a really poor password.  A word of wisdom from <a class="reference external" href="http://imgs.xkcd.com/comics/password_strength.png">xkcd</a></p>
+<img alt="_images/xkcd_password_strength.png" class="align-center" src="_images/xkcd_password_strength.png" />
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aggregate.html" class="btn btn-neutral float-right" title="Questions &amp; Answers"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="testing.html" class="btn btn-neutral" title="Testing"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Andreas Steiner.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v0.8bis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

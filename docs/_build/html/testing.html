@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Testing &mdash; odk_planner v0.8bis documentation</title>
+  
+
+  
+  
+
+  
+  <link href='_static/fonts.css' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="odk_planner v0.8bis documentation" href="index.html"/>
+        <link rel="next" title="About Privacy" href="privacy.html"/>
+        <link rel="prev" title="Tutorial" href="tutorial.html"/> 
+
+  
+  <script src="_static/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> odk_planner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#setup-instance">Setup instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring.html#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using.html#uploading-form-template">Uploading form template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#overview-entered-forms">Overview entered forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#sending-sms">Sending SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#automatization">Automatization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#log-files">Log files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#odk-pusher">ODK pusher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#xray-uploader">Xray uploader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#ms-sql-uploader">MS-SQL uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#demo-project-description">Demo Project Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#initial-setup-of-odk-planner-and-odk-aggregate">Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#setting-up-the-project">Setting up the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#uploading-the-forms">Uploading the forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#check-out-the-overview">Check out the overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy.html">About Privacy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#digitization">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#database-segregation">Database segregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#admin-rights">Admin rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#choosing-a-good-password">Choosing a good password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate.html">Questions &amp; Answers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html#odk-aggregate-database-settings">ODK Aggregate database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">odk_planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Testing</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/testing.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="testing">
+<span id="id1"></span><h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><span class="pre">odk_planner</span></tt> has testing suite that tests most of its features (including
+<a class="reference internal" href="using.html#sending-sms"><em>sending sms</em></a> and <a class="reference internal" href="using.html#automatization"><em>automatization</em></a>).
+The testing framework is based on the <a class="reference external" href="https://www.python.org/downloads/release/python-278/">Python2</a> package <tt class="docutils literal"><span class="pre">unittest</span></tt> that is
+part of the standard distribution.  The tests themselves use <a class="reference external" href="http://www.seleniumhq.org">Selenium</a>
+WebDriver to test <tt class="docutils literal"><span class="pre">odk_planner</span></tt> functionality via a web browser.</p>
+<p>All tests assume a precise environment that is the same as used for the
+tutorial.  After <a class="reference internal" href="tutorial.html#demo-init"><em>initial setup</em></a> this environment provides
+a running <a class="reference internal" href="installing.html#install-instance"><em>instance</em></a>, as well as ODK forms and data
+that are used to test all features.</p>
+<p>You then need to adapt the file <tt class="docutils literal"><span class="pre">test/sample.cfg</span></tt> that describes all
+site-specific configuration, such as the phone number where test messages
+should be sent.  The configuration can be saved under <tt class="docutils literal"><span class="pre">test/test.cfg</span></tt> or
+under a arbitrary path specified by the environment variable
+<tt class="docutils literal"><span class="pre">ODK_PLANNER_CONFIG</span></tt>.</p>
+<p>Since all interaction with <tt class="docutils literal"><span class="pre">odk_planner</span></tt> passes through the web browser, the
+tests can be run against an instance running on a remote server or against the
+local installation.</p>
+<p>The preferred way of running all the tests is by simply executing the script
+<tt class="docutils literal"><span class="pre">test/run.py</span></tt> that reads the config file checks connection with the web
+server, uploads all forms, and then runs every test and reports the results:</p>
+<div class="highlight-python"><pre>python test/run.py
+
+environment variable ODK_PLANNER_CONFIG not found
+fall back on config file "test/test.cfg"
+
+discovered the following testing configuration (read from test/test.cfg)
+
+  - odk_planner_url: http://localhost/~ast/odk_planner/ (version v0.8bis)
+  - instance name: _test
+  - password: SFiCbxiU
+  - will send testing email to andreassteiner@gmx.de
+  - will send testing sms to 41787711124
+
+check instance name...
+login...
+upload config...
+initialize forms...
+
+ready, set go!
+press &lt;ENTER&gt; to start tests...
+
+test_create_user (test_admin.TestAdmin) ... ok
+test_user_log (test_admin.TestAdmin) ... ok
+test_no_password (test_config.TestConfig) ... ok
+test_send_cron_sms (test_cron.TestCron) ... ok
+test_send_email_with_report (test_cron.TestCron) ... ok
+test_send_email_without_report (test_cron.TestCron) ... ok
+test_access (test_data.TestData) ... ok
+test_data_CRF2 (test_data.TestData) ... ok
+test_data_CRFX (test_data.TestData) ... ok
+test_form_db_only (test_form.TestForm) ... ok
+test_form_download (test_form.TestForm) ... ok
+test_form_remove_upload (test_form.TestForm) ... ok
+test_form_wrong_name (test_form.TestForm) ... ok
+test_form_xls_only (test_form.TestForm) ... ok
+test_missing_alert (test_form.TestForm) ... ok
+test_inexisting_instance (test_instance.TestInstance) ... ok
+test_no_instance (test_instance.TestInstance) ... ok
+test_test_instance (test_instance.TestInstance) ... ok
+test_login_admin (test_login.TestLogin) ... ok
+test_login_failed (test_login.TestLogin) ... ok
+test_login_fieldofficer (test_login.TestLogin) ... ok
+test_login_secretary (test_login.TestLogin) ... ok
+test_download_form (test_overview.TestOverview) ... ok
+test_highlight_condition (test_overview.TestOverview) ... ok
+test_highlight_static (test_overview.TestOverview) ... ok
+test_highlight_timing (test_overview.TestOverview) ... ok
+test_overview_all (test_overview.TestOverview) ... ok
+test_overview_cases (test_overview.TestOverview) ... ok
+test_overview_cases_controls (test_overview.TestOverview) ... ok
+test_conditions (test_php.TestInstance) ... ok
+test_field_number_real (test_sms.TestSms) ... ok
+test_mass_sms (test_sms.TestSms) ... ok
+test_single (test_sms.TestSms) ... ok
+
+Ran 33 tests in 48.687s
+
+OK
+
+log output during tests:
+
+  [INFO] cron sent sms to 41787711124 (and email without report to andreassteiner@gmx.de)
+  [INFO] andreassteiner@gmx.de should have received email with report
+  [INFO] andreassteiner@gmx.de should have received email without report
+  [INFO] sent two sms to 41787711124
+
+all done; press &lt;ENTER&gt; to exit...
+</pre>
+</div>
+<p>Tests can also be run individually like this (the following example runs
+a single test that checks that a invalid login attempt generates a timeout of
+two seconds):</p>
+<div class="highlight-python"><pre>$ ODK_PLANNER_CONFIG=test/test.cfg python -m unittest -v test.test_login.TestLogin.test_login_failed
+test_login_failed (test.test_login.TestLogin) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.587s</pre>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="privacy.html" class="btn btn-neutral float-right" title="About Privacy"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial.html" class="btn btn-neutral" title="Tutorial"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Andreas Steiner.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v0.8bis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

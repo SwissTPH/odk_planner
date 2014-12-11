@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configation &mdash; odk_planner v0.8bis documentation</title>
+  
+
+  
+  
+
+  
+  <link href='_static/fonts.css' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="odk_planner v0.8bis documentation" href="index.html"/>
+        <link rel="next" title="Using" href="using.html"/>
+        <link rel="prev" title="Installation" href="installing.html"/> 
+
+  
+  <script src="_static/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> odk_planner</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#setup-instance">Setup instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Configation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using.html#uploading-form-template">Uploading form template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#overview-entered-forms">Overview entered forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#sending-sms">Sending SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#automatization">Automatization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using.html#log-files">Log files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#odk-pusher">ODK pusher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#xray-uploader">Xray uploader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#ms-sql-uploader">MS-SQL uploader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#demo-project-description">Demo Project Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#initial-setup-of-odk-planner-and-odk-aggregate">Initial setup of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> and ODK Aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#setting-up-the-project">Setting up the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#uploading-the-forms">Uploading the forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#check-out-the-overview">Check out the overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#viewing-data">Viewing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy.html">About Privacy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#digitization">Digitization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#database-segregation">Database segregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#admin-rights">Admin rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html#choosing-a-good-password">Choosing a good password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aggregate.html">Questions &amp; Answers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aggregate.html#odk-aggregate-database-settings">ODK Aggregate database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">odk_planner</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Configation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/configuring.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="configation">
+<span id="configuring"></span><h1>Configation<a class="headerlink" href="#configation" title="Permalink to this headline">¶</a></h1>
+<p>This chapter is a reference documentatino for the settings in the configuration
+file <tt class="docutils literal"><span class="pre">config.xls</span></tt> that contains all the user-modifiable settings for the
+webapp.  Some settings (such as database connection parameters) cannot be
+changed by the user of the webapp, but only by the sysadmin (see <a class="reference internal" href="installing.html#install-instance"><em>setting
+up an instance</em></a>).</p>
+<p>When using <tt class="docutils literal"><span class="pre">odk_planner</span></tt> for the first time, please have a look at
+<a class="reference internal" href="tutorial.html#tutorial"><em>the tutorial</em></a>.</p>
+<p>All configuration is done by first downloading and then editing the file
+<tt class="docutils literal"><span class="pre">config.xls</span></tt> locally (using <a class="reference external" href="http://office.microsoft.com/en-us/excel/">Excel</a> or <a class="reference external" href="http://www.libreoffice.org/download/libreoffice-fresh/">LibreOffice</a>), before uploading the
+updated file to the server. To do this, log in with an account that has
+<a class="reference internal" href="#user-sheet"><em>&#8220;admin&#8221; rights</em></a> and then click on the <strong>admin</strong> link in the
+top navigation menu.</p>
+<p>The following subsections are structured the same way as the sheets in the
+file <tt class="docutils literal"><span class="pre">config.xls</span></tt></p>
+<div class="section" id="settings-sheet">
+<span id="id1"></span><h2><tt class="docutils literal"><span class="pre">settings</span></tt> sheet<a class="headerlink" href="#settings-sheet" title="Permalink to this headline">¶</a></h2>
+<p>This sheet contains general information on how the data in the ODK database
+is structered and how it should be accessed as well as the email configuration.</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">idfield</span></tt> : Name of field that links forms together (e.g. study participant
+ID). If a form does not have this field, it will not be displayed in the
+<a class="reference internal" href="using.html#overview-table"><em>Overview entered forms</em></a></li>
+<li><tt class="docutils literal"><span class="pre">idfield_start</span></tt>, <tt class="docutils literal"><span class="pre">idfield_length</span></tt> : Which part of the <tt class="docutils literal"><span class="pre">idfield</span></tt>
+should be used to match different rows into the same column.  For example,
+if IDs include a variable part at the end, such as the visit identifier
+<tt class="docutils literal"><span class="pre">-V01</span></tt> in the ID <tt class="docutils literal"><span class="pre">80001-31-V01</span></tt>, then <tt class="docutils literal"><span class="pre">$idfield_start=0</span></tt> and
+<tt class="docutils literal"><span class="pre">$idfield_length=8</span></tt> would match the IDs <tt class="docutils literal"><span class="pre">80001-31-V01</span></tt> and
+<tt class="docutils literal"><span class="pre">80001-31-E03</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">datefield</span></tt> : Specify which form field should be used to determine when
+the form was filled in. Normally, such a field would be specified as type
+<tt class="docutils literal"><span class="pre">today</span></tt> in the <tt class="docutils literal"><span class="pre">.xls</span></tt> form. If a given form does not have the specified
+field, the submission date is taken (auto generated by ODK).</li>
+<li><tt class="docutils literal"><span class="pre">title</span></tt> : The title is showed on the login site and in the menu;
+particularly handy if <a class="reference external" href="multiple-instances">using multiple instances</a>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="users-sheet">
+<span id="user-sheet"></span><h2><tt class="docutils literal"><span class="pre">users</span></tt> sheet<a class="headerlink" href="#users-sheet" title="Permalink to this headline">¶</a></h2>
+<p>Access to odk_planner is restricted by username/password. Different users can
+have different access rights. The username/password/access rights are stored in
+the columns <tt class="docutils literal"><span class="pre">name</span></tt>, <tt class="docutils literal"><span class="pre">password</span></tt>, <tt class="docutils literal"><span class="pre">rights</span></tt> and <tt class="docutils literal"><span class="pre">access</span></tt>.</p>
+<p>The following <tt class="docutils literal"><span class="pre">rights</span></tt> are defined (specify any combination separated by
+commas):</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">overview</span></tt> : can dispaly the main overview table of entered data</li>
+<li><tt class="docutils literal"><span class="pre">data</span></tt> : can see the actual data inside the forms; what fields are visible
+to what user can be set by different values for <tt class="docutils literal"><span class="pre">access</span></tt>. see
+<a class="reference internal" href="using.html#access-example"><em>Example of access restrictions</em></a></li>
+<li><tt class="docutils literal"><span class="pre">forms</span></tt> : can upload and delete <tt class="docutils literal"><span class="pre">.xls</span></tt> forms (see
+<a class="reference internal" href="using.html#uploading-form-template"><em>Uploading form template</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">sms</span></tt> : can send messages</li>
+<li><tt class="docutils literal"><span class="pre">admin</span></tt> : can change the configuration file <tt class="docutils literal"><span class="pre">config.xls</span></tt> and view the
+logs</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="overview-sheet">
+<span id="id2"></span><h2><tt class="docutils literal"><span class="pre">overview</span></tt> sheet<a class="headerlink" href="#overview-sheet" title="Permalink to this headline">¶</a></h2>
+<p>This sheet specifies which IDs should be grouped together into one
+<a class="reference internal" href="using.html#overview-table"><em>overview table</em></a>. For example, a project can contain two
+groups of subjects with a partly overlapping set of forms for each. Instead of
+generating one big overview containing all subjects and all forms, it would
+then be more clearly laid out to have an different overview table for every
+group.  The <tt class="docutils literal"><span class="pre">id_rlike</span></tt> field contains an expression that matches all IDs for
+the given group &#8211; a <tt class="docutils literal"><span class="pre">&quot;.*&quot;</span></tt> (without double quotes) is a wildchar that
+matches any number of characters (read more about <a class="reference external" href="http://dev.mysql.com/doc/refman/5.6/en/regexp.html">MySQL regular expressions</a>).  Additional to the
+ID-based separation, it is also possible to use arbitrary fields from submitted
+forms to define what cases should be shown in which overview (by specifying
+a <tt class="docutils literal"><span class="pre">condition</span></tt>; see below for <a class="reference internal" href="#condition-format"><em>the format of the conditions</em></a>).  A given ID may appear in any combination of overviews.</p>
+<p><strong>Example</strong> : show all forms of all IDs in same big overview table</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="19%" />
+<col width="15%" />
+<col width="13%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">id_rlike</th>
+<th class="head">name</th>
+<th class="head">subheading</th>
+<th class="head">condition</th>
+<th class="head">forms</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>.*</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong> : If the IDs of patients start with <tt class="docutils literal"><span class="pre">80</span></tt> and the IDs of controls
+start with <tt class="docutils literal"><span class="pre">83</span></tt>, then the following table would generate two overview tables,
+showing the CRFs and the LRFs respectively, each overview split into tables
+with subheadings for cases and controls.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="19%" />
+<col width="15%" />
+<col width="13%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">id_rlike</th>
+<th class="head">name</th>
+<th class="head">subheading</th>
+<th class="head">condition</th>
+<th class="head">forms</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>^80.*</td>
+<td>Clinic</td>
+<td>Cases</td>
+<td>&nbsp;</td>
+<td>CRF1,CRF2,CRF3</td>
+</tr>
+<tr class="row-odd"><td>^83.*</td>
+<td>Clinic</td>
+<td>Controls</td>
+<td>&nbsp;</td>
+<td>CRF1,CRF2,CRF3</td>
+</tr>
+<tr class="row-even"><td>^80.*</td>
+<td>Lab</td>
+<td>Cases</td>
+<td>&nbsp;</td>
+<td>LRF1,LRF2</td>
+</tr>
+<tr class="row-odd"><td>^83.*</td>
+<td>Lab</td>
+<td>Controls</td>
+<td>&nbsp;</td>
+<td>LRF1,LRF2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong> : Split IDs into two overviews showing the same forms, depending on
+whether the field <tt class="docutils literal"><span class="pre">CRF1\sex</span></tt> is <tt class="docutils literal"><span class="pre">male</span></tt> or <tt class="docutils literal"><span class="pre">female</span></tt>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="17%" />
+<col width="13%" />
+<col width="24%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">id_rlike</th>
+<th class="head">name</th>
+<th class="head">subheading</th>
+<th class="head">condition</th>
+<th class="head">forms</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>.*</td>
+<td>Men</td>
+<td>&nbsp;</td>
+<td>CRF1\sex=&#8221;male&#8221;</td>
+<td>CRF1,CRF2,CRF3,LRF1,LRF2</td>
+</tr>
+<tr class="row-odd"><td>.*</td>
+<td>Women</td>
+<td>&nbsp;</td>
+<td>CRF1\sex=&#8221;female&#8221;</td>
+<td>CRF1,CRF2,CRF3,LRF1,LRF2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="colors-sheet">
+<span id="id3"></span><h2><tt class="docutils literal"><span class="pre">colors</span></tt> sheet<a class="headerlink" href="#colors-sheet" title="Permalink to this headline">¶</a></h2>
+<p>Every row in this sheet defines a <strong>timing constraint</strong> that is visually displayed
+in the <a class="reference internal" href="using.html#overview-table"><em>overview table</em></a>. A timing constraint is defined
+between two forms. Once the form specified by the column <tt class="docutils literal"><span class="pre">form1</span></tt> is entered,
+a timer is started. When this timer reaches <tt class="docutils literal"><span class="pre">delay</span></tt> days and the form
+<tt class="docutils literal"><span class="pre">form2</span></tt> is not yet entered into the database, then the corresponding table
+cell will get the CSS style specified in the <tt class="docutils literal"><span class="pre">style</span></tt> column (defaults to
+<tt class="docutils literal"><span class="pre">background-color</span></tt> property). If more than one row apply to a cell, then its
+styles are applied in the same order as the rows in the table.</p>
+<p>As a special case, the cell of a form can be colored <strong>independent</strong> of any other
+form. This way, forms can be highlighted depending on their content (using
+conditions). In this case, specifying only <tt class="docutils literal"><span class="pre">form2</span></tt> is enough (see example
+below).</p>
+<p>As a special special case, only <tt class="docutils literal"><span class="pre">form2</span></tt> is specified and it&#8217;s set to a single
+asterisk <tt class="docutils literal"><span class="pre">*</span></tt> which will allow to color the row header (where the ID is shown).</p>
+<p>Optionally, this coloring can be made dependent on any number of
+<a class="reference internal" href="#condition-format"><em>conditions</em></a>
+that must all be fulfilled in order for this coloring rule to apply to the
+given forms. These conditions are specified in the column <tt class="docutils literal"><span class="pre">condition</span></tt>.</p>
+<div class="highlight-python"><pre>field1 &gt; 1 &amp; (formid1\field2 = "value with space" | field3 &lt; 5)</pre>
+</div>
+<p>Remarks:</p>
+<blockquote>
+<div><ul class="simple">
+<li>when no <tt class="docutils literal"><span class="pre">formid</span></tt> is specified, the field refers to the form from
+column <tt class="docutils literal"><span class="pre">form2</span></tt></li>
+<li>only the operators <tt class="docutils literal"><span class="pre">&lt;</span></tt>, <tt class="docutils literal"><span class="pre">&gt;</span></tt>, <tt class="docutils literal"><span class="pre">=</span></tt> and <tt class="docutils literal"><span class="pre">!=</span></tt> are allowed</li>
+<li>if the value contains spaces, it must be enclosed in double quotes</li>
+<li>logical or <tt class="docutils literal"><span class="pre">|</span></tt> as well as logical and <tt class="docutils literal"><span class="pre">&amp;</span></tt> can be used to connect
+different expressions (and takes precedence over or)</li>
+<li>arbitrarily complex logical expressions can be constructed using
+grouping parenthesis</li>
+<li>an expression with a non-existing field (e.g. because a form has not
+been submitted) <em>always evaluates as false</em>; therefore, an expression
+like <tt class="docutils literal"><span class="pre">FORM\FIELD&gt;&quot;&quot;</span></tt> will therefore evaluate to false if the form
+is not submitted, the field is not found in the form, or the value
+of the field is the empty string &#8211; in all other cases the expression
+would evaluate to true (regardless of the <a class="reference external" href="http://php.net/manual/en/language.operators.comparison.php">datatype of the value</a>)</li>
+</ul>
+</div></blockquote>
+<p><strong>Example</strong> : The following lines will highlight the empty cell for the
+<tt class="docutils literal"><span class="pre">follow_up</span></tt> form if the <tt class="docutils literal"><span class="pre">briefing</span></tt> form has has specified that a follow up
+should be done for this subject (field <tt class="docutils literal"><span class="pre">needs_follow_up</span></tt>). The empty cell
+will first be highlighted green after a week. If it&#8217;s still empty after
+a second week, the cell color will turn orange and then finally red.
+Additionally, IDs (in the row header) are underlined for these individuals.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="13%" />
+<col width="7%" />
+<col width="30%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">form1</th>
+<th class="head">form2</th>
+<th class="head">delay</th>
+<th class="head">style</th>
+<th class="head">condition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>(empty)</td>
+<td>briefing</td>
+<td>&nbsp;</td>
+<td>background-color:green</td>
+<td>needs_follow_up=yes</td>
+</tr>
+<tr class="row-odd"><td>briefing</td>
+<td>follow_up</td>
+<td>7</td>
+<td>background-color:green</td>
+<td>briefing\needs_follow_up=yes</td>
+</tr>
+<tr class="row-even"><td>briefing</td>
+<td>follow_up</td>
+<td>14</td>
+<td>background-color:orange</td>
+<td>briefing\needs_follow_up=yes</td>
+</tr>
+<tr class="row-odd"><td>briefing</td>
+<td>follow_up</td>
+<td>21</td>
+<td>background-color:red</td>
+<td>briefing\needs_follow_up=yes</td>
+</tr>
+<tr class="row-even"><td>(empty)</td>
+<td>*</td>
+<td>&nbsp;</td>
+<td>text-decoration:underline</td>
+<td>briefing\needs_follow_up=yes</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="condition-format">
+<span id="id4"></span><h3>Condition format<a class="headerlink" href="#condition-format" title="Permalink to this headline">¶</a></h3>
+<p>Conditions can be used in the <tt class="docutils literal"><span class="pre">condition</span></tt> column of the <a class="reference internal" href="#colors-sheet"><em>colors heet</em></a> and the <a class="reference internal" href="#overview-sheet"><em>overview sheet</em></a>.  They have the
+following format:</p>
+<div class="highlight-python"><pre>field1 &gt; 1 &amp; (formid1\field2 = "value with space" | field3 &lt; 5)</pre>
+</div>
+<p>Remarks:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">formid\field</span></tt> is the name of the field as displayed in the <a class="reference internal" href="using.html#viewing-data"><em>data
+viewer</em></a>, this is not necessarily the field name as specified
+in the <tt class="docutils literal"><span class="pre">.xls</span></tt> file (for example if the <tt class="docutils literal"><span class="pre">.xls</span></tt> file defines a field
+called <tt class="docutils literal"><span class="pre">ID</span></tt> in the group <tt class="docutils literal"><span class="pre">INFO</span></tt>, then the name of the field will
+probably be <tt class="docutils literal"><span class="pre">INFO_ID</span></tt>).</li>
+<li>when no <tt class="docutils literal"><span class="pre">formid</span></tt> is specified, the field refers to the form from
+column <tt class="docutils literal"><span class="pre">form2</span></tt></li>
+<li>only the operators <tt class="docutils literal"><span class="pre">&lt;</span></tt>, <tt class="docutils literal"><span class="pre">&gt;</span></tt> and <tt class="docutils literal"><span class="pre">=</span></tt> are allowed</li>
+<li>if the value contains spaces, it must be enclosed in double quotes</li>
+<li>logical or <tt class="docutils literal"><span class="pre">|</span></tt> as well as logical and <tt class="docutils literal"><span class="pre">&amp;</span></tt> can be used to connect
+different expressions (and takes precedence over or)</li>
+<li>arbitrarily complex logical expressions can be constructed using
+grouping parenthesis</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="additional-columns">
+<span id="colors-sheet-additional"></span><h3>Additional columns<a class="headerlink" href="#additional-columns" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">list</span></tt> : The list column specifies which of these rules should be used to
+<a class="reference internal" href="using.html#csv-generation"><em>generate files</em></a> of &#8220;missing forms&#8221;.  If the <tt class="docutils literal"><span class="pre">list</span></tt>
+column is left empty, the form is not added to a <tt class="docutils literal"><span class="pre">.csv</span></tt> list (e.g. rules
+that are merely used to highlight some condition).  If the column is not
+empty, then its content will be used as the <tt class="docutils literal"><span class="pre">remark</span></tt> column in the
+generated list file.</li>
+<li><tt class="docutils literal"><span class="pre">more</span></tt> : This column contains settings for additional rule-based actions.
+The format is the following : A space separated list of <tt class="docutils literal"><span class="pre">option:value</span></tt>
+pairs.  The possible options are:<ul>
+<li><tt class="docutils literal"><span class="pre">sms</span></tt> : Specify what <a class="reference internal" href="using.html#autogenerating-messages"><em>short message should be generated</em></a> based on this rule.  The value of this option
+is the <a class="reference internal" href="#config-sms"><em>name of a template</em></a>.  If the template title
+is followed by an exclamation mark <tt class="docutils literal"><span class="pre">!</span></tt>, then the corresponding message
+is also sent <a class="reference internal" href="using.html#automatization"><em>autonomously</em></a>.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>Example</strong> : The following lines will automatically send the message from
+template <tt class="docutils literal"><span class="pre">welcome</span></tt> to every participant as soon as the form <tt class="docutils literal"><span class="pre">briefing</span></tt> is
+submitted.  If the form <tt class="docutils literal"><span class="pre">follow_up</span></tt> is not entered after one week, the
+participant will be added to the missing list with the remark <tt class="docutils literal"><span class="pre">briefing</span> <span class="pre">1</span> <span class="pre">week</span>
+<span class="pre">old</span></tt>.  If the follow up is still not entered two weeks after the briefing was
+submitted, the web application will propose an <a class="reference internal" href="using.html#autogenerating-messages"><em>autogenerated message</em></a>, but this message will not automatically be sent
+(because the exclamation mark is missing).  In a real configuration, these rows
+should be combined with the rows from the example above.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="14%" />
+<col width="7%" />
+<col width="30%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">form1</th>
+<th class="head">form2</th>
+<th class="head">delay</th>
+<th class="head">list</th>
+<th class="head">more</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>(empty)</td>
+<td>briefing</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>sms:welcome!</td>
+</tr>
+<tr class="row-odd"><td>briefing</td>
+<td>follow_up</td>
+<td>7</td>
+<td>briefing 1 week old</td>
+<td>(empty)</td>
+</tr>
+<tr class="row-even"><td>briefing</td>
+<td>follow_up</td>
+<td>14</td>
+<td>&nbsp;</td>
+<td>sms:follow_up_overdue</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="sms-sheet">
+<span id="config-sms"></span><h2><tt class="docutils literal"><span class="pre">sms</span></tt> sheet<a class="headerlink" href="#sms-sheet" title="Permalink to this headline">¶</a></h2>
+<p>Configuration of <a class="reference internal" href="using.html#sending-sms"><em>messaging</em></a> is done via the following
+key/value pairs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">default_country_prefix</span></tt> : if a phonen umber is specified with one
+leading zero (<tt class="docutils literal"><span class="pre">&quot;0xxxxxxxx&quot;</span></tt>) then the <tt class="docutils literal"><span class="pre">default_country_prefix</span></tt> is
+automatically added in the beginning of the number (after stripping the
+single zero)</li>
+<li><tt class="docutils literal"><span class="pre">url</span></tt> : URL of messaging API (e.g.
+<tt class="docutils literal"><span class="pre">http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0</span></tt>
+when using the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</li>
+<li><tt class="docutils literal"><span class="pre">response_regexp</span></tt> : a regular expression (<a class="reference external" href="http://php.net/manual/en/pcre.pattern.php">PCRE</a>, but without the
+delimiters) that must match the response body sent by the server
+when a message was succesfully delivered</li>
+<li><tt class="docutils literal"><span class="pre">params</span></tt> : default parameters that are sent with the message; include
+username and password here (e.g. <tt class="docutils literal"><span class="pre">username=XXX&amp;password=XXX</span></tt> for the
+<a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</li>
+<li><tt class="docutils literal"><span class="pre">param_message</span></tt> : name of the parameter that is used for the message
+(e.g. <tt class="docutils literal"><span class="pre">message</span></tt> for the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</li>
+<li><tt class="docutils literal"><span class="pre">param_number</span></tt> : name of the parameter that is used to specify the
+receiver&#8217;s phone number (e.g. <tt class="docutils literal"><span class="pre">msisdn</span></tt> for the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>) &#8211;
+the number will be formatted with country prefix but without any leading
+zeroes or plus sign</li>
+<li><tt class="docutils literal"><span class="pre">phone_numbers</span></tt> defines where phone numbers can be found in the forms.
+every entry has the form <tt class="docutils literal"><span class="pre">form_id\field_name</span></tt> and multiple entries are
+separated by spaces. forms that do not exist on the server, that are
+not found for the given patient, or that do not feature the specified
+field, are simply ignored.</li>
+<li><tt class="docutils literal"><span class="pre">template_NAME</span></tt> entries define the messaging templates. When writing
+a message using odk_planner, the message text can be chosen from these
+templates. The content of the templates is the only content that is allowed
+for <a class="reference internal" href="using.html#autogenerating-messages"><em>autogenerated messages</em></a>.<ul>
+<li>if this template starts with a phone number in the form <tt class="docutils literal"><span class="pre">+1234567890</span></tt>
+then the message is sent to this number instead of the number defined
+by <tt class="docutils literal"><span class="pre">phone_numbers</span></tt></li>
+<li>every <tt class="docutils literal"><span class="pre">{FORMID\FIELD}</span></tt> is replaced with the content of the specified
+form for the given patient.  only fields that have a <a class="reference internal" href="using.html#uploading-form-template"><em>access column</em></a> with <tt class="docutils literal"><span class="pre">sms</span></tt> can be sent via this mechanism</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="cron-sheet">
+<span id="config-cron"></span><h2><tt class="docutils literal"><span class="pre">cron</span></tt> sheet<a class="headerlink" href="#cron-sheet" title="Permalink to this headline">¶</a></h2>
+<p>This sheet contains settings regarding the <a class="reference internal" href="using.html#automatization"><em>automatization</em></a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">notify_email</span></tt> : This address will receive an update every time the
+script is run autonomously.</li>
+<li><tt class="docutils literal"><span class="pre">notify_logs</span></tt> : A comma separated list of <a class="reference internal" href="using.html#log-files"><em>log files</em></a> that
+are sent to the <tt class="docutils literal"><span class="pre">notify_email</span></tt>.  The log files are added as <tt class="docutils literal"><span class="pre">.csv</span></tt> files and
+only new entries since the last email are included.  If nothing changed since
+the last email, the log is not attached.</li>
+<li><tt class="docutils literal"><span class="pre">profile</span></tt> : If this value is set to <tt class="docutils literal"><span class="pre">yes</span></tt>, performance information is added
+to the <tt class="docutils literal"><span class="pre">cron</span></tt> log.</li>
+<li><tt class="docutils literal"><span class="pre">reports_mdays</span></tt> : A comma-separated list of days of the month on which
+a <a class="reference internal" href="using.html#csv-generation"><em>list of missing forms</em></a> is attached to the email.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="using.html" class="btn btn-neutral float-right" title="Using"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installing.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Andreas Steiner.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v0.8bis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
