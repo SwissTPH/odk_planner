@@ -85,6 +85,13 @@ inidst = os.path.join(instance_root, 'config', 'config.ini')
 cp.write(file(os.path.join(inidst), 'w'))
 shutil.copyfile(xlssrc, xlsdst)
 
+# try setting group id
+st = os.stat(instancedir)
+os.chown(instance_root, -1, st.st_gid)
+for root, dirs, files in os.walk(instance_root):
+    for leaf in dirs + files:
+        os.chown(os.path.join(root, leaf), -1, st.st_gid)
+
 # generate temporary password
 passpath = os.path.join(instance_root, 'config', 'TMPPASS')
 tmppass = makepass(8)
