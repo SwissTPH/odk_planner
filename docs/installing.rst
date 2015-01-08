@@ -96,10 +96,10 @@ download of ``odk_planner`` you can set up any number of instances that are
 completely independent of each other.
 
 A new instance is then created by executing the script
-``test/demo/create_instance.py`` (to change the proposed default values please
+``tools/create_instance.py`` (to change the proposed default values please
 modify the file ``test/demo/config/config-sample.ini``)::
 
-  $ python test/demo/create_instance.py
+  $ python tools/create_instance.py
 
   this script will create a new odk_planner instance
   --------------------------------------------------
