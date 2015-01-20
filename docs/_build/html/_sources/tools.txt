@@ -104,7 +104,7 @@ configuration):
   - ``manual_fields`` : A dictionary of field names and `regular expressions
     <regular expression>`_.  Before uploading Xray images, the user will be
     asked to fill in a value for each of these fields. The regular expressions
-    ensure that the consistency of the entered data.
+    ensure the consistency of the entered data.
 
   - ``xform`` : Path to a XML XForm that was uploaded to the ODK Aggregate
     server and in which the Xray images should be stored.
@@ -145,7 +145,7 @@ in before the download can be started (your initials and an optional comment).
 .. image:: _static/imgs/screenshots/xray_uploader_fill_in.png
   :align: center
 
-**Final step -- Check upload** : In the left pane yuu should see a "uploaded
+**Final step -- Check upload** : In the left panel you should see a "uploaded
 image XXX" for every file that is uploaded. Also, the files disapper in the
 left pane (and the program will remember this for the next time).
 

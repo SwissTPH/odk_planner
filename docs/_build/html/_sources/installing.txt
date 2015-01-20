@@ -32,7 +32,10 @@ Please see the following documents on how to install these prerequisites on
 your local computer:
 
   - On windows, install MySQL_, Apache_ and PHP_ bundled in one simple download:
-    XAMPP_
+    XAMPP_ 
+	note: XAMPP also comes with a pre-installed Tomcat-version that is not
+	compatible with ODK Aggregate. Thus, you need to install the appropriate Tomcat
+	version (Tomcat 6) separately (see: `how to install ODK Aggregate`_)
 
   - On Linux make sure you installed the packages ``apache2``, ``mysql-server``,
     and ``php5``
@@ -66,7 +69,7 @@ into its documents root folder
 
   - on OS X this is ``/Library/WebServer/Documents/``
   - on debin this is ``/var/www``
-  - when using XAMPP on Windows this is ``C:\xampp\xampp\htdocs``
+  - when using XAMPP on Windows this is ``C:\xampp\htdocs``
 
 When you now open ``http://localhost/odk_planner`` in your web browser you
 should see the following
@@ -96,10 +99,10 @@ download of ``odk_planner`` you can set up any number of instances that are
 completely independent of each other.
 
 A new instance is then created by executing the script
-``tools/create_instance.py`` (to change the proposed default values please
+``test/demo/create_instance.py`` (to change the proposed default values please
 modify the file ``test/demo/config/config-sample.ini``)::
 
-  $ python tools/create_instance.py
+  $ python test/demo/create_instance.py
 
   this script will create a new odk_planner instance
   --------------------------------------------------
@@ -145,7 +148,7 @@ specified
   - MySQL settings : ``db_host``, ``db_database``, ``db_user``, ``db_pass``
     : the credentials with which ``odk_planner`` will access the MySQL
     database.  See the file ``create_db_and_user.sql`` that was created during
-    ODK Aggregate installtion (or :ref:`get them fromt he webapp
+    ODK Aggregate installtion (or :ref:`get them from the webapp
     <aggregate-db>`).  Note that ``odk_planner`` only needs read rights and
     a new user without write access should be created.
 
