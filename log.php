@@ -19,6 +19,7 @@ function get_log_path($name) {
 function get_log_size($name) {
     $fpath = get_log_path($name);
     if (!is_file($fpath)) return 0;
+    clearstatcache();
     return filesize($fpath);
 }
 

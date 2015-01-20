@@ -214,7 +214,7 @@ class PlannerDriver:
     def mass_sms_send(self):
         self.el_css('.select-all').click()
         xpath = '//table//tr[last()]/td[last()]'
-        xpath += '/span[contains(concat(" ", @class, " "), " send-status ")]'
+        xpath += '/span[contains(concat(" ", @class, " "), " text-")]'
         self.el_css('.send-selected').click()
         self.el_xpath_wait(xpath, 5)
         return len(self.els_css('.send-status'))

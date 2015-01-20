@@ -60,6 +60,7 @@ class TestCron(unittest.TestCase):
         template = '+%s odk_planner test_send_cron_sms' % config.test_number
         template += ' : {CRF1\\INFO_STUDY_ID} should be 80006'
         self.modify_config(template=template)
+        driver.mass_sms_reset()
         self.run_cron()
         lo.info('cron sent sms to %s (and email without report to %s)' % (
             config.test_number, config.test_email))
