@@ -71,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
@@ -165,7 +165,7 @@ seem worthwile to be retained somewhere.</p>
 this directory itself is located at <tt class="docutils literal"><span class="pre">/bar/lib/tomcat6</span></tt>).  The <tt class="docutils literal"><span class="pre">.jar</span></tt> file
 (which has the same <a class="reference external" href="https://en.wikipedia.org/wiki/JAR_%28file_format%29">file format</a> as a <tt class="docutils literal"><span class="pre">.zip</span></tt> file) contains a file called
 <tt class="docutils literal"><span class="pre">jdbc.properties</span></tt> that stores the MySQL connection settings.</p>
-<p>You can open this file to look up the databasse connection parameters (in case
+<p>You can open this file to look up the database connection parameters (in case
 you have lost the original <tt class="docutils literal"><span class="pre">create_db_and_user.sql</span></tt> that was created during
 the ODK Aggregate installation), or modify it to use the same ODK Aggregate
 instance to access a different database (e.g. for <a class="reference internal" href="testing.html#testing"><em>testing</em></a>).
@@ -182,6 +182,14 @@ Stopping Tomcat servlet engine: tomcat6.
 Starting Tomcat servlet engine: tomcat6.
 </pre></div>
 </div>
+<p>If you want to change the <tt class="docutils literal"><span class="pre">jdbc.properties</span></tt> file using Windows, just open
+the <tt class="docutils literal"><span class="pre">ODKAggregate-settings.jar</span></tt> file with <a class="reference external" href="http://www.7-zip.de/">7-zip</a>
+(or a similar programme), copy the <tt class="docutils literal"><span class="pre">jdbc.properties</span></tt> file to a local directory,
+apply the necessary changes and then copy it back into the <tt class="docutils literal"><span class="pre">.jar</span></tt> file.</p>
+<p>In order to change the super-user name, the server host name or the server ports for
+your ODK-Aggregate instance simply open the file <tt class="docutils literal"><span class="pre">security.properties</span></tt> and apply
+the necessary changes. The file can be found under <tt class="docutils literal"><span class="pre">ODKAggregate-settings.jar</span></tt>
+as well.</p>
 </div>
 </div>
 

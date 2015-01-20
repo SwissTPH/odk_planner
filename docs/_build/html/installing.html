@@ -29,7 +29,7 @@
 
   
     <link rel="top" title="odk_planner v0.9 documentation" href="index.html"/>
-        <link rel="next" title="Configation" href="configuring.html"/>
+        <link rel="next" title="Configuration" href="configuring.html"/>
         <link rel="prev" title="Introduction" href="introduction.html"/> 
 
   
@@ -71,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installing-cron-job">Installing cron job</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configation</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="configuring.html">Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="configuring.html#settings-sheet"><tt class="docutils literal"><span class="pre">settings</span></tt> sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuring.html#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuring.html#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
@@ -188,6 +188,12 @@ activated</a></li>
 description on <a class="reference external" href="https://opendatakit.org/use/aggregate/tomcat-install/">how to install ODK Aggregate</a></li>
 </ul>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">XAMPP also comes with a pre-installed Tomcat-version that is not
+compatible with ODK Aggregate. Thus, you need to install the appropriate Tomcat
+version (Tomcat 6) separately (see <a class="reference external" href="https://opendatakit.org/use/aggregate/tomcat-install/">how to install ODK Aggregate</a>)</p>
+</div>
 </div>
 <div class="section" id="copy-odk-planner">
 <span id="install-copy"></span><h2>Copy odk_planner<a class="headerlink" href="#copy-odk-planner" title="Permalink to this headline">¶</a></h2>
@@ -197,7 +203,7 @@ into its documents root folder</p>
 <div><ul class="simple">
 <li>on OS X this is <tt class="docutils literal"><span class="pre">/Library/WebServer/Documents/</span></tt></li>
 <li>on debin this is <tt class="docutils literal"><span class="pre">/var/www</span></tt></li>
-<li>when using XAMPP on Windows this is <tt class="docutils literal"><span class="pre">C:\xampp\xampp\htdocs</span></tt></li>
+<li>when using XAMPP on Windows this is <tt class="docutils literal"><span class="pre">C:\xampp\htdocs</span></tt></li>
 </ul>
 </div></blockquote>
 <p>When you now open <tt class="docutils literal"><span class="pre">http://localhost/odk_planner</span></tt> in your web browser you
@@ -263,7 +269,7 @@ other websites (used for <a class="reference internal" href="using.html#sending-
 <li>MySQL settings : <tt class="docutils literal"><span class="pre">db_host</span></tt>, <tt class="docutils literal"><span class="pre">db_database</span></tt>, <tt class="docutils literal"><span class="pre">db_user</span></tt>, <tt class="docutils literal"><span class="pre">db_pass</span></tt>
 : the credentials with which <tt class="docutils literal"><span class="pre">odk_planner</span></tt> will access the MySQL
 database.  See the file <tt class="docutils literal"><span class="pre">create_db_and_user.sql</span></tt> that was created during
-ODK Aggregate installtion (or <a class="reference internal" href="aggregate.html#aggregate-db"><em>get them fromt he webapp</em></a>).  Note that <tt class="docutils literal"><span class="pre">odk_planner</span></tt> only needs read rights and
+ODK Aggregate installtion (or <a class="reference internal" href="aggregate.html#aggregate-db"><em>get them from the webapp</em></a>).  Note that <tt class="docutils literal"><span class="pre">odk_planner</span></tt> only needs read rights and
 a new user without write access should be created.</li>
 <li>email settings : <tt class="docutils literal"><span class="pre">smtp_server</span></tt>, <tt class="docutils literal"><span class="pre">smtp_user</span></tt>, <tt class="docutils literal"><span class="pre">smtp_pass</span></tt> : reports
 are sent via email when <a class="reference internal" href="using.html#automatization"><em>automatization</em></a> is used;
@@ -310,7 +316,7 @@ running the cron job)</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="configuring.html" class="btn btn-neutral float-right" title="Configation"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="configuring.html" class="btn btn-neutral float-right" title="Configuration"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="introduction.html" class="btn btn-neutral" title="Introduction"><span class="fa fa-arrow-circle-left"></span> Previous</a>

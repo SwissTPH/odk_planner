@@ -44,6 +44,10 @@ your local computer:
   - Once you got these up and running you can continue with the detailed
     description on `how to install ODK Aggregate`_
 
+.. note:: XAMPP also comes with a pre-installed Tomcat-version that is not
+  compatible with ODK Aggregate. Thus, you need to install the appropriate Tomcat
+  version (Tomcat 6) separately (see `how to install ODK Aggregate`_)
+
 .. _ODK Aggregate: https://opendatakit.org/use/aggregate/
 .. _Apache: http://httpd.apache.org/
 .. _PHP: http://php.net/
@@ -66,7 +70,7 @@ into its documents root folder
 
   - on OS X this is ``/Library/WebServer/Documents/``
   - on debin this is ``/var/www``
-  - when using XAMPP on Windows this is ``C:\xampp\xampp\htdocs``
+  - when using XAMPP on Windows this is ``C:\xampp\htdocs``
 
 When you now open ``http://localhost/odk_planner`` in your web browser you
 should see the following
@@ -145,7 +149,7 @@ specified
   - MySQL settings : ``db_host``, ``db_database``, ``db_user``, ``db_pass``
     : the credentials with which ``odk_planner`` will access the MySQL
     database.  See the file ``create_db_and_user.sql`` that was created during
-    ODK Aggregate installtion (or :ref:`get them fromt he webapp
+    ODK Aggregate installtion (or :ref:`get them from the webapp
     <aggregate-db>`).  Note that ``odk_planner`` only needs read rights and
     a new user without write access should be created.
 

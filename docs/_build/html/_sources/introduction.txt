@@ -91,11 +91,11 @@ In particular, ``odk_planner`` has the following features
     forms can even automatically be :ref:`sent in emails <config-cron>`
 
   - participants can be :ref:`notified by SMS <sending-sms>`, based on the
-    highlighting of the cells in the overview table; this mechanisme can
+    highlighting of the cells in the overview table; this mechanism can
     also be :ref:`configured <config-sms>` to send data from the forms to
     a specified number
 
-  - all data in the database can be :ref:`viewed <viewing-data>`, by clicking
+  - all data in the database can be :ref:`viewed <viewing-data>` by clicking
     on the links in the overview table; contrary to ODK Aggregate, you can
     specify :ref:`detailed access permissions <access-example>` for every
     datapoint
@@ -113,7 +113,7 @@ In particular, ``odk_planner`` has the following features
 Overview
 --------
 
-The documentation is strucuted as follows:
+The documentation is structured as follows:
 
   - :ref:`Installation <installing>` explains how to set up ``odk_planner``;
     in a typical setting, this part of the documentation would only be read

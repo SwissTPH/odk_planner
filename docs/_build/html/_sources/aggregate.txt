@@ -20,7 +20,7 @@ this directory itself is located at ``/bar/lib/tomcat6``).  The ``.jar`` file
 (which has the same `file format`_ as a ``.zip`` file) contains a file called
 ``jdbc.properties`` that stores the MySQL connection settings.
 
-You can open this file to look up the databasse connection parameters (in case
+You can open this file to look up the database connection parameters (in case
 you have lost the original ``create_db_and_user.sql`` that was created during
 the ODK Aggregate installation), or modify it to use the same ODK Aggregate
 instance to access a different database (e.g. for :ref:`testing <testing>`).
@@ -41,3 +41,12 @@ The following example is for debian:
 
 .. _file format: https://en.wikipedia.org/wiki/JAR_%28file_format%29
 
+If you want to change the ``jdbc.properties`` file using Windows, just open
+the ``ODKAggregate-settings.jar`` file with `7-zip <http://www.7-zip.de/>`_ 
+(or a similar programme), copy the ``jdbc.properties`` file to a local directory,
+apply the necessary changes and then copy it back into the ``.jar`` file.
+
+In order to change the super-user name, the server host name or the server ports for 
+your ODK-Aggregate instance simply open the file ``security.properties`` and apply
+the necessary changes. The file can be found under ``ODKAggregate-settings.jar``
+as well.
