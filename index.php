@@ -89,6 +89,9 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
         $_SESSION['instance'] = $instance;
         $_SESSION['timestamp'] = time();
         log_add('user', 'user "' . $_SESSION['user'] . '" logged in');
+        # do redirect so page can be reloaded without browser suggesting
+        # to post the data a second time
+        header('Location: ' . $self);
     } else {
         log_add('user', 'user "' . $_POST['user'] . '" entered wrong password');
         sleep(2);
