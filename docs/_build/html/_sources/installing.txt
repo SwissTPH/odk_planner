@@ -32,10 +32,7 @@ Please see the following documents on how to install these prerequisites on
 your local computer:
 
   - On windows, install MySQL_, Apache_ and PHP_ bundled in one simple download:
-    XAMPP_ 
-	note: XAMPP also comes with a pre-installed Tomcat-version that is not
-	compatible with ODK Aggregate. Thus, you need to install the appropriate Tomcat
-	version (Tomcat 6) separately (see: `how to install ODK Aggregate`_)
+    XAMPP_
 
   - On Linux make sure you installed the packages ``apache2``, ``mysql-server``,
     and ``php5``
@@ -46,6 +43,10 @@ your local computer:
 
   - Once you got these up and running you can continue with the detailed
     description on `how to install ODK Aggregate`_
+
+.. note:: XAMPP also comes with a pre-installed Tomcat-version that is not
+  compatible with ODK Aggregate. Thus, you need to install the appropriate Tomcat
+  version (Tomcat 6) separately (see `how to install ODK Aggregate`_)
 
 .. _ODK Aggregate: https://opendatakit.org/use/aggregate/
 .. _Apache: http://httpd.apache.org/
@@ -99,10 +100,10 @@ download of ``odk_planner`` you can set up any number of instances that are
 completely independent of each other.
 
 A new instance is then created by executing the script
-``test/demo/create_instance.py`` (to change the proposed default values please
+``tools/create_instance.py`` (to change the proposed default values please
 modify the file ``test/demo/config/config-sample.ini``)::
 
-  $ python test/demo/create_instance.py
+  $ python tools/create_instance.py
 
   this script will create a new odk_planner instance
   --------------------------------------------------

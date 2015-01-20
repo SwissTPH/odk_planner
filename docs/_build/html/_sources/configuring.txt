@@ -2,7 +2,7 @@
 .. _configuring:
 
 Configuration
-===========
+=============
 
 This chapter is a reference documentation for the settings in the configuration
 file ``config.xls`` that contains all the user-modifiable settings for the

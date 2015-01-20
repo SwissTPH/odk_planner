@@ -155,7 +155,7 @@ Automatization
 The PHP file called ``cron.php`` can be executed on the server and will
 generate an overview. Different components of the ``odk_planner`` can register
 to use this overview to generate output. Log messages are added to the
-:ref:`log file <log-files>` ``cron``. At the of every script invocation, an
+:ref:`log file <log-files>` ``cron``. At every script invocation, an
 email is sent to the :ref:`notify email address <config-cron>`.
 
 Currently, the following actions can be performed autonomously
@@ -182,5 +182,5 @@ these logs can be sent to the the :ref:`notify email address <config-cron>`.
   - ``user`` : logins and login attempts
   - ``cron`` : log of actions that were performed autonomously
   - ``sms`` : list of SMS that were sent
-  - ``mass-sms`` : list of patient ID / template title of shor
+  - ``mass-sms`` : list of patient ID / template title of short message
 
