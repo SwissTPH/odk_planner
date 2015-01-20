@@ -53,6 +53,10 @@ is structered and how it should be accessed as well as the email configuration.
   - ``title`` : The title is showed on the login site and in the menu;
     particularly handy if `using multiple instances <multiple-instances>`_.
 
+  - ``opentabs`` : set to ``yes`` if you want :ref:`data <viewing-data>` and
+    :ref:`sms <sending-sms>` related pages to automatically open in a new
+    tab.
+
 
 .. _user-sheet:
 

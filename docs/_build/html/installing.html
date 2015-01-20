@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; odk_planner v0.9 documentation</title>
+  <title>Installation &mdash; odk_planner v0.9bis documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="odk_planner v0.9 documentation" href="index.html"/>
+    <link rel="top" title="odk_planner v0.9bis documentation" href="index.html"/>
         <link rel="next" title="Configuration" href="configuring.html"/>
         <link rel="prev" title="Introduction" href="introduction.html"/> 
 
@@ -202,15 +202,17 @@ into its documents root folder</p>
 <blockquote>
 <div><ul class="simple">
 <li>on OS X this is <tt class="docutils literal"><span class="pre">/Library/WebServer/Documents/</span></tt></li>
-<li>on debin this is <tt class="docutils literal"><span class="pre">/var/www</span></tt></li>
-<li>when using XAMPP on Windows this is <tt class="docutils literal"><span class="pre">C:\xampp\htdocs</span></tt></li>
+<li>on Debian this is <tt class="docutils literal"><span class="pre">/var/www/</span></tt></li>
+<li>when using XAMPP on Windows this is <tt class="docutils literal"><span class="pre">C:\xampp\xampp\htdocs</span></tt></li>
 </ul>
 </div></blockquote>
 <p>When you now open <tt class="docutils literal"><span class="pre">http://localhost/odk_planner</span></tt> in your web browser you
 should see the following</p>
 <a class="reference internal image-reference" href="_images/no_instance.png"><img alt="_images/no_instance.png" class="align-center" src="_images/no_instance.png" style="width: 398px;" /></a>
 <p>On Linux/Unix/OS X it is important to configure the <strong>file access rights</strong>
-correctly so that the user running apache can modify the per-instance files:</p>
+correctly so that the user running apache can modify the per-instance files
+(it&#8217;s enough to set the correct group; write permissions will be set by the
+script <tt class="docutils literal"><span class="pre">create_instance.py</span></tt>):</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /path/to/odk_planner
 sudo chown :_www instances/ <span class="c"># on OS X</span>
 sudo chown :www-data instances/ <span class="c"># on Debian</span>
@@ -242,9 +244,9 @@ generated new instance:
   - name: test
   - temporary password: xL6NZQfL
 
-make sure that the directory "test/demo/../../instances/test" and all its
+make sure that the directory "instances/test/" and all its
 contents are writable by the apache user (this should automatically be the
-case if the directory "test/demo/../../instances" has the right group
+case if the directory "instances/" has the right group
 ownership)
 
 
@@ -348,7 +350,7 @@ running the cron job)</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v0.9',
+            VERSION:'v0.9bis',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -104,13 +104,12 @@ generated new instance:
   - name: {instance_name}
   - temporary password: {tmppass}
 
-make sure that the directory "{instance_root}" and all its contents are
+make sure that the directory "instances/{instance_name}/" and all its contents are
 writable by the apache user (this should automatically be the case if the
-directory "{instancedir}" has the right group ownership)
+directory "instances/" has the right group ownership)
 
 '''.format(
-        instance_name=instance_name, tmppass=tmppass, instance_root=instance_root,
-        instancedir=instancedir))
+        instance_name=instance_name, tmppass=tmppass))
 
 raw_input('press <ENTER> to continue...')
 

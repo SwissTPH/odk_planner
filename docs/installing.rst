@@ -69,8 +69,8 @@ Once apache is up & running, move the entire ``odk_planner`` directory structure
 into its documents root folder
 
   - on OS X this is ``/Library/WebServer/Documents/``
-  - on debin this is ``/var/www``
-  - when using XAMPP on Windows this is ``C:\xampp\htdocs``
+  - on Debian this is ``/var/www/``
+  - when using XAMPP on Windows this is ``C:\xampp\xampp\htdocs``
 
 When you now open ``http://localhost/odk_planner`` in your web browser you
 should see the following
@@ -80,7 +80,9 @@ should see the following
   :width: 398
 
 On Linux/Unix/OS X it is important to configure the **file access rights**
-correctly so that the user running apache can modify the per-instance files:
+correctly so that the user running apache can modify the per-instance files
+(it's enough to set the correct group; write permissions will be set by the
+script ``create_instance.py``):
 
 .. code-block:: bash
 
@@ -119,9 +121,9 @@ modify the file ``test/demo/config/config-sample.ini``)::
     - name: test
     - temporary password: xL6NZQfL
 
-  make sure that the directory "test/demo/../../instances/test" and all its
+  make sure that the directory "instances/test/" and all its
   contents are writable by the apache user (this should automatically be the
-  case if the directory "test/demo/../../instances" has the right group
+  case if the directory "instances/" has the right group
   ownership)
 
 
