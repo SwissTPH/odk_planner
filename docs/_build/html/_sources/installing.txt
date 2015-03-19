@@ -31,18 +31,27 @@ Prerequisites
 Please see the following documents on how to install these prerequisites on
 your local computer:
 
-  - On windows, install MySQL_, Apache_ and PHP_ bundled in one simple download:
-    XAMPP_
+  - On **Windows**, install MySQL_, Apache_ and PHP_ bundled in one simple
+    download: XAMPP_
 
-  - On Linux make sure you installed the packages ``apache2``, ``mysql-server``,
-    and ``php5``
+  - On **Linux** make sure you installed the packages ``apache2``,
+    ``mysql-server``, and ``php5``
 
-  - On OS X you should first install Brew_ and then download the package
-    ``mysql`` -- apache/php are installed by default, but `must be
-    activated`_
+  - On **OS X** you should first install Brew_ and then download the package
+    ``mysql`` -- apache/php are installed by default, but `must be activated`_
 
-  - Once you got these up and running you can continue with the detailed
-    description on `how to install ODK Aggregate`_
+Once you got these up and running you can continue with the detailed
+description on `how to install ODK Aggregate`_
+
+..
+      - install to any directory (temporary)
+      - MySQL; don't forget the adapter !
+      - no SSL certificate
+      - default port 3306
+      - database name / username / password  <- remember
+      - username (Aggregate) e.g. admin
+      - XAMPP shell -> mysql --user root -> paste command from .html
+      - move .war to webapps
 
 .. note:: XAMPP also comes with a pre-installed Tomcat-version that is not
   compatible with ODK Aggregate. Thus, you need to install the appropriate Tomcat
@@ -62,11 +71,12 @@ your local computer:
 
 .. _install-copy:
 
-Copy odk_planner
-----------------
+Get odk_planner
+---------------
 
-Once apache is up & running, move the entire ``odk_planner`` directory structure
-into its documents root folder
+Get ``odk_planner`` as `a ZIP file`_ or clone the entire repository from
+GitHub_.  Then simply move the entire ``odk_planner`` directory structure into
+Apache's documents root folder.
 
   - on OS X this is ``/Library/WebServer/Documents/``
   - on Debian this is ``/var/www/``
@@ -90,6 +100,9 @@ script ``create_instance.py``):
   sudo chown :_www instances/ # on OS X
   sudo chown :www-data instances/ # on Debian
 
+.. _a ZIP file: https://github.com/kvarq/odk_planner/archive/master.zip
+.. _GitHub: https://github.com/kvarq/odk_planner
+
 
 .. _install-instance:
 
@@ -100,6 +113,13 @@ Next thing to do is to set up an instance. ``odk_planner`` saves all its
 configuration, forms, and log data on a per-instance basis.  With a single
 download of ``odk_planner`` you can set up any number of instances that are
 completely independent of each other.
+
+If you installed ``odk_planner`` into the root directory of your web server,
+then an instance named ``instance_name`` can be reached under the following
+two addresses::
+
+  http://localhost/odk_planner/index.php?instance=instance_name
+  http://localhost/odk_planner/instance_name
 
 A new instance is then created by executing the script
 ``tools/create_instance.py`` (to change the proposed default values please

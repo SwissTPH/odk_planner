@@ -15,6 +15,11 @@ $(function() {
         }).join(',');
     }
 
+    if (window.navigator.userAgent.match(/android|webos|iphone|ipad|ipod|windows phone/i)) {
+        // don't add download link for mobile browsers
+        return;
+    }
+
     $('.overview-table').each(function() {
         var $table = $(this);
         $table.find('.topleft').html(

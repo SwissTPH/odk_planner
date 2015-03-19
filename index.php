@@ -37,7 +37,8 @@ if (!$instance) {
     $instance = @$_REQUEST['instance'];
 }
 if (!$instance) {
-    fatal_error("no instance specified");
+    // with mod_rewrite activated
+    $instance = preg_replace('/.*\\/([a-z0-9_-]+).*/i', '$1', $_SERVER['REQUEST_URI']);
 }
 $instance = sanitize($instance);
 $root = "instances/$instance";
@@ -143,8 +144,8 @@ if (!array_key_exists('user', $_SESSION)) {
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method=POST class=form-signin>
         <h2 class=form-signin-heading>ODK planner <?php echo $version; ?></h2>
         <h4 class=form-signin-title><?php echo @$config->settings['title']; ?></h4>
-        <input type=text name=user class=input-block-level placeholder=username>
-        <input type=password name=password class=input-block-level placeholder=password>
+        <input type=text name=user class=input-block-level placeholder=username autocorrect=off autocapitalize=off autocomplete=off>
+        <input type=password name=password class=input-block-level placeholder=password autocorrect=off autocapitalize=off autocomplete=off>
         <input type=hidden name=instance value="<?php echo $instance; ?>" />
         <input type=hidden name=params value="<?php echo htmlentities(@$_REQUEST['params']); ?>" />
         <button class="btn btn-large btn-primary" type=submit>Sign in</button>

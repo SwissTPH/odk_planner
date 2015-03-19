@@ -15,7 +15,9 @@ class TestInstance(unittest.TestCase):
 
     def test_no_instance(self):
         html = self.get('')
-        assert 'fatal error' in html and 'no instance specified' in html
+        # after v0.9 index.php tries to parse instance name from path
+        # if none is provided as an argument; which is then "not found"
+        assert 'fatal error' in html and 'not found' in html
 
     def test_inexisting_instance(self):
         html = self.get('?instance=__nonexisting')

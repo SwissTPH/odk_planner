@@ -66,7 +66,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-odk-planner">Get odk_planner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setup-instance">Setup instance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-cron-job">Installing cron job</a></li>
 </ul>
@@ -177,17 +177,16 @@ push data to the ODK Aggregate server and is built with Python3</li>
 your local computer:</p>
 <blockquote>
 <div><ul class="simple">
-<li>On windows, install <a class="reference external" href="https://www.mysql.com/">MySQL</a>, <a class="reference external" href="http://httpd.apache.org/">Apache</a> and <a class="reference external" href="http://php.net/">PHP</a> bundled in one simple download:
-<a class="reference external" href="https://www.apachefriends.org/index.html">XAMPP</a></li>
-<li>On Linux make sure you installed the packages <tt class="docutils literal"><span class="pre">apache2</span></tt>, <tt class="docutils literal"><span class="pre">mysql-server</span></tt>,
-and <tt class="docutils literal"><span class="pre">php5</span></tt></li>
-<li>On OS X you should first install <a class="reference external" href="http://brew.sh/">Brew</a> and then download the package
-<tt class="docutils literal"><span class="pre">mysql</span></tt> &#8211; apache/php are installed by default, but <a class="reference external" href="https://duckduckgo.com/?q=OS+X+activate+apache+php">must be
-activated</a></li>
-<li>Once you got these up and running you can continue with the detailed
-description on <a class="reference external" href="https://opendatakit.org/use/aggregate/tomcat-install/">how to install ODK Aggregate</a></li>
+<li>On <strong>Windows</strong>, install <a class="reference external" href="https://www.mysql.com/">MySQL</a>, <a class="reference external" href="http://httpd.apache.org/">Apache</a> and <a class="reference external" href="http://php.net/">PHP</a> bundled in one simple
+download: <a class="reference external" href="https://www.apachefriends.org/index.html">XAMPP</a></li>
+<li>On <strong>Linux</strong> make sure you installed the packages <tt class="docutils literal"><span class="pre">apache2</span></tt>,
+<tt class="docutils literal"><span class="pre">mysql-server</span></tt>, and <tt class="docutils literal"><span class="pre">php5</span></tt></li>
+<li>On <strong>OS X</strong> you should first install <a class="reference external" href="http://brew.sh/">Brew</a> and then download the package
+<tt class="docutils literal"><span class="pre">mysql</span></tt> &#8211; apache/php are installed by default, but <a class="reference external" href="https://duckduckgo.com/?q=OS+X+activate+apache+php">must be activated</a></li>
 </ul>
 </div></blockquote>
+<p>Once you got these up and running you can continue with the detailed
+description on <a class="reference external" href="https://opendatakit.org/use/aggregate/tomcat-install/">how to install ODK Aggregate</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">XAMPP also comes with a pre-installed Tomcat-version that is not
@@ -195,10 +194,11 @@ compatible with ODK Aggregate. Thus, you need to install the appropriate Tomcat
 version (Tomcat 6) separately (see <a class="reference external" href="https://opendatakit.org/use/aggregate/tomcat-install/">how to install ODK Aggregate</a>)</p>
 </div>
 </div>
-<div class="section" id="copy-odk-planner">
-<span id="install-copy"></span><h2>Copy odk_planner<a class="headerlink" href="#copy-odk-planner" title="Permalink to this headline">¶</a></h2>
-<p>Once apache is up &amp; running, move the entire <tt class="docutils literal"><span class="pre">odk_planner</span></tt> directory structure
-into its documents root folder</p>
+<div class="section" id="get-odk-planner">
+<span id="install-copy"></span><h2>Get odk_planner<a class="headerlink" href="#get-odk-planner" title="Permalink to this headline">¶</a></h2>
+<p>Get <tt class="docutils literal"><span class="pre">odk_planner</span></tt> as <a class="reference external" href="https://github.com/kvarq/odk_planner/archive/master.zip">a ZIP file</a> or clone the entire repository from
+<a class="reference external" href="https://github.com/kvarq/odk_planner">GitHub</a>.  Then simply move the entire <tt class="docutils literal"><span class="pre">odk_planner</span></tt> directory structure into
+Apache&#8217;s documents root folder.</p>
 <blockquote>
 <div><ul class="simple">
 <li>on OS X this is <tt class="docutils literal"><span class="pre">/Library/WebServer/Documents/</span></tt></li>
@@ -225,6 +225,12 @@ sudo chown :www-data instances/ <span class="c"># on Debian</span>
 configuration, forms, and log data on a per-instance basis.  With a single
 download of <tt class="docutils literal"><span class="pre">odk_planner</span></tt> you can set up any number of instances that are
 completely independent of each other.</p>
+<p>If you installed <tt class="docutils literal"><span class="pre">odk_planner</span></tt> into the root directory of your web server,
+then an instance named <tt class="docutils literal"><span class="pre">instance_name</span></tt> can be reached under the following
+two addresses:</p>
+<div class="highlight-python"><pre>http://localhost/odk_planner/index.php?instance=instance_name
+http://localhost/odk_planner/instance_name</pre>
+</div>
 <p>A new instance is then created by executing the script
 <tt class="docutils literal"><span class="pre">tools/create_instance.py</span></tt> (to change the proposed default values please
 modify the file <tt class="docutils literal"><span class="pre">test/demo/config/config-sample.ini</span></tt>):</p>

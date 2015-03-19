@@ -7,6 +7,14 @@ Changelog
 apart from various bugfixes, the different versions introduced the following
 features
 
+  - ``v0.10``
+
+    - redirect after login to avoid repeated POST requests
+    - added ``.htaccess`` for pretty URL :ref:`landing pages <install-instance>`
+    - updated docs with `GitHub link <https://github.com/kvarq/odk_planner>`_
+    - disable saving of passwords
+    - improved support for mobile
+
   - ``v0.9``
 
     - added :ref:`tutorial <tutorial>` with test forms and test data

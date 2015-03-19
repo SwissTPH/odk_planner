@@ -1,8 +1,12 @@
 
 body {
-    padding-top: 40px;
-    padding-bottom: 40px;
     background-color: #f5f5f5;
+}
+
+@media (min-width: 979px) {
+    body {
+        padding-top: 40px;
+    }
 }
 
 .popover-reset {
@@ -104,3 +108,10 @@ table.form td input {
 .navbar-form a {
     margin-right: 10px;
 }
+
+@media(max-width: 979px) {
+    .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner {
+        padding:0;
+    }
+}
+
