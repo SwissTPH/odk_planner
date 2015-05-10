@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tools &mdash; odk_planner v0.9bis documentation</title>
+  <title>Tools &mdash; odk_planner v0.10 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="odk_planner v0.9bis documentation" href="index.html"/>
+    <link rel="top" title="odk_planner v0.10 documentation" href="index.html"/>
         <link rel="next" title="Tutorial" href="tutorial.html"/>
         <link rel="prev" title="Using" href="using.html"/> 
 
@@ -66,7 +66,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installing.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing.html#copy-odk-planner">Copy odk_planner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing.html#get-odk-planner">Get odk_planner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing.html#setup-instance">Setup instance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing.html#installing-cron-job">Installing cron job</a></li>
 </ul>
@@ -91,6 +91,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#utility-scripts">Utility scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#labeler">Labeler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#odk-pusher">ODK pusher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#xray-uploader">Xray uploader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ms-sql-uploader">MS-SQL uploader</a></li>
@@ -166,8 +167,62 @@ web application itself.</p>
 <div class="highlight-python"><pre>python xls2xform form1.xml form2.xml</pre>
 </div>
 </div>
+<div class="section" id="labeler">
+<span id="id3"></span><h2>Labeler<a class="headerlink" href="#labeler" title="Permalink to this headline">¶</a></h2>
+<p>Another tool bundled with <tt class="docutils literal"><span class="pre">odk_planner</span></tt> is a Python script called
+<tt class="docutils literal"><span class="pre">labeler.py</span></tt> that generates labels with QR codes and study id numbers.  The
+configuration specifies which labels should be printed, how to align the
+different parts of the label (size of QR code, how to split text label into
+sublabels and where to print them, and what paper is to be used (size of
+labels).</p>
+<p>This tool is based on reportlab.  Install it from the Python package index:</p>
+<div class="highlight-python"><pre>$ easy_install reportlab</pre>
+</div>
+<p>If you use windows and don&#8217;t know how to use <tt class="docutils literal"><span class="pre">easy_install</span></tt> then follow
+<a class="reference external" href="https://bitbucket.org/rptlab/reportlab#rst-header-windows-packages">these instructions</a>.</p>
+<p>To generate the labels first start with the example configuration
+<tt class="docutils literal"><span class="pre">labeler_example.xlsx</span></tt> that is also bundled with <tt class="docutils literal"><span class="pre">odk_planner</span></tt>.  Either run
+the script with the configuration as its only parameter (<tt class="docutils literal"><span class="pre">python</span> <span class="pre">labeler.py</span>
+<span class="pre">labeler_example.xlsx</span></tt>) or drag the Excel workbook on the script in Windows
+explorer.  The output will be stored in the <tt class="docutils literal"><span class="pre">output</span></tt> directory.  The
+example configuration should work with labels of type <a class="reference external" href="http://www.avery.se/avery/en_se/Products/Labels/Multipurpose/White-Multipurpose-Labels-Permanent/General-Usage-Labels-White_3666.htm">Avery 3666</a>.</p>
+<p>The configuration Excel workbook has two sheets:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">page_layout</span></tt> : Contains one string for every label on the sheet of
+labels, starting the the label on the top left in cell <tt class="docutils literal"><span class="pre">A1</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">label_layout</span></tt> : Specifies the label size, as well as the size of the
+different parts of the label.</li>
+</ul>
+</div></blockquote>
+<p>The <tt class="docutils literal"><span class="pre">YYYYY</span></tt> part of the participant IDs on the <tt class="docutils literal"><span class="pre">page_layout</span></tt> sheet will be
+replaced with the actual id (as specified by <tt class="docutils literal"><span class="pre">idrange</span></tt> on sheet
+<tt class="docutils literal"><span class="pre">label_layout</span></tt>).  It is possible to print labels for multiple participants on
+a single sheet by specifying <tt class="docutils literal"><span class="pre">YYYY1</span></tt>, <tt class="docutils literal"><span class="pre">YYYY2</span></tt>, etc that will be replaced
+with consecutive numbers.  See the config <tt class="docutils literal"><span class="pre">labeler_example.xlsx</span></tt> that makes
+use of this feature.</p>
+<p>The following drawing shows the different parameters to set the label dimensions
+via the config file:</p>
+<a class="reference internal image-reference" href="_images/labeler_config.png"><img alt="_images/labeler_config.png" class="align-center" src="_images/labeler_config.png" style="width: 590px;" /></a>
+<p>Other settings on the <tt class="docutils literal"><span class="pre">label_layout</span></tt> page:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">drawrect</span></tt> : Setting 1 in for this config value will print a rectangle
+around every label.  The idea is to use this, then print a page, then
+adapt the settings to perfectly match the labels.  If you cannot match
+the label boundaries exactly, try to change the &#8220;Zoom&#8221; settings in the
+printer dialog.</li>
+<li><tt class="docutils literal"><span class="pre">singlepage</span></tt> : Setting this to 1 results in a pdf document for every
+sheet of labels.  Setting this to 0 will generate a single pdf with multiple
+pages.</li>
+<li><tt class="docutils literal"><span class="pre">textre</span></tt> : Specifies how to split up the ID string into multiple parts
+for the label.  You can specify <tt class="docutils literal"><span class="pre">(.*)</span></tt> if you want to print the whole
+id as a single part.  Use <a class="reference external" href="http://pythex.org/?regex=(%5Cd%5Cd%5Cd%5Cd%5Cd-31)-%3F(.*)&amp;test_string=81001-31-V01S1&amp;ignorecase=0&amp;multiline=0&amp;dotall=0&amp;verbose=0">pythex</a> to construct your own expression.</li>
+</ul>
+</div></blockquote>
+</div>
 <div class="section" id="odk-pusher">
-<span id="id3"></span><h2>ODK pusher<a class="headerlink" href="#odk-pusher" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>ODK pusher<a class="headerlink" href="#odk-pusher" title="Permalink to this headline">¶</a></h2>
 <p>This directory contains different scripts for uploading XForms in a more or
 less automated way to an ODK Aggregate instance. Note that these scripts <strong>need
 Python 3</strong> and will not run with an older Python version (due to SSL
@@ -178,7 +233,7 @@ instance. It also provides a command line interface for use by scripts, see:</p>
 </div>
 </div>
 <div class="section" id="xray-uploader">
-<span id="id4"></span><h2>Xray uploader<a class="headerlink" href="#xray-uploader" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Xray uploader<a class="headerlink" href="#xray-uploader" title="Permalink to this headline">¶</a></h2>
 <p>GUI program in <tt class="docutils literal"><span class="pre">tools/odk_pusher</span></tt> that watches a directory for new images
 and sends compressed copies wrapped into a simple XForm, with optional user
 provided data.</p>
@@ -274,8 +329,8 @@ is the pure python library <a class="reference external" href="https://code.goog
 fill in <tt class="docutils literal"><span class="pre">.xml</span></tt> forms and then these are sent to the Aggregate server.  Once
 the server has accepted the incoming form, this is noted in a local <tt class="docutils literal"><span class="pre">.sqlite</span></tt>
 database to prevent sending the same form multiple times.</p>
-<div class="section" id="id5">
-<h3>Configuration<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Configuration<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>All configuration is stored in a <tt class="docutils literal"><span class="pre">.json</span></tt> file that is either named
 <tt class="docutils literal"><span class="pre">mssql_uploader.json</span></tt> and stored in the current directory or specified
 to the script as a command line parameter.</p>
@@ -338,8 +393,8 @@ readable representation of the row)</li>
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="id6">
-<h3>Usage<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Usage<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>The program runs fully automatically.  Simply copy the configuration
 files in the same directory and start the script.  The files
 <tt class="docutils literal"><span class="pre">mssql_uploader.log</span></tt> and <tt class="docutils literal"><span class="pre">mssql_uploader_debug.log</span></tt> will contain
@@ -388,7 +443,7 @@ distribution for windows using the provided <tt class="docutils literal"><span c
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v0.9bis',
+            VERSION:'v0.10',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

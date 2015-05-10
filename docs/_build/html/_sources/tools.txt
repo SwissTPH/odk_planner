@@ -21,6 +21,72 @@ The script ``xls2xform.py`` can be used to translate a ``.xls`` form into a
   python xls2xform form1.xml form2.xml
 
 
+.. _labeler:
+
+Labeler
+-------
+
+Another tool bundled with ``odk_planner`` is a Python script called
+``labeler.py`` that generates labels with QR codes and study id numbers.  The
+configuration specifies which labels should be printed, how to align the
+different parts of the label (size of QR code, how to split text label into
+sublabels and where to print them, and what paper is to be used (size of
+labels).
+
+This tool is based on reportlab.  Install it from the Python package index::
+
+  $ easy_install reportlab
+
+If you use windows and don't know how to use ``easy_install`` then follow
+`these instructions`_.
+
+To generate the labels first start with the example configuration
+``labeler_example.xlsx`` that is also bundled with ``odk_planner``.  Either run
+the script with the configuration as its only parameter (``python labeler.py
+labeler_example.xlsx``) or drag the Excel workbook on the script in Windows
+explorer.  The output will be stored in the ``output`` directory.  The
+example configuration should work with labels of type `Avery 3666`_.
+
+The configuration Excel workbook has two sheets:
+
+  - ``page_layout`` : Contains one string for every label on the sheet of
+    labels, starting the the label on the top left in cell ``A1``.
+  - ``label_layout`` : Specifies the label size, as well as the size of the
+    different parts of the label.
+
+The ``YYYYY`` part of the participant IDs on the ``page_layout`` sheet will be
+replaced with the actual id (as specified by ``idrange`` on sheet
+``label_layout``).  It is possible to print labels for multiple participants on
+a single sheet by specifying ``YYYY1``, ``YYYY2``, etc that will be replaced
+with consecutive numbers.  See the config ``labeler_example.xlsx`` that makes
+use of this feature.
+
+The following drawing shows the different parameters to set the label dimensions
+via the config file:
+
+.. image:: _static/imgs/labeler_config.png
+  :align: center
+  :width: 590
+
+Other settings on the ``label_layout`` page:
+
+  - ``drawrect`` : Setting 1 in for this config value will print a rectangle
+    around every label.  The idea is to use this, then print a page, then
+    adapt the settings to perfectly match the labels.  If you cannot match
+    the label boundaries exactly, try to change the "Zoom" settings in the
+    printer dialog.
+  - ``singlepage`` : Setting this to 1 results in a pdf document for every
+    sheet of labels.  Setting this to 0 will generate a single pdf with multiple
+    pages.
+  - ``textre`` : Specifies how to split up the ID string into multiple parts
+    for the label.  You can specify ``(.*)`` if you want to print the whole
+    id as a single part.  Use pythex_ to construct your own expression.
+
+
+.. _these instructions: https://bitbucket.org/rptlab/reportlab#rst-header-windows-packages
+.. _Avery 3666: http://www.avery.se/avery/en_se/Products/Labels/Multipurpose/White-Multipurpose-Labels-Permanent/General-Usage-Labels-White_3666.htm
+.. _pythex: http://pythex.org/?regex=(%5Cd%5Cd%5Cd%5Cd%5Cd-31)-%3F(.*)&test_string=81001-31-V01S1&ignorecase=0&multiline=0&dotall=0&verbose=0
+
 .. _odk-pusher:
 
 ODK pusher
