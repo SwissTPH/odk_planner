@@ -33,12 +33,10 @@ different parts of the label (size of QR code, how to split text label into
 sublabels and where to print them, and what paper is to be used (size of
 labels).
 
-This tool is based on reportlab.  Install it from the Python package index::
+This tool is based on reportlab_.  To install it from the Python package index
+simply type the following command::
 
   $ easy_install reportlab
-
-If you use windows and don't know how to use ``easy_install`` then follow
-`these instructions`_.
 
 To generate the labels first start with the example configuration
 ``labeler_example.xlsx`` that is also bundled with ``odk_planner``.  Either run
@@ -83,7 +81,7 @@ Other settings on the ``label_layout`` page:
     id as a single part.  Use pythex_ to construct your own expression.
 
 
-.. _these instructions: https://bitbucket.org/rptlab/reportlab#rst-header-windows-packages
+.. _reportlab: https://bitbucket.org/rptlab/reportlab#rst-header-windows-packages
 .. _Avery 3666: http://www.avery.se/avery/en_se/Products/Labels/Multipurpose/White-Multipurpose-Labels-Permanent/General-Usage-Labels-White_3666.htm
 .. _pythex: http://pythex.org/?regex=(%5Cd%5Cd%5Cd%5Cd%5Cd-31)-%3F(.*)&test_string=81001-31-V01S1&ignorecase=0&multiline=0&dotall=0&verbose=0
 
