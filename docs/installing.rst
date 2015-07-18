@@ -100,8 +100,8 @@ script ``create_instance.py``):
   sudo chown :_www instances/ # on OS X
   sudo chown :www-data instances/ # on Debian
 
-.. _a ZIP file: https://github.com/kvarq/odk_planner/archive/master.zip
-.. _GitHub: https://github.com/kvarq/odk_planner
+.. _a ZIP file: https://github.com/SwissTPH/odk_planner/archive/master.zip
+.. _GitHub: https://github.com/SwissTPH/odk_planner
 
 
 .. _install-instance:

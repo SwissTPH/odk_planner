@@ -11,7 +11,7 @@ features
 
     - redirect after login to avoid repeated POST requests
     - added ``.htaccess`` for pretty URL :ref:`landing pages <install-instance>`
-    - updated docs with `GitHub link <https://github.com/kvarq/odk_planner>`_
+    - updated docs with `GitHub link <https://github.com/SwissTPH/odk_planner>`_
     - disable saving of passwords
     - improved support for mobile
 
