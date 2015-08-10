@@ -7,6 +7,14 @@ Changelog
 apart from various bugfixes, the different versions introduced the following
 features
 
+  - ``v0.11``
+
+    - added chapter :ref:`hacking` to documentation
+    - added ``plugins/doughnut.php`` and :ref:`plugin development tutorial
+      <developing-plugin>`
+    - added :ref:`labeler`
+    - moved source to http://github.com/SwissTPH/odk_planner
+
   - ``v0.10``
 
     - redirect after login to avoid repeated POST requests

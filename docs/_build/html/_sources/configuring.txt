@@ -271,6 +271,30 @@ briefing   follow_up   14                              sms:follow_up_overdue
 ========== =========== ====== ======================== ==============================
 
 
+.. _config-cron:
+
+``cron`` sheet
+--------------
+
+This sheet contains settings regarding the :ref:`automatization <automatization>`:
+
+  - ``notify_email`` : This address will receive an update every time the
+    script is run autonomously.
+
+  - ``notify_logs`` : A comma separated list of :ref:`log files <log-files>` that
+    are sent to the ``notify_email``.  The log files are added as ``.csv`` files and
+    only new entries since the last email are included.  If nothing changed since
+    the last email, the log is not attached.
+
+  - ``profile`` : If this value is set to ``yes``, performance information is added
+    to the ``cron`` log.
+
+  - ``reports_mdays`` : A comma-separated list of days of the month on which
+    a :ref:`list of missing forms <csv-generation>` is attached to the email.
+
+.. _GMail: https://mail.google.com
+
+
 .. _config-sms:
 
 ``sms`` sheet
@@ -317,7 +341,7 @@ key/value pairs:
 
     - if this template starts with a phone number in the form ``+1234567890``
       (including country code) then the message is sent to this number instead 
-	  of the number defined by ``phone_numbers``
+      of the number defined by ``phone_numbers``
 
     - every ``{FORMID\FIELD}`` is replaced with the content of the specified
       form for the given patient.  only fields that have a :ref:`access column
@@ -327,26 +351,17 @@ key/value pairs:
 .. _PCRE: http://php.net/manual/en/pcre.pattern.php
 
 
-.. _config-cron:
+More sheets
+-----------
 
-``cron`` sheet
---------------
+``odk_planner`` can be extended with additional files in the ``plugins/``
+directory that can use settings in the existing sheets or add a new sheet
+(with the same name as the plugin) to store settings.  An example is the
+aforementioned ``sms`` sheets (the main plugin file is ``plugins/sms.php``).
+Another example is the ``doughnut`` sheet that specifies which fields should
+be used to generate `doughnut plots`_.  Please see the comments in the file
+``test/demo/config/confi.xls`` and in the file ``plugins/dougnut.php`` for more
+information how to configure these extensions.
 
-This sheet contains settings regarding the :ref:`automatization <automatization>`:
-
-  - ``notify_email`` : This address will receive an update every time the
-    script is run autonomously.
-
-  - ``notify_logs`` : A comma separated list of :ref:`log files <log-files>` that
-    are sent to the ``notify_email``.  The log files are added as ``.csv`` files and
-    only new entries since the last email are included.  If nothing changed since
-    the last email, the log is not attached.
-
-  - ``profile`` : If this value is set to ``yes``, performance information is added
-    to the ``cron`` log.
-
-  - ``reports_mdays`` : A comma-separated list of days of the month on which
-    a :ref:`list of missing forms <csv-generation>` is attached to the email.
-
-.. _GMail: https://mail.google.com
+.. _doughnut plots: http://www.chartjs.org/docs/#doughnut-pie-chart
 

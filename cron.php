@@ -118,8 +118,8 @@ foreach($config->overview_tables as $name=>$overview_tables)
 
 profile('send emails');
 
-$notify_email = $config->dicts['cron']['notify_email'];
-$notify_logs = $config->dicts['cron']['notify_logs'];
+$notify_email = $config->cron['notify_email'];
+$notify_logs = $config->cron['notify_logs'];
 
 if ($notify_email && $notify_logs) {
 
@@ -175,7 +175,7 @@ alerts_to_log('cron');
 
 profile('done');
 
-if ($config->dicts['cron']['profile'] === 'yes') {
+if ($config->cron['profile'] === 'yes') {
 
     ob_start();
     profile_dump();

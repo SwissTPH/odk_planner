@@ -12,7 +12,7 @@ configdir = os.path.join(os.path.dirname(__file__), 'demo', 'config')
 configxls = os.path.join(configdir, 'config-sample.xls')
 configini = os.path.join(configdir, 'config-sample.ini')
 
-users = ('admin', 'secretary', 'fieldofficer')
+users = ('admin', 'secretary', 'fieldofficer', 'overview')
 passwords = dict([(user, config.planner_password) for user in users])
 
 xlsforms = dict()

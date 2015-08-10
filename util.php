@@ -3,85 +3,6 @@
 
 if (!defined('MAGIC')) die('!?');
 
-function levenshteinDistance($s, $t) {
-    // Determine the Levenshtein distance between s and t
-    if (!$s || !$t) {
-        return 99;
-    }
-    $m = strlen($s);
-    $n = strlen($t);
-
-    /* For all i and j, d[i][j] holds the Levenshtein distance between
-     * the first i characters of s and the first j characters of t.
-     * Note that the array has (m+1)x(n+1) values.
-     */
-    $d = Array();
-    for ($i = 0; $i <= $m; $i++) {
-        $d[$i] = Array();
-        $d[$i][0] = $i;
-    }
-    for ($j = 0; $j <= $n; $j++) {
-        $d[0][$j] = $j;
-    }
-
-    // Determine substring distances
-    for ($j = 1; $j <= $n; $j++) {
-        for ($i = 1; $i <= $m; $i++) {
-            // Subtract one to start at strings' index zero instead of index one
-            $cost = (substr($s, $i-1, 1) == substr($t, $j-1, 1)) ? 0 : 1;  
-            $d[$i][$j] = min($d[$i][$j-1] + 1, // insertion
-                min($d[$i-1][$j] + 1, // deletion
-                $d[$i-1][$j-1] + $cost)); // substitution                              
-        }
-    }
-
-    // Return the strings' distance
-    return $d[$m][$n];
-}
-
-function pre_print_r($x, $return = false) {
-    if ($return) {
-        return '<pre>' . htmlentities(print_r($x, true)) . '</pre>';
-    } else {
-        echo '<pre>', htmlentities(print_r($x, true)), '</pre>';
-    }
-}
-
-### file system {{{1
-
-function assert_permissions($instancedir) {
-    foreach(array('forms', 'config', 'log') as $dir) {
-        $dir = "$instancedir/$dir";
-        $good = is_dir($dir) && is_writable($dir);
-        if ($good) {
-            $dh = opendir($dir);
-            while ($good === true && ($file = readdir($dh)) !== false) {
-                $good = substr($file, 0, 1) === '.' || is_writable($dir . '/' . $file) ||
-                    ' as well as the file "' . $file;
-            }
-            closedir($dh);
-        }
-        if ($good !== true) {
-            fatal_error('directory "' . $dir . '" ' . $good . 
-                ' must be writeable by the user running this PHP script');
-        }
-    }
-}
-
-function sanitize($x) {
-   return preg_replace('/[^a-z0-9_-]/i', '', $x);
-}
-
-### html generation {{{1
-
-function targeting($domain) {
-    global $config;
-    if ($config->get_setting('opentabs', 'no') == 'yes') {
-        return " target=\"odk_planner_$domain\" ";
-    } else {
-        return '';
-    }
-}
 
 ### alerts {{{1
 
@@ -159,6 +80,20 @@ function alert($html, $class = 'info', $delayed = true, $admin = false) {
     }
 }
 
+function add_alert($text, $class = 'info') {
+    return '&alerts[]=' . urlencode($class . ',' . $text);
+}
+
+function add_alerts_from_request() {
+    $alerts = @$_REQUEST['alerts'];
+    if (gettype($alerts) === 'array') {
+        foreach($alerts as $class_alert) {
+            $class_alert = explode(',', $class_alert);
+            alert(implode(',', array_slice($class_alert, 1)), $class_alert[0]);
+        }
+    }
+}
+
 function fatal_error($html) {
     echo '<style>.alert-error { width: 60%; left: 20%; background: red; padding: 1rem; color: white; } .alert-error button { display: none; }</style>';
     alert('fatal error : ' . $html, 'error');
@@ -167,4 +102,144 @@ function fatal_error($html) {
 }
 
 
+### validation {{{1
+
+class ValidationException extends Exception
+{
+}
+
+function validate_formid($formid) {
+    if (!preg_match("/^[0-9a-z_]+$/i", $formid))
+        throw new ValidationException('invalid format for formid');
+}
+
+function validate_path($path) {
+    if (!preg_match("/^[0-9a-z_]+$/i", $path))
+        throw new ValidationException('invalid format for path');
+}
+
+function validate_rowid($rowid) {
+    if (!preg_match("/^uuid:".
+        "[0-9a-f]{8}-".
+        "[0-9a-f]{4}-".
+        "[0-9a-f]{4}-".
+        "[0-9a-f]{4}-".
+        "[0-9a-f]{12}$/i", $rowid))
+        throw new ValidationException('invalid format for rowid');
+}
+
+
+### file system {{{1
+
+function assert_permissions($instancedir) {
+    foreach(array('forms', 'config', 'log') as $dir) {
+        $dir = "$instancedir/$dir";
+        $good = is_dir($dir) && is_writable($dir);
+        if ($good) {
+            $dh = opendir($dir);
+            while ($good === true && ($file = readdir($dh)) !== false) {
+                $good = substr($file, 0, 1) === '.' || is_writable($dir . '/' . $file) ||
+                    ' as well as the file "' . $file;
+            }
+            closedir($dh);
+        }
+        if ($good !== true) {
+            fatal_error('directory "' . $dir . '" ' . $good . 
+                ' must be writeable by the user running this PHP script');
+        }
+    }
+}
+
+function sanitize($x) {
+   return preg_replace('/[^a-z0-9_-]/i', '', $x);
+}
+
+
+### html generation {{{1
+
+function targeting($domain) {
+    global $config;
+    if ($config->get_setting('opentabs', 'no') == 'yes') {
+        return " target=\"odk_planner_$domain\" ";
+    } else {
+        return '';
+    }
+}
+
+$accordion_i = 0;
+function accordion_start($title, $expanded=false) {
+    global $accordion_i;
 ?>
+    <div class="accordion" id="accordion-<?php echo $accordion_i; ?>">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse"
+                data-parent="#accordion-<?php echo $accordion_i; ?>"
+                href="#accordion-body-<?php echo $accordion_i; ?>"><?php echo $title; ?></a>
+            </div>
+        </div>
+    </div>
+    <div id="accordion-body-<?php echo $accordion_i; ?>" class="accordion-body <?php echo $expanded ? '' : 'collapse'; ?>">
+        <div class="accordion-inner">
+<?php
+    $accordion_i++;
+}
+function accordion_end() {
+?>
+        </div>
+    </div>
+<?php
+}
+function accordion($title, $content) {
+    accordion_start($title);
+    echo $content;
+    accordion_end();
+}
+
+
+### various {{{1
+#
+function levenshteinDistance($s, $t) {
+    // Determine the Levenshtein distance between s and t
+    if (!$s || !$t) {
+        return 99;
+    }
+    $m = strlen($s);
+    $n = strlen($t);
+
+    /* For all i and j, d[i][j] holds the Levenshtein distance between
+     * the first i characters of s and the first j characters of t.
+     * Note that the array has (m+1)x(n+1) values.
+     */
+    $d = Array();
+    for ($i = 0; $i <= $m; $i++) {
+        $d[$i] = Array();
+        $d[$i][0] = $i;
+    }
+    for ($j = 0; $j <= $n; $j++) {
+        $d[0][$j] = $j;
+    }
+
+    // Determine substring distances
+    for ($j = 1; $j <= $n; $j++) {
+        for ($i = 1; $i <= $m; $i++) {
+            // Subtract one to start at strings' index zero instead of index one
+            $cost = (substr($s, $i-1, 1) == substr($t, $j-1, 1)) ? 0 : 1;
+            $d[$i][$j] = min($d[$i][$j-1] + 1, // insertion
+                min($d[$i-1][$j] + 1, // deletion
+                $d[$i-1][$j-1] + $cost)); // substitution
+        }
+    }
+
+    // Return the strings' distance
+    return $d[$m][$n];
+}
+
+function pre_print_r($x, $return = false) {
+    if ($return) {
+        return '<pre>' . htmlentities(print_r($x, true)) . '</pre>';
+    } else {
+        echo '<pre>', htmlentities(print_r($x, true)), '</pre>';
+    }
+}
+

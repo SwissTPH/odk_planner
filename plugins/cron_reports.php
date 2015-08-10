@@ -10,7 +10,7 @@ function cron_report_overview($args) {
 
     $date = getdate();
     $doit = false;
-    foreach(explode(',', $config->dicts['cron']['report_mdays']) as $mday) {
+    foreach(explode(',', $config->cron['report_mdays']) as $mday) {
         if ($date['mday'] == trim($mday))
             $doit = true;
     }

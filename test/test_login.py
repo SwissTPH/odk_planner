@@ -25,7 +25,8 @@ class TestLogin(unittest.TestCase):
 
     def test_login_secretary(self):
         driver.login('secretary', passwords['secretary'])
-        assert len(driver.menu_names()) == 1
+        assert 'forms' not in driver.menu_names()
+        assert 'admin' not in driver.menu_names()
         assert driver.single_sms_available()
         driver.logout()
         assert 'logged out' in driver.alerts()
@@ -33,7 +34,8 @@ class TestLogin(unittest.TestCase):
     def test_login_fieldofficer(self):
         driver.login('fieldofficer', passwords['fieldofficer'])
         assert driver.title() == 'SAMPLE CONFIG'
-        assert len(driver.menu_names()) == 1
+        assert 'forms' not in driver.menu_names()
+        assert 'admin' not in driver.menu_names()
         assert not driver.single_sms_available()
         driver.logout()
         assert 'logged out' in driver.alerts()

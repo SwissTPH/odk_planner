@@ -14,7 +14,7 @@ function sms_dump_headers($args) {
     if (in_array('sms', $user['rights']))
         echo '<script src="plugins/sms.js"></script>';
 
-    if (isset($config->dicts['routo'])) {
+    if (isset($config->plugins['routo'])) {
         alert('update config.xls : "routo" sheet not used any longer; see help', 'warning');
     }
 }
@@ -125,16 +125,16 @@ function sms_get_number($message) {
 function sms_send($number, $text) {
     global $config, $self;
 
-    if ($config->dicts['sms']['mode'] === 'test') {
+    if ($config->plugins['sms']['mode'] === 'test') {
         //if (rand(1, 5) == 1)
             //return 'failed randomly';
         return 'success';
     }
 
-    $url  = $config->dicts['sms']['url'];
-    $opts = $config->dicts['sms']['params'];
-    $opts.= '&' . $config->dicts['sms']['param_number']  . '=' . rawurlencode($number);
-    $opts.= '&' . $config->dicts['sms']['param_message'] . '=' . rawurlencode($text);
+    $url  = $config->plugins['sms']['url'];
+    $opts = $config->plugins['sms']['params'];
+    $opts.= '&' . $config->plugins['sms']['param_number']  . '=' . rawurlencode($number);
+    $opts.= '&' . $config->plugins['sms']['param_message'] . '=' . rawurlencode($text);
 
     $req = curl_init();
     curl_setopt($req, CURLOPT_URL, $url);
@@ -159,7 +159,7 @@ function sms_send($number, $text) {
     $content = $m[2];
 
     if ($status === '200') {
-        $regexp = $config->dicts['sms']['response_regexp'];
+        $regexp = $config->plugins['sms']['response_regexp'];
         if (preg_match('/' . $regexp . '/', $content)) {
             return 'success';
         } else {
@@ -188,7 +188,7 @@ function sms_early_action($args) {
         if (array_key_exists('message', $_REQUEST))
             $message = $_REQUEST['message'];
 
-        $test_suffix = $config->dicts['sms']['mode'] === 'test' ?
+        $test_suffix = $config->plugins['sms']['mode'] === 'test' ?
             ' [test]' : '';
 
 
@@ -215,7 +215,7 @@ function sms_early_action($args) {
 function &sms_templates() {
     global $config;
     $ret = array();
-    foreach($config->dicts['sms'] as $key=>$value) {
+    foreach($config->plugins['sms'] as $key=>$value) {
         if (substr($key, 0, 9) === 'template_') {
             $ret[substr($key, 9)] = $value;
         }
@@ -229,7 +229,7 @@ function sms_internationalize($number) {
     if (substr($number, 0, 2) === '00') {
         $number = substr($number, 2);
     } else if (substr($number, 0, 1) === '0') {
-        $number = $config->dicts['sms']['default_country_prefix']
+        $number = $config->plugins['sms']['default_country_prefix']
             . substr($number, 1);
     }
     return $number;
@@ -240,7 +240,7 @@ function sms_numbers($patient_id) {
 
     $ret = array();
 
-    foreach(preg_split('/\s/', $config->dicts['sms']['phone_numbers']) as $formfield) {
+    foreach(preg_split('/\s/', $config->plugins['sms']['phone_numbers']) as $formfield) {
         $form_field = explode('\\', $formfield);
 
         if ($forms->exists($form_field[0])) {
@@ -280,7 +280,7 @@ function sms_display_mass($args) {
     if ($show !== 'sms' || !in_array('sms', $user['rights'])) return;
     if (!array_key_exists('ids_titels', $_REQUEST)) return;
 
-    if ($config->dicts['sms']['mode'] === 'test')
+    if ($config->plugins['sms']['mode'] === 'test')
         alert('will not actually send messages ("test" mode)', 'info');
 
     $templates = sms_templates();
@@ -329,7 +329,7 @@ function sms_display_single($args) {
     if ($show !== 'sms' || !in_array('sms', $user['rights'])) return;
     if (!array_key_exists('id', $_REQUEST)) return;
 
-    if ($config->dicts['sms']['mode'] === 'test')
+    if ($config->plugins['sms']['mode'] === 'test')
         alert('will not actually send messages ("test" mode)', 'info');
 
     $templates = sms_templates();
@@ -451,7 +451,7 @@ function sms_cron_overview($args) {
 
         $message = sms_interprete($id_title[0], $message);
 
-        $test_suffix = $config->dicts['sms']['mode'] === 'test' ?
+        $test_suffix = $config->plugins['sms']['mode'] === 'test' ?
             ' [test]' : '';
 
         $status = sms_send($number, $message);

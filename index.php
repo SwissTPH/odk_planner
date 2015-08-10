@@ -59,6 +59,8 @@ $configfile_tmp = "$root/config/config-uploaded-tmp.xls";
 $tmp_pass_path = "$root/config/TMPPASS";
 $tmp_pass = @file_get_contents($tmp_pass_path);
 
+$show = @$_REQUEST['show'];
+if (!$show) $show = 'overview';
 
 # load config {{{1
 try {
@@ -182,11 +184,12 @@ $forms = new OdkDirectory($conn, $formdir,
 profile('loaded .xls');
 
 
-# early actions {{{1
+# actions {{{1
 
 if (array_key_exists('fake', $_REQUEST)) {
     die('faked.');
 }
+add_alerts_from_request();
 
 # test fixtures {{{2
 
@@ -248,14 +251,25 @@ if (array_key_exists('configupload', $_FILES) && in_array('admin', $user['rights
         if(move_uploaded_file($_FILES['configupload']['tmp_name'], $configfile_tmp)) {
             try {
                 $config_tmp = new ExcelConfig($configfile_tmp, $config_ini, true);
+                $config_alerts = array();
+                $hooks->run('check_config', array(
+                    'new_config' => &$config_tmp,
+                    'config_alerts' => &$config_alerts));
                 $config = $config_tmp;
                 # no error -> accept new config
                 unlink($config_xls);
                 rename($configfile_tmp, $config_xls);
                 # unlink temporary password file
                 @unlink($tmp_pass_path);
+                # generating href, adding alerts if necessary
+                $href = $self . '?show=admin&refresh';
+                foreach($config->plugins as $plugin=>$pluginconfig) {
+                    if (!in_array($plugin, $plugins)) {
+                        $href .= add_alert('unknown sheet : ' . $plugin, 'warning');
+                    }
+                }
                 # redirect and force refresh to update cache
-                header('Location: ' . $self . '?show=admin&refresh');
+                header('Location: ' . $href);
                 die();
             } catch (ExcelConfigException $e) {
                 alert('could not parse uploaded config : '.$e->getMessage(), 'error');
@@ -268,6 +282,28 @@ if (array_key_exists('configupload', $_FILES) && in_array('admin', $user['rights
         alert('config must be Microsoft Excel 97/2000/XP/2003 format (ending with ".xls")', 'error');
     }
 }
+
+# form upload {{{2
+if (array_key_exists('formupload', $_FILES) && in_array('forms', $user['rights'])) {
+    $dst = $formdir .'/'. basename( $_FILES['formupload']['name']); 
+
+    if (substr($dst, -4) === '.xls') {
+
+        if(move_uploaded_file($_FILES['formupload']['tmp_name'], $dst)) {
+            alert('successfully uploaded file "'.basename($dst).'"', 'success');
+            # reload forms
+            $forms = new OdkDirectory($conn, $formdir,
+                $config->settings['idfield'],
+                $config->settings['datefield']);
+        } else{
+            alert('could not upload file "'.basename($dst).'"', 'error');
+        }
+
+    } else {
+        alert('form must be Microsoft Excel 97/2000/XP/2003 format (ending with ".xls")', 'error');
+    }
+}
+
 
 # image download {{{2
 if (array_key_exists('image', $_REQUEST)) {
@@ -422,8 +458,6 @@ $hooks->run('early_action');
 
 
 # menu {{{1
-$show = 'overview';
-if (array_key_exists('show', $_REQUEST)) $show = $_REQUEST['show'];
 
 if ($show !== 'form') {
 $show = preg_replace('/[^a-z_-]/i', '', $show);
@@ -437,7 +471,7 @@ $show = preg_replace('/[^a-z_-]/i', '', $show);
     $views = Array('overview');
     if (in_array('forms', $user['rights'])) array_push($views, 'forms');
     if (in_array('admin', $user['rights'])) array_push($views, 'admin');
-    if (in_array('test', $user['rights'])) array_push($views, 'test');
+    //if (in_array('test', $user['rights'])) array_push($views, 'test');
     if (in_array('admin', $user['rights']) || in_array('forms', $user['rights'])) array_push($views, 'help');
 
     $plugin_menu_items = $hooks->run('augment_views', array('views' => &$views));
@@ -502,63 +536,6 @@ $show = preg_replace('/[^a-z_-]/i', '', $show);
 
 render_alerts();
 
-# html utilities {{{1
-
-
-$accordion_i = 0;
-function accordion_start($title, $expanded=false) {
-    global $accordion_i;
-?>
-    <div class="accordion" id="accordion-<?php echo $accordion_i; ?>">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse"
-                data-parent="#accordion-<?php echo $accordion_i; ?>"
-                href="#accordion-body-<?php echo $accordion_i; ?>"><?php echo $title; ?></a>
-            </div>
-        </div>
-    </div>
-    <div id="accordion-body-<?php echo $accordion_i; ?>" class="accordion-body <?php echo $expanded ? '' : 'collapse'; ?>">
-        <div class="accordion-inner">
-<?php
-    $accordion_i++;
-}
-function accordion_end() {
-?>
-        </div>
-    </div>
-<?php
-}
-function accordion($title, $content) {
-    accordion_start($title);
-    echo $content;
-    accordion_end();
-}
-
-
-# late actions {{{1
-profile('start actions');
-
-# form upload {{{2
-if (array_key_exists('formupload', $_FILES) && in_array('forms', $user['rights'])) {
-    $dst = $formdir .'/'. basename( $_FILES['formupload']['name']); 
-
-    if (substr($dst, -4) === '.xls') {
-
-        if(move_uploaded_file($_FILES['formupload']['tmp_name'], $dst)) {
-            alert('successfully uploaded file "'.basename($dst).'"', 'success');
-            # reload forms
-            $forms = new OdkDirectory($conn, $formdir,
-                $config->settings['idfield'],
-                $config->settings['datefield']);
-        } else{
-            alert('could not upload file "'.basename($dst).'"', 'error');
-        }
-
-    } else {
-        alert('form must be Microsoft Excel 97/2000/XP/2003 format (ending with ".xls")', 'error');
-    }
-}
 
 # delete form {{{2
 if (array_key_exists('rmform', $_REQUEST) && in_array('forms', $user['rights'])) {
@@ -576,6 +553,93 @@ if (array_key_exists('rmform', $_REQUEST) && in_array('forms', $user['rights']))
 
 # displays {{{1
 profile('start displays');
+
+# overview {{{2
+
+if ($show === 'overview' && in_array('overview', $user['rights'])) {
+
+    $id_range = array($config->settings['idfield_start'],$config->settings['idfield_length']);
+
+    # prepare overview
+
+    $overview_tables = $config->overview_tables[$overview_name];
+
+    foreach($overview_tables as $overview_table) {
+
+        $id_rlike = $overview_table['id_rlike'];
+        $condition = $overview_table['condition'];
+        $formids = $overview_table['forms'];
+        if (!$formids)
+            $formids = array_keys($forms->forms);
+        $overview = new OverviewTable($overview_name, $config->colors, $id_range, $condition);
+
+        $overview->collect_data($conn, $forms, $formids, $id_rlike);
+
+
+        # render overview {{3
+
+        ?>
+        <div class="row-fluid">
+        <div class="span12">
+        <?php
+
+        if (isset($overview_table['subheading']))
+            echo '<h4>'.$overview_table['subheading'].'</h4>';
+
+        $hooks->run('before_overview', array(
+            'id_rlike' => $id_rlike,
+            'name' => $overview_name,
+            'overview' => &$overview));
+
+        # output table
+        $cell_cb = function ($patid, $formid, $datas) {
+            global $user, $self, $forms;
+            $links = array();
+            foreach($datas as $uri=>$data) {
+                $timestamp = $data[$forms->forms[$formid]->date_column];
+                $timestamp_short = 
+                    (1 * substr($timestamp, 5, 2)) . '/' . // M(M)
+                    (1 * substr($timestamp, 8, 2)) . '/' . // D(D)
+                    substr($timestamp, 2, 2); // YY
+                if (in_array('data', $user['rights'])) {
+                    $href = $self."?show=form&formid=$formid&rowid=".rawurlencode($uri);
+                    array_push($links, "<a " .targeting('data'). " href=\"$href\">".
+                        "$timestamp_short</a>");
+                } else {
+                    array_push($links, $timestamp_short);
+                }
+            }
+            return implode(', ', $links);
+        };
+
+        $row_cb = function ($patid) {
+            global $id_rlike, $hooks;
+            $hooks->run('render_row_header', array(
+                'row_header' => &$patid,
+                'patid' => $patid,
+                'id_rlike' => $id_rlike));
+            return $patid;
+        };
+
+        $column_cb = function ($formid) {
+            global $forms;
+            $form = $forms->forms[$formid];
+            return '<span class=popovered ' .
+                    'data-content="' . str_replace("'", '"', $form->title) . '" ' .
+                    '>' . $formid . '</span>';
+        };
+
+        $overview->generate_html($cell_cb, $row_cb, $column_cb);
+
+        ?>
+        </div>
+        </div>
+
+        <?php
+
+    } # foreach($overview_tables as $overview_table)
+
+}
 
 # view form content {{{2
 
@@ -734,93 +798,6 @@ if ($show === 'form' && in_array('data', $user['rights'])) {
     }
 }
 
-# overview {{{2
-
-if ($show === 'overview' && in_array('overview', $user['rights'])) {
-
-    $id_range = array($config->settings['idfield_start'],$config->settings['idfield_length']);
-
-    # prepare overview
-
-    $overview_tables = $config->overview_tables[$overview_name];
-
-    foreach($overview_tables as $overview_table) {
-
-        $id_rlike = $overview_table['id_rlike'];
-        $condition = $overview_table['condition'];
-        $formids = $overview_table['forms'];
-        if (!$formids)
-            $formids = array_keys($forms->forms);
-        $overview = new OverviewTable($overview_name, $config->colors, $id_range, $condition);
-
-        $overview->collect_data($conn, $forms, $formids, $id_rlike);
-
-
-        # render overview {{3
-
-        ?>
-        <div class="row-fluid">
-        <div class="span12">
-        <?php
-
-        if (isset($overview_table['subheading']))
-            echo '<h4>'.$overview_table['subheading'].'</h4>';
-
-        $hooks->run('before_overview', array(
-            'id_rlike' => $id_rlike,
-            'name' => $overview_name,
-            'overview' => &$overview));
-
-        # output table
-        $cell_cb = function ($patid, $formid, $datas) {
-            global $user, $self, $forms;
-            $links = array();
-            foreach($datas as $uri=>$data) {
-                $timestamp = $data[$forms->forms[$formid]->date_column];
-                $timestamp_short = 
-                    (1 * substr($timestamp, 5, 2)) . '/' . // M(M)
-                    (1 * substr($timestamp, 8, 2)) . '/' . // D(D)
-                    substr($timestamp, 2, 2); // YY
-                if (in_array('data', $user['rights'])) {
-                    $href = $self."?show=form&formid=$formid&rowid=".rawurlencode($uri);
-                    array_push($links, "<a " .targeting('data'). " href=\"$href\">".
-                        "$timestamp_short</a>");
-                } else {
-                    array_push($links, $timestamp_short);
-                }
-            }
-            return implode(', ', $links);
-        };
-
-        $row_cb = function ($patid) {
-            global $id_rlike, $hooks;
-            $hooks->run('render_row_header', array(
-                'row_header' => &$patid,
-                'patid' => $patid,
-                'id_rlike' => $id_rlike));
-            return $patid;
-        };
-
-        $column_cb = function ($formid) {
-            global $forms;
-            $form = $forms->forms[$formid];
-            return '<span class=popovered ' .
-                    'data-content="' . str_replace("'", '"', $form->title) . '" ' .
-                    '>' . $formid . '</span>';
-        };
-
-        $overview->generate_html($cell_cb, $row_cb, $column_cb);
-
-        ?>
-        </div>
-        </div>
-
-        <?php
-
-    } # foreach($overview_tables as $overview_table)
-
-}
-
 # forms {{{2
 
 if ($show === 'forms' && in_array('forms', $user['rights'])) {
@@ -839,6 +816,7 @@ if ($show === 'forms' && in_array('forms', $user['rights'])) {
     }
 
     # form upload
+    print "<br><br>";
     print "<form enctype=\"multipart/form-data\" action=\"$self\" method=\"POST\">\n";
     print "Upload a new form / overwrite existing (.xls): <input name=formupload type=file />\n";
     print "<input type=hidden name=show value=forms>\n";
@@ -963,7 +941,7 @@ profile('display footer');
 ?>
 <footer class=footer>
     <div class=row-fluid>
-    <?php if (in_array('test', $user['rights'])): ?>
+    <?php if (in_array('test', $user['rights']) && array_key_exists('test', $_REQUEST)): ?>
     <?php if ($show === 'form'): ?>
         <div class="span8 offset3">
     <?php else: ?>

@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">22</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1559951714"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1559951714" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/FormDataModel.html">FormDataModel</a></li>
+                                                    <li class="class"><a href="../classes/FormDataNode.html">FormDataNode</a></li>
+                                                    <li class="class"><a href="../classes/JsonCache.html">JsonCache</a></li>
+                                                    <li class="class"><a href="../classes/OdkDirectory.html">OdkDirectory</a></li>
+                                                    <li class="class"><a href="../classes/OdkException.html">OdkException</a></li>
+                                                    <li class="class"><a href="../classes/OdkForm.html">OdkForm</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>OdkForm</h1>
+                    <p><em>Reads a form description from an Excel spreadsheet.</em></p>
+                    <p>Parse an Excel file that was used (using <a href="http://opendatakit.org/use/xlsform/">XLSForm</a>) to create the .xml file as uploaded to Aggregate. The Description
+of the Excel file can be used to structure/display data contained in the
+database.</p>
+<p>Some remarks about the database structure :</p>
+<ul>
+<li>Long forms spread across <code>FORM_CORE, FORM_CORE2, ...</code>.</li>
+<li>Column name is <code>GROUPNAME_FIELDNAME</code> and unique across all cores. If group
+and/or fieldname is long the column name can be &quot;mangled&quot; omitting some of
+the letters.</li>
+<li><code>_URI</code> is unique key in every core.</li>
+<li>Cores are linked with via <code>FORM_COREx._TOP_LEVEL_AURI=FORM_CORE._URI</code>.</li>
+</ul>
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/OdkForm.html#method_OdkForm" class="">OdkForm()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_sheet_by_name" class="">sheet_by_name()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_lookup" class="">lookup()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_match" class="">match()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_find_path" class="">find_path()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_escape" class="">escape()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_get_uris" class="">get_uris()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_get_where" class="">get_where()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_get_rlike" class="">get_rlike()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_get_values" class="">get_values()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_send_image" class="">send_image()</a><br />
+                                                                    <a href="../classes/OdkForm.html#method_dump" class="">dump()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/OdkForm.html#property_id" class="">$id</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_title" class="">$title</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_fname" class="">$fname</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_name" class="">$name</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_lig" class="">$lig</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_fields" class="">$fields</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_groups" class="">$groups</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_id_column" class="">$id_column</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_date_column" class="">$date_column</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_matched" class="">$matched</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_mapping" class="">$mapping</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_db_only" class="">$db_only</a><br />
+                                                                    <a href="../classes/OdkForm.html#property_xls_only" class="">$xls_only</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/odk_form.html"><div class="path-wrapper">odk_form.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\OdkForm</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_id" name="property_id" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$id</h3>
+                <pre class="signature">$id : </pre>
+                <p><em>The FORM_ID as taken from the .xls settings sheet (and UPPERCASED).</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_title" name="property_title" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$title</h3>
+                <pre class="signature">$title : </pre>
+                <p><em>The title as taken from the .xls settings sheet.</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_fname" name="property_fname" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$fname</h3>
+                <pre class="signature">$fname : </pre>
+                <p><em>The .xls file name.</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_name" name="property_name" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$name</h3>
+                <pre class="signature">$name : </pre>
+                <p><em>The name of the form.</em></p>
+                <p><code>$fname</code> without extension. This name is used the root nodes in
+<code>FormDataModel</code> and can be different from the formid <code>$this-&gt;id</code>.</p>
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_lig" name="property_lig" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$lig</h3>
+                <pre class="signature">$lig : </pre>
+                <p><em>Character that is used to connect the group to the field name to construct
+the PATH.</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_fields" name="property_fields" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$fields</h3>
+                <pre class="signature">$fields : </pre>
+                <p><em>Dictionary of fields, indexed by PATH.</em></p>
+                <p>A PATH has the form GROUPNAME_FIELDNAME and is used the reference a field
+within a form.</p>
+<p>Every field is itself is a dictionary with some attributes
+(such as <code>name, type, label, hint</code> from the .xls file). The special
+key <code>access</code> controls what user can see the content of this field.</p>
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_groups" name="property_groups" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$groups</h3>
+                <pre class="signature">$groups : </pre>
+                <p><em>Array of groups as found in .xls file.</em></p>
+                <p>Every group itself consists of an array starting with group name then
+COLUMNNAMES (as keys in <code>$columns</code>).</p>
+<p>Fields not within a group are storead as string in the <code>$groups</code> * array.</p>
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_id_column" name="property_id_column" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$id_column</h3>
+                <pre class="signature">$id_column : </pre>
+                <p><em>(UPPERCASED) column name of field identifying record.</em></p>
+                <p>This is not neccessarily a unique identifier for a row in the different
+tables, because ODK lets users upload a form with the same &quot;id&quot; several
+times. To uniquely identify form uploads the URI is used.</p>
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/OdkForm.html#method_get_uris"><span class="namespace-wrapper"></span></a></dd>
+                                            <dd><a href="../classes/OdkForm.html#method_get_where"><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_date_column" name="property_date_column" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$date_column</h3>
+                <pre class="signature">$date_column : </pre>
+                <p><em>(UPPERCASED) column name of field containing submission date.</em></p>
+                <p><code>odk_planner</code> will use this field to identify when a form was created;
+if the field specified by its name is not found it will automatically
+fall back on the submission date (<code>_SUBMISSION_DATE</code>, generated by ODK).</p>
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_matched" name="property_matched" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$matched</h3>
+                <pre class="signature">$matched : </pre>
+                <p><em>Whether fields are already matched (mapped).</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_mapping" name="property_mapping" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$mapping</h3>
+                <pre class="signature">$mapping : </pre>
+                <p><em>Associative array that maps a PATH to TABLE and COLUMN.</em></p>
+                <ul>
+<li>For select_multiple, COLUMN is NULL.</li>
+<li>For images, only the common part of TABLE is saved (i.e. without
+<code>_{BN|BLOB|REF}</code>).</li>
+<li>For geopoints, only the common part of COLUMN is saved (i.e. without
+<code>_{LNG|LAT|ALT|ACC}</code>).</li>
+</ul>
+<p>This array is filled in the method <code>$this-&gt;match()</code>.</p>
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_db_only" name="property_db_only" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$db_only</h3>
+                <pre class="signature">$db_only : </pre>
+                <p><em>List of columns that were found in database but not listed in .xls file.</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_xls_only" name="property_xls_only" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$xls_only</h3>
+                <pre class="signature">$xls_only : </pre>
+                <p><em>List of fields that are listed in .xls file but were not found in
+database.</em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_OdkForm" name="method_OdkForm" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">OdkForm()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">OdkForm(string  <span class="argument">$fname</span>, string  <span class="argument">$id_name</span>,   <span class="argument">$date_name</span>, boolean  <span class="argument">$use_cache = true</span>) </pre>
+                <p><em>Initialize new form from .xls file</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$fname </td>
+                                <td><p>Where to find Excel file describing form.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id_name </td>
+                                <td><p>Name of field to be used as ID.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$date_name </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$use_cache </td>
+                                <td><p>Whether to read values from cache (specifying
+<code>false</code> will force a cache refresh regardless of age of cache file
+-- do this e.g. after the configuration changed and invalidated the
+cache).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_sheet_by_name" name="method_sheet_by_name" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">sheet_by_name()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">sheet_by_name(  <span class="argument">$wb</span>,   <span class="argument">$name</span>) </pre>
+                <p><em>Look up sheet by (case insensitive) name.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$wb </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$name </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_lookup" name="method_lookup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">lookup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">lookup(  <span class="argument">$ws</span>, integer  <span class="argument">$row</span>, string  <span class="argument">$name</span>) : string</pre>
+                <p><em>Look up cell value.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$ws </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$row </td>
+                                <td><p>Number of the row (starting at 1).</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Name of the column (i.e. value of the cell in the
+first row of that column).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Trimmed value or <code>NULL</code> if row/column not found.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_match" name="method_match" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">match()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">match(resource  <span class="argument">$conn</span>, object  <span class="argument">$root</span>) </pre>
+                <p><em>Match fields described in .xls file with database tables and columns
+as described in ODK&#039;s _form_data_model table.</em></p>
+                <p>Property <code>$this-&gt;mapping</code> will be filled accordingly.</p>
+<p>All fields that could not be matched are saved in <code>$xls_only</code> and all
+database columns that were not found in the excel form are saved in
+<code>$db_only</code>.</p>
+<p>Values will be loaded from and stored to <code>$this-&gt;cache</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>resource</td>
+                                <td>$conn </td>
+                                <td><p>Database connection.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>object</td>
+                                <td>$root </td>
+                                <td><p>Root <code>FormDataNode</code> that describes ODK's datamodel.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_find_path" name="method_find_path" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">find_path()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">find_path(string  <span class="argument">$name</span>) : string</pre>
+                <p><em>Get the PATH of a field.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>The field's name, can also be a full PATH.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>PATH of the field. For example, if there is a field
+&quot;name&quot; inside a group &quot;personal_information&quot; then the PATH
+&quot;PERSONAL_INFORMATION_NAME&quot; will be returned. Note that it is possible
+to have several fields with the same name in different groups. The
+first match would be returend in such a case.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_escape" name="method_escape" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">escape()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">escape(  <span class="argument">$path</span>) </pre>
+                <p><em>Returns an MySQL-escaped TABLE.COLUMN for given PATH.</em></p>
+                <p>Raises <code>OdkException</code> if path is not found in <code>$this-&gt;mapping</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$path </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_uris" name="method_get_uris" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_uris()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_uris(resource  <span class="argument">$conn</span>, string  <span class="argument">$id_rlike</span>) </pre>
+                <p><em>Get an array of URIs for the id field where the field matches a MySQL
+RLIKE expression.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>resource</td>
+                                <td>$conn </td>
+                                <td><p>Database connection.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id_rlike </td>
+                                <td><p>MySQL <code>RLIKE</code> expression to filter id fields.</p>
+<p>Raises <code>OdkException</code> if an error occurs.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_where" name="method_get_where" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_where()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_where(resource  <span class="argument">$conn</span>, string  <span class="argument">$where</span>, array  <span class="argument">$mapping = null</span>, array  <span class="argument">$acls = null</span>) : array</pre>
+                <p><em>Get values limited by MySQL WHERE clause.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>resource</td>
+                                <td>$conn </td>
+                                <td><p>MySQL connection</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$where </td>
+                                <td><p>MySQL <code>WHERE</code> clause.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$mapping </td>
+                                <td><p>Array describing the mapping from PATH to table
+and columns in database (like <code>$this-&gt;mapping</code>).</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$acls </td>
+                                <td><p>List of access permissions by which the result set is
+filtered. A field will be unset in the returned result unless <code>$acls</code>
+contains one of the names listed in the fields <code>access</code> list.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Dictionary indexed by <code>_URI</code> of dictionaries that map
+PATH to parameter value.</p>
+<p>Raises <code>OdkException</code> if an error is encountered.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/OdkForm.html#method_get_rlike"><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_rlike" name="method_get_rlike" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_rlike()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_rlike(resource  <span class="argument">$conn</span>, string  <span class="argument">$id_rlike</span>, array  <span class="argument">$params = array()</span>, array  <span class="argument">$acls = NULL</span>) : array</pre>
+                <p><em>Get form values for ids matched by regular expression.</em></p>
+                <p>Wrapper for <code>$this-&gt;get_where</code>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>resource</td>
+                                <td>$conn </td>
+                                <td><p>MySQL connection.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id_rlike </td>
+                                <td><p>A MySQL <code>RLIKE</code> expression that is applied on the
+id column to filter relevant entries. For example <code>"80.*"</code> would get
+all the forms that have a id starting with <code>80</code>.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>list of fields (PATHs) that should be returned.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$acls </td>
+                                <td><p>List of access permissions by which the result set is
+filtered. A field will be unset in the returned result unless <code>$acls</code>
+contains one of the names listed in the fields <code>access</code> list.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Dictionary indexed by <code>_URI</code> of dictionaries that map
+PATH to parameter value.</p>
+<p>Raises <code>OdkException</code> if an error is encountered.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_values" name="method_get_values" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_values()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_values(resource  <span class="argument">$conn</span>, string  <span class="argument">$uri</span>, array  <span class="argument">$acls = NULL</span>) : array</pre>
+                <p><em>Get the form values for a specific entry.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>resource</td>
+                                <td>$conn </td>
+                                <td><p>MySQL connection.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$uri </td>
+                                <td><p>URI that identifies the form upload</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$acls </td>
+                                <td><p>List of access permissions by which the result set is
+filtered. A field will be unset in the returned result unless <code>$acls</code>
+contains one of the names listed in the fields <code>access</code> list.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Dictionary that map PATH to parameter value.</p>
+<p>Raises <code>OdkException</code> if an error is encountered.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_send_image" name="method_send_image" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">send_image()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">send_image(resource  <span class="argument">$conn</span>, string  <span class="argument">$uri</span>, string  <span class="argument">$path</span>, array  <span class="argument">$acls = NULL</span>) </pre>
+                <p><em>Outputs image over a HTTP connection.</em></p>
+                <p>Note: <em>Stops the program</em> on success.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>resource</td>
+                                <td>$conn </td>
+                                <td><p>MySQL connection</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$uri </td>
+                                <td><p>URI that identifies the form upload</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$path </td>
+                                <td><p>PATH that identifies field of type image.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$acls </td>
+                                <td><p>List of access lists the user is member of.</p>
+<p>Raises <code>OdkException</code> if error or <code>$acls</code> don't allow retrieval of data.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_dump" name="method_dump" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">dump()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">dump() </pre>
+                <p><em>Prints information about form (&amp; matching) as HTML.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">odk_form.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/odk_form.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on August 2nd, 2015 at 17:27.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

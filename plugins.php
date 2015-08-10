@@ -57,6 +57,10 @@ class HookRegistry {
         # args : formid, rowid, path, field, &name, &extra, &value
         'render_form_data_row' => array(),
 
+        # called when new config is uploaded; should throw ConfigException
+        # args : &newconfig, &config_alerts
+        'check_config' => array(),
+
 
         #### cron hooks
 
@@ -109,12 +113,15 @@ class HookRegistry {
 
 
 $hooks = new HookRegistry();
+$plugins = array();
 
 if ($handle = opendir('plugins/')) {
     while (false !== ($entry = readdir($handle))) {
         if (substr($entry, 0, 1) !== '_' &&
             pathinfo($entry, PATHINFO_EXTENSION) === 'php') {
-                $hooks->current_file = pathinfo($entry, PATHINFO_FILENAME);
+                $name = pathinfo($entry, PATHINFO_FILENAME);
+                array_push($plugins, $name);
+                $hooks->current_file = $name;
                 include('plugins/' . $entry);
                 $hooks->current_file = '?';
             }

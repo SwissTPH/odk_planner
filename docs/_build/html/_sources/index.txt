@@ -12,6 +12,7 @@ Overview odk_planner Documentation
   using.rst
   tools.rst
   tutorial.rst
+  hacking.rst
   testing.rst
   privacy.rst
   aggregate.rst

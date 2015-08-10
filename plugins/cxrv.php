@@ -61,6 +61,7 @@ function cxrv_early_action($args) {
 ?>
 <head>
 
+    <title>odk_planner CXR viewer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bootstrap/js/jq171.js"></script>
     <script src="plugins/cxrv.js"></script>

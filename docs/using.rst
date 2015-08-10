@@ -120,6 +120,20 @@ uploaded ``.xls`` form. Individual form fields can be selectively ``(masked)``
 from users by using a ``access`` column in the ``.xls`` form.  :ref:`See above
 <access-example>` for more on access restrictions.
 
+.. _viewing-doughnut:
+
+Doughnut plot
+~~~~~~~~~~~~~
+
+The plugin ``dougnut`` generates overview plots that show the distribution of
+a field of interest over the whole study population.  Ordinal data is put into
+pre-specified bins before plotting. The example below shows the weight
+distribution in the demo dataset.
+
+.. image:: _static/imgs/screenshots/weight_doughnut.png
+  :align: center
+  :width: 259
+
 
 .. _sending-sms:
 

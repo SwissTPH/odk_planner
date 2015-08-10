@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration &mdash; odk_planner v0.10 documentation</title>
+  <title>Configuration &mdash; odk_planner v0.11 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="odk_planner v0.10 documentation" href="index.html"/>
+    <link rel="top" title="odk_planner v0.11 documentation" href="index.html"/>
         <link rel="next" title="Using" href="using.html"/>
         <link rel="prev" title="Installation" href="installing.html"/> 
 
@@ -76,8 +76,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#users-sheet"><tt class="docutils literal"><span class="pre">users</span></tt> sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#overview-sheet"><tt class="docutils literal"><span class="pre">overview</span></tt> sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#colors-sheet"><tt class="docutils literal"><span class="pre">colors</span></tt> sheet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cron-sheet"><tt class="docutils literal"><span class="pre">cron</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sms-sheet"><tt class="docutils literal"><span class="pre">sms</span></tt> sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-sheets">More sheets</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="using.html">Using</a><ul>
@@ -105,6 +106,13 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#check-out-the-overview">Check out the overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#viewing-data">Viewing data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#solutions">Solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hacking.html">Hacking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hacking.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hacking.html#globals-and-utilities">Globals and Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hacking.html#accessing-the-database">Accessing the Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hacking.html#developing-a-plugin">Developing a Plugin</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
@@ -528,62 +536,6 @@ should be combined with the rows from the example above.</p>
 </table>
 </div>
 </div>
-<div class="section" id="sms-sheet">
-<span id="config-sms"></span><h2><tt class="docutils literal"><span class="pre">sms</span></tt> sheet<a class="headerlink" href="#sms-sheet" title="Permalink to this headline">¶</a></h2>
-<p>Configuration of <a class="reference internal" href="using.html#sending-sms"><em>messaging</em></a> is done via the following
-key/value pairs:</p>
-<blockquote>
-<div><ul>
-<li><p class="first"><tt class="docutils literal"><span class="pre">default_country_prefix</span></tt> : if a phone number is specified with one
-leading zero (<tt class="docutils literal"><span class="pre">&quot;0xxxxxxxx&quot;</span></tt>) then the <tt class="docutils literal"><span class="pre">default_country_prefix</span></tt> is
-automatically added in the beginning of the number (after stripping the
-single zero)</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">url</span></tt> : URL of messaging API (e.g.
-<tt class="docutils literal"><span class="pre">http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0</span></tt>
-when using the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">response_regexp</span></tt> : a regular expression (<a class="reference external" href="http://php.net/manual/en/pcre.pattern.php">PCRE</a>, but without the
-delimiters) that must match the response body sent by the server
-when a message was successfully delivered</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">params</span></tt> : default parameters that are sent with the message; include
-username and password here (e.g. <tt class="docutils literal"><span class="pre">username=XXX&amp;password=XXX</span></tt> for the
-<a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">param_message</span></tt> : name of the parameter that is used for the message
-(e.g. <tt class="docutils literal"><span class="pre">message</span></tt> for the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">param_number</span></tt> : name of the parameter that is used to specify the
-receiver&#8217;s phone number (e.g. <tt class="docutils literal"><span class="pre">msisdn</span></tt> for the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>) &#8211;
-the number will be formatted with country prefix but without any leading
-zeroes or plus sign</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">phone_numbers</span></tt> defines where phone numbers can be found in the forms.
-every entry has the form <tt class="docutils literal"><span class="pre">form_id\field_name</span></tt> and multiple entries are
-separated by spaces. forms that do not exist on the server, that are
-not found for the given patient, or that do not feature the specified
-field, are simply ignored.</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">template_NAME</span></tt> entries define the messaging templates. When writing
-a message using odk_planner, the message text can be chosen from these
-templates. The content of the templates is the only content that is allowed
-for <a class="reference internal" href="using.html#autogenerating-messages"><em>autogenerated messages</em></a>.</p>
-<ul>
-<li><p class="first">if this template starts with a phone number in the form <tt class="docutils literal"><span class="pre">+1234567890</span></tt>
-(including country code) then the message is sent to this number instead</p>
-<blockquote>
-<div><p>of the number defined by <tt class="docutils literal"><span class="pre">phone_numbers</span></tt></p>
-</div></blockquote>
-</li>
-<li><p class="first">every <tt class="docutils literal"><span class="pre">{FORMID\FIELD}</span></tt> is replaced with the content of the specified
-form for the given patient.  only fields that have a <a class="reference internal" href="using.html#uploading-form-template"><em>access column</em></a> with <tt class="docutils literal"><span class="pre">sms</span></tt> can be sent via this mechanism</p>
-</li>
-</ul>
-</li>
-</ul>
-</div></blockquote>
-</div>
 <div class="section" id="cron-sheet">
 <span id="config-cron"></span><h2><tt class="docutils literal"><span class="pre">cron</span></tt> sheet<a class="headerlink" href="#cron-sheet" title="Permalink to this headline">¶</a></h2>
 <p>This sheet contains settings regarding the <a class="reference internal" href="using.html#automatization"><em>automatization</em></a>:</p>
@@ -601,6 +553,61 @@ to the <tt class="docutils literal"><span class="pre">cron</span></tt> log.</li>
 a <a class="reference internal" href="using.html#csv-generation"><em>list of missing forms</em></a> is attached to the email.</li>
 </ul>
 </div></blockquote>
+</div>
+<div class="section" id="sms-sheet">
+<span id="config-sms"></span><h2><tt class="docutils literal"><span class="pre">sms</span></tt> sheet<a class="headerlink" href="#sms-sheet" title="Permalink to this headline">¶</a></h2>
+<p>Configuration of <a class="reference internal" href="using.html#sending-sms"><em>messaging</em></a> is done via the following
+key/value pairs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">default_country_prefix</span></tt> : if a phone number is specified with one
+leading zero (<tt class="docutils literal"><span class="pre">&quot;0xxxxxxxx&quot;</span></tt>) then the <tt class="docutils literal"><span class="pre">default_country_prefix</span></tt> is
+automatically added in the beginning of the number (after stripping the
+single zero)</li>
+<li><tt class="docutils literal"><span class="pre">url</span></tt> : URL of messaging API (e.g.
+<tt class="docutils literal"><span class="pre">http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0</span></tt>
+when using the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</li>
+<li><tt class="docutils literal"><span class="pre">response_regexp</span></tt> : a regular expression (<a class="reference external" href="http://php.net/manual/en/pcre.pattern.php">PCRE</a>, but without the
+delimiters) that must match the response body sent by the server
+when a message was successfully delivered</li>
+<li><tt class="docutils literal"><span class="pre">params</span></tt> : default parameters that are sent with the message; include
+username and password here (e.g. <tt class="docutils literal"><span class="pre">username=XXX&amp;password=XXX</span></tt> for the
+<a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</li>
+<li><tt class="docutils literal"><span class="pre">param_message</span></tt> : name of the parameter that is used for the message
+(e.g. <tt class="docutils literal"><span class="pre">message</span></tt> for the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>)</li>
+<li><tt class="docutils literal"><span class="pre">param_number</span></tt> : name of the parameter that is used to specify the
+receiver&#8217;s phone number (e.g. <tt class="docutils literal"><span class="pre">msisdn</span></tt> for the <a class="reference external" href="http://www.bulksms.com/int/w/products-apis.htm">bulksms API</a>) &#8211;
+the number will be formatted with country prefix but without any leading
+zeroes or plus sign</li>
+<li><tt class="docutils literal"><span class="pre">phone_numbers</span></tt> defines where phone numbers can be found in the forms.
+every entry has the form <tt class="docutils literal"><span class="pre">form_id\field_name</span></tt> and multiple entries are
+separated by spaces. forms that do not exist on the server, that are
+not found for the given patient, or that do not feature the specified
+field, are simply ignored.</li>
+<li><tt class="docutils literal"><span class="pre">template_NAME</span></tt> entries define the messaging templates. When writing
+a message using odk_planner, the message text can be chosen from these
+templates. The content of the templates is the only content that is allowed
+for <a class="reference internal" href="using.html#autogenerating-messages"><em>autogenerated messages</em></a>.<ul>
+<li>if this template starts with a phone number in the form <tt class="docutils literal"><span class="pre">+1234567890</span></tt>
+(including country code) then the message is sent to this number instead
+of the number defined by <tt class="docutils literal"><span class="pre">phone_numbers</span></tt></li>
+<li>every <tt class="docutils literal"><span class="pre">{FORMID\FIELD}</span></tt> is replaced with the content of the specified
+form for the given patient.  only fields that have a <a class="reference internal" href="using.html#uploading-form-template"><em>access column</em></a> with <tt class="docutils literal"><span class="pre">sms</span></tt> can be sent via this mechanism</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="more-sheets">
+<h2>More sheets<a class="headerlink" href="#more-sheets" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">odk_planner</span></tt> can be extended with additional files in the <tt class="docutils literal"><span class="pre">plugins/</span></tt>
+directory that can use settings in the existing sheets or add a new sheet
+(with the same name as the plugin) to store settings.  An example is the
+aforementioned <tt class="docutils literal"><span class="pre">sms</span></tt> sheets (the main plugin file is <tt class="docutils literal"><span class="pre">plugins/sms.php</span></tt>).
+Another example is the <tt class="docutils literal"><span class="pre">doughnut</span></tt> sheet that specifies which fields should
+be used to generate <a class="reference external" href="http://www.chartjs.org/docs/#doughnut-pie-chart">doughnut plots</a>.  Please see the comments in the file
+<tt class="docutils literal"><span class="pre">test/demo/config/confi.xls</span></tt> and in the file <tt class="docutils literal"><span class="pre">plugins/dougnut.php</span></tt> for more
+information how to configure these extensions.</p>
 </div>
 </div>
 
@@ -642,7 +649,7 @@ a <a class="reference internal" href="using.html#csv-generation"><em>list of mis
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v0.10',
+            VERSION:'v0.11',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -11,34 +11,49 @@ class ExcelConfigException extends Exception
     }
 }
 
+
 class ExcelConfig
 {
 
     /**
-     * dictionary mapping username to dictionary with keys <code>'password', 'rights',
-     * 'access'</code>
+     * dictionary mapping username to dictionary with keys <code>'password',
+     * 'rights', 'access'</code>
      */
     var $users;
 
     /**
-     * dictionary of dictionaries specifying how empty cells should be colored
-     *
-     * <ul>
-     * <li>first index : <code>"#XXXXXX"</code> : HTML colorspec how cells</li>
-     * <li>second index : <code>"FORM2_ID"</code> : fields of what form ID
-     *     should be colored</li>
-     * <li>array elements : <code>["FORM1_ID", days]</code> difference in days
-     *     after which form2 field should be colored, started counting
-     *     when form1 was entered -- higher values override lower values</li>
-     * </ul>
+     * array of dictionaries with keys <code>'subheading', 'id_rlike', 'forms',
+     * 'condition'</code>, one entry for every row in the "overview" sheet.
+     */
+    var $overview_tables;
+
+    /**
+     * points to the default entry in the array 
+     * {@link ExcelConfig::$overview_tables}
+     */
+    var $default_overview_table;
+
+    /**
+     * dictionary of dictionaries specifying how empty cells should be colored.
+     * the first index is the ID of the form whose cells should be colored.
+     * the second level dictionary describes how the cell should be colored and
+     * depending on what other conditions.  every row in the config file "colors"
+     * sheet yields one dictionary.
      */
     var $colors;
 
-    var $overview_tables, $default_overview_table;
+    /**
+     * these dictionaries map keys to values, each for the corresponding
+     * sheet name in the config.
+     */
+    var $settings, $cron;
 
-    var $settings;
-
-    var $dicts;
+    /**
+     * this dictionary contains one dictionary of keys -&gt; values (same as
+     * {@link ExcelConfig::$settings}) per additional sheet. these sheets hsould
+     * have the same name as the plugin files (without extension).
+     */
+    var $plugins;
 
     function ExcelConfig($config_xls, $config_ini, $uploaded=false) {
         $wb = new Spreadsheet_Excel_Reader();
@@ -55,9 +70,6 @@ class ExcelConfig
         foreach($wb->boundsheets as $i=>$x) {
             $name = $x['name'];
             $ws = $wb->sheets[$i];
-
-            #echo '<div style="color:green">', $name, '</div>';
-            #pre_print_r($ws);
 
             if (strcasecmp($name, 'users') === 0) {
                 $this->check_columns($ws, $name, array('name', 'password', 'rights', 'access'));
@@ -155,6 +167,8 @@ class ExcelConfig
 
             // key-value sheet
             else {
+
+                // fill in key -> values
                 $this->check_columns($ws, $name, array('key', 'value'));
                 $dict = array();
                 $row = 2;
@@ -166,17 +180,23 @@ class ExcelConfig
                     $row++;
                 }
 
+                // special post-processing for some settings
                 if ($name === 'settings') {
                     if (array_key_exists('db_pass', $dict))
-                        alert('database settings no longer saved in confix.xls (>=v0.3)',
-                            'warning');
-                    $this->settings = $dict;
-                } else {
-                    $this->dicts[$name] = $dict;
+                        alert('database settings no longer saved in ' .
+                            'confix.xls (>=v0.3)', 'warning');
                     // default settings (backward compatibility)
                     if (!array_key_exists('datefield', $dict)) {
                         $dict['datefield'] = 'COMPLETION_DATE';
+                    $this->settings = $dict;
                     }
+                }
+
+                // store sheet to config
+                if (in_array($name, ['settings', 'cron'])) {
+                    $this->$name = $dict;
+                } else {
+                    $this->plugins[$name] = $dict;
                 }
             }
         }
@@ -220,11 +240,11 @@ class ExcelConfig
                     if (array_key_exists($col, $ws['cells'][$row])) {
 
                         if ($explode === NULL)
-                            return ltrim(rtrim($ws['cells'][$row][$col]));
+                            return trim($ws['cells'][$row][$col]);
 
                         $ret = array();
                         foreach(explode($explode, $ws['cells'][$row][$col]) as $part)
-                            array_push($ret, ltrim(rtrim($part)));
+                            array_push($ret, trim($part));
                         return $ret;
                     }
 
@@ -268,4 +288,3 @@ class ExcelConfig
     }
 }
 
-?>
